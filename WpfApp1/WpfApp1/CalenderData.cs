@@ -34,17 +34,25 @@
 
 
         /// <summary>
+        /// 年月日を更新するメソッド
+        /// </summary>
+        /// <param name="date">日</param>
+        /// <param name="weekStartFlg"> 曜日が日曜始まりか月曜始まりかを判断するフラグ</param>
+        public void Update()
+        {
+            this.FastDateCreate();
+            this.LastDay();
+        }
+
+        /// <summary>
         /// 最初の曜日を求めるメソッド
         /// </summary>
         /// <param name="weekStartFlg"> 曜日が日曜始まりか月曜始まりかを判断するフラグ</param>
-        /// <returns>fastDate 最初の曜日</returns>
-        public int FastDateCreate(bool weekStartFlg)
+        public void FastDateCreate()
         {
             var fastDay = 1;
             var dt = new DateTime(this.date.Year, this.date.Month, fastDay);
-
-            var fastDate = (int)dt.DayOfWeek;
-            return fastDate;
+            FastDate = (int)dt.DayOfWeek;
         }
 
         /// <summary>
