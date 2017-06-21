@@ -36,13 +36,18 @@
             {
                 view.Columns.Add(new GridViewColumn
                 {
-
+                    Header = create.CalenderDate[i],
+                    DisplayMemberBinding = new Binding(string.Format("[{0}]", i)),
                 });
             }
 
             list.View = view;
             list.ItemsSource = cal;
 
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
 
         }
     }
