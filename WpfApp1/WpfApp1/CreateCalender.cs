@@ -9,7 +9,9 @@
     public class CreateCalender
     {
 
-        private string[,] calender = new string[7, 7];
+        private string[][] calender = new string[7][];
+
+        private string[] calenderX = new string[7];
 
         public CalenderData Create()
         {
@@ -18,20 +20,32 @@
             return date;
         }
 
-        public string[,] Calender(int lastday, int fastDate)
+        public string[][] Calender(int lastday, int fastDate)
         {
             int day = 1;
             for (int y = 0; y < 7; y++)
             {
-                for (int x =0; x < 7; x++)
+                if (y == 0)
                 {
-                    if (day > lastday)
+                    for (int x = fastDate; x < 7; x++, day++)
                     {
-                        break;
+                        calenderX[x] = day.ToString();
                     }
-                    calender[y, x] = day.ToString();
-                    day++;
                 }
+                else
+                {
+                    for (int x = 0; x < 7; x++, day++)
+                    {
+                        if (day > lastday)
+                        {
+                            break;
+                        }
+                        calenderX[x] = day.ToString();
+                    }
+                }
+                calender[y] = calenderX;
+                calenderX = new string[7];
+
             }
 
             return calender;

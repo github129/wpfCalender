@@ -11,13 +11,7 @@
 
         public string Id { get; set; }
 
-        private string[] listbox;
-
-        public string[] ListBox
-        {
-            get { return listbox; }
-            set { this.listbox = value; }
-        }
+        public string[][] calender { get; set; }
 
     }
 }

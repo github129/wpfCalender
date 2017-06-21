@@ -5,8 +5,15 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp1"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
-    <Grid Margin="-14,0,0,-21">
-        <ListBox HorizontalAlignment="Left" Height="253" Margin="74,31,0,0" VerticalAlignment="Top" Width="374" x:Name="listBox"/>
+        Title="MainWindow" Height="500" Width="625">
+    <Grid>
+        <ListView HorizontalAlignment="Left" Height="384" Margin="34,30,0,0" VerticalAlignment="Top" Width="536" Name="listView">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+
     </Grid>
 </Window>
