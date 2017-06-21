@@ -23,23 +23,21 @@
         public MainWindow()
         {
             this.InitializeComponent();
-
-            var program = new Program
-            {
-                Block = this.CreateList(),
-            };
-
-            this.DataContext = program;
+            UserContorol();
         }
 
-        public int[] CreateList()
+        private void UserContorol()
         {
-            int[] block = new int[11];
-            for (int i = 1; i <= 10; i++)
+
+
+            string[] sample = new string[]
             {
-                 block[i] = i;
-            }
-            return block;
+                "array",
+                "array2",
+                "array3",
+            };
+
+            this.listBox.ItemsSource = sample;
         }
     }
 }

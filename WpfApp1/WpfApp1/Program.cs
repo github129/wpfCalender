@@ -9,12 +9,15 @@
     class Program
     {
 
-        private int[] block;
-
-
         public string Id { get; set; }
 
-        public int[] Block { get; set; }
+        private string[] listbox;
+
+        public string[] ListBox
+        {
+            get { return listbox; }
+            set { this.listbox = value; }
+        }
 
     }
 }
