@@ -9,11 +9,11 @@
     public class CreateCalender
     {
 
-        private string[] calender = new string[38];
+        private List<string> calender = new List<string>();
 
-        private string[] calenderDate = { "日", "月", "火", "水", "木", "金", "土" };
+        private List<string> calenderDate = new List<string>();
 
-        public string[] CalenderDate
+        public List<string> CalenderDate
         {
             get { return this.calenderDate; }
         }
@@ -25,12 +25,30 @@
             return date;
         }
 
-        public string[] Calender(int lastday, int fastDate)
+        public void Date()
+        {
+            this.calenderDate.Add("日");
+            this.calenderDate.Add("月");
+            this.calenderDate.Add("火");
+            this.calenderDate.Add("水");
+            this.calenderDate.Add("木");
+            this.calenderDate.Add("金");
+            this.calenderDate.Add("土");
+        }
+
+        public List<string> Calender(int lastday, int fastDate)
         {
             int day = 1;
-            for (int i = fastDate; i < lastday + fastDate; i++, day++)
+            for (int i = 0; i < lastday + fastDate; i++)
             {
-                calender[i] = day.ToString();
+                if (i < fastDate)
+                {
+                    this.calender.Add(" ");
+                    continue;
+                }
+
+                this.calender.Add(day.ToString());
+                day++;
             }
 
             return calender;

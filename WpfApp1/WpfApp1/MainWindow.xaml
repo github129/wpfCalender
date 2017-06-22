@@ -5,8 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp1"
         xmlns:Themes="clr-namespace:Microsoft.Windows.Themes;assembly=PresentationFramework.Aero2" x:Class="WpfApp1.MainWindow"
-        mc:Ignorable="d" SizeChanged="Window_SizeChanged"
-        Title="MainWindow" Height="700" Width="700">
+        mc:Ignorable="d"
+        Title="MainWindow" Height="700" Width="900">
     <Window.Resources>
         <SolidColorBrush x:Key="ListBox.Static.Background" Color="#FFFFFFFF"/>
         <SolidColorBrush x:Key="ListBox.Static.Border" Color="#FFABADB3"/>
@@ -50,18 +50,33 @@
         </Style>
     </Window.Resources>
     <Grid>
-        <Grid>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="78"/>
-                <RowDefinition Height="auto"/>
+        <Grid.RowDefinitions>
+                <RowDefinition Height="100"/>
+                <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid Grid.Row="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
             </Grid.ColumnDefinitions>
         </Grid>
-    
 
-        <ListBox HorizontalAlignment="Left" Height="300" Margin="150,82,0,0" VerticalAlignment="Top" Width="404" Name="listBox"
-                 ScrollViewer.HorizontalScrollBarVisibility="Disabled" Style="{DynamicResource ListBoxStyle1}">
+        <Label Grid.Row="0" Grid.Column="0" Content="test" Width="50" Height="20" />
+
+        <ListBox Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" Height="300" VerticalAlignment="Center" Width="290" Name="listBox"
+                 ScrollViewer.HorizontalScrollBarVisibility="Disabled" Style="{DynamicResource ListBoxStyle1}" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Margin="0">
             <ListBox.ItemsPanel>
                 <ItemsPanelTemplate>
                     <UniformGrid Columns="7"/>

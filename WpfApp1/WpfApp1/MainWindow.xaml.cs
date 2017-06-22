@@ -30,19 +30,13 @@
         {
             var create = new CreateCalender();
             var data = create.Create();
-            string[] cal = create.Calender(data.CalenderLastDay, data.FastDate);
-            string[] date = create.CalenderDate;
+            var cal = create.Calender(data.CalenderLastDay, data.FastDate);
+            create.Date();
+            var calenderDate = create.CalenderDate;
 
-            string[] calender = date.Concat(cal).ToArray();
+            calenderDate.AddRange(cal);
 
-            this.DataContext = data;
-
-            this.listBox.ItemsSource = calender;
-
-        }
-
-        private void Window_SizeChanged(object sender, SizeChangedEventArgs e)
-        {
+            this.listBox.ItemsSource = calenderDate;
 
         }
     }
