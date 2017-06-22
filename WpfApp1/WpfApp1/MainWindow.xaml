@@ -81,11 +81,32 @@
 
         </TextBlock>
 
-        <ListBox Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" Height="300" VerticalAlignment="Center" Width="290" Name="listBox"
-                 ScrollViewer.HorizontalScrollBarVisibility="Disabled" Style="{DynamicResource ListBoxStyle1}" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Margin="0">
+        <ListBox Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" Height="300" VerticalAlignment="Center" Width="290" 
+                 ScrollViewer.HorizontalScrollBarVisibility="Disabled" Style="{DynamicResource ListBoxStyle1}" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Margin="0"
+                 ItemsSource="{Binding List}">
             <ListBox.ItemsPanel>
                 <ItemsPanelTemplate>
-                    <UniformGrid Columns="7"/>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                    </Grid>
                 </ItemsPanelTemplate>
             </ListBox.ItemsPanel>
         </ListBox>

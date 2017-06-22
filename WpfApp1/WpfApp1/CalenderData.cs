@@ -10,6 +10,8 @@
     {
         private DateTime date = new DateTime(DateTime.Now.Year, DateTime.Now.Month, 01);
 
+        private List<string> list = new List<string>();
+
         private int fastDate;
 
         private int calenderLastDay;
@@ -32,6 +34,44 @@
             set { this.date = value; }
         }
 
+        public List<string> List
+        {
+            get;
+            set;
+        }
+
+        private string calenderDate;
+
+        public string CalenderDate
+        {
+            get { return this.calenderDate; }
+            set { this.calenderDate = value; }
+        }
+
+        private int col;
+
+        public int Col
+        {
+            get { return col; }
+            set { col = value; }
+        }
+
+        private int row;
+
+        public int Row
+        {
+            get { return row; }
+            set { row = value; }
+        }
+
+
+        private int day;
+
+        public int Day
+        {
+            get { return day; }
+            set { day = value; }
+        }
 
         /// <summary>
         /// 年月日を更新するメソッド

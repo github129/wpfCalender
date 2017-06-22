@@ -32,14 +32,26 @@
             var create = new CreateCalender();
             var data = create.Create();
             var cal = create.Calender(data.CalenderLastDay, data.FastDate);
-            create.Date();
-            var calenderDate = create.CalenderDate;
-
-            this.DataContext = calenderData;
+            
+            var calenderDate = create.Date();
             calenderDate.AddRange(cal);
 
-            this.listBox.ItemsSource = calenderDate;
+            this.DataContext = calenderData;
+
+            /*
+             *             <Setter Property="ItemContainerStyle">
+                <Setter.Value>
+                    <Style TargetType="{x:Type ListBoxItem}">
+                        <Setter Property="Grid.Row" Value="{Binding Row}" />
+                        <Setter Property="Grid.Column" Value="{Binding Col}" />
+                    </Style>
+                </Setter.Value>
+            </Setter>
+             * /
+ 
 
         }
+
+        public List<string> list { get; set; }
     }
 }
