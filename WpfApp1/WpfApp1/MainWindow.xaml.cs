@@ -28,12 +28,14 @@
 
         private void UserContorol()
         {
+            var calenderData = new CalenderData();
             var create = new CreateCalender();
             var data = create.Create();
             var cal = create.Calender(data.CalenderLastDay, data.FastDate);
             create.Date();
             var calenderDate = create.CalenderDate;
 
+            this.DataContext = calenderData;
             calenderDate.AddRange(cal);
 
             this.listBox.ItemsSource = calenderDate;

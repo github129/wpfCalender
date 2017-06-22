@@ -73,7 +73,13 @@
             </Grid.ColumnDefinitions>
         </Grid>
 
-        <Label Grid.Row="0" Grid.Column="0" Content="test" Width="50" Height="20" />
+        <!--<Label Grid.Row="0" Grid.Column="0" Content="test" Width="50" Height="20" />-->
+
+        <TextBlock>
+            <Run Text="{Binding Date.Year,Mode=OneTime}"/>年
+            <Run Text="{Binding Date.Month,Mode=OneTime}"/>月
+
+        </TextBlock>
 
         <ListBox Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" Height="300" VerticalAlignment="Center" Width="290" Name="listBox"
                  ScrollViewer.HorizontalScrollBarVisibility="Disabled" Style="{DynamicResource ListBoxStyle1}" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Margin="0">
