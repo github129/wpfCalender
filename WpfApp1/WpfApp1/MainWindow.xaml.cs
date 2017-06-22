@@ -31,9 +31,13 @@
             var create = new CreateCalender();
             var data = create.Create();
             string[] cal = create.Calender(data.CalenderLastDay, data.FastDate);
+            string[] date = create.CalenderDate;
 
-            this.DataContext = cal;
-            this.listBox.ItemsSource = cal;
+            string[] calender = date.Concat(cal).ToArray();
+
+            this.DataContext = data;
+
+            this.listBox.ItemsSource = calender;
 
         }
 
