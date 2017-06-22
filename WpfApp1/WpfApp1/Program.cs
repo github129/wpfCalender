@@ -13,5 +13,7 @@
 
         public string[][] calender { get; set; }
 
+        public string[] ListBox { get; set; }
+
     }
 }

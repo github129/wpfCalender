@@ -23,30 +23,21 @@
         public MainWindow()
         {
             this.InitializeComponent();
-            UserContorol(listView);
+            this.UserContorol();
         }
 
-        private void UserContorol(ListView list)
+        private void UserContorol()
         {
             var create = new CreateCalender();
             var data = create.Create();
-            string[][] cal = create.Calender(data.CalenderLastDay, data.FastDate);
-            GridView view = new GridView();
-            for (int i = 0; i < 7; i++)
-            {
-                view.Columns.Add(new GridViewColumn
-                {
-                    Header = create.CalenderDate[i],
-                    DisplayMemberBinding = new Binding(string.Format("[{0}]", i)),
-                });
-            }
+            string[] cal = create.Calender(data.CalenderLastDay, data.FastDate);
 
-            list.View = view;
-            list.ItemsSource = cal;
+            this.DataContext = cal;
+            this.listBox.ItemsSource = cal;
 
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void Window_SizeChanged(object sender, SizeChangedEventArgs e)
         {
 
         }
