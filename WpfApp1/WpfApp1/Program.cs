@@ -11,7 +11,5 @@
 
         public string Id { get; set; }
 
-        public string[] ListBox { get; set; }
-
     }
 }

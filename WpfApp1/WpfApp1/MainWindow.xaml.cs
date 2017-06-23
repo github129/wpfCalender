@@ -1,4 +1,8 @@
-﻿namespace WpfApp1
+﻿// <copyright file="MainWindow.xaml.cs" company="PlaceholderCompany">
+// Copyright (c) PlaceholderCompany. All rights reserved.
+// </copyright>
+
+namespace WpfApp1
 {
     using System;
     using System.Collections.Generic;
@@ -14,44 +18,41 @@
     using System.Windows.Media.Imaging;
     using System.Windows.Navigation;
     using System.Windows.Shapes;
+    using Calender.Entitey;
 
     /// <summary>
     /// MainWindow.xaml の相互作用ロジック
     /// </summary>
     public partial class MainWindow : Window
     {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="MainWindow"/> class.
+        /// </summary>
         public MainWindow()
         {
             this.InitializeComponent();
-            this.UserContorol();
         }
 
+        /// <summary>
+        /// 実行メソッド
+        /// </summary>
         private void UserContorol()
         {
-            var calenderData = new CalenderData();
-            var create = new CreateCalender();
-            var data = create.Create();
-            var cal = create.Calender(data.CalenderLastDay, data.FastDate);
-            
-            var calenderDate = create.Date();
-            calenderDate.AddRange(cal);
-
-            this.DataContext = calenderData;
-
-            /*
-             *             <Setter Property="ItemContainerStyle">
-                <Setter.Value>
-                    <Style TargetType="{x:Type ListBoxItem}">
-                        <Setter Property="Grid.Row" Value="{Binding Row}" />
-                        <Setter Property="Grid.Column" Value="{Binding Col}" />
-                    </Style>
-                </Setter.Value>
-            </Setter>
-             * /
- 
-
+            var calD = new CalenderData();
+            var option = new Option();
+            var vm = new MainWindowViewModel();
+            vm.SetCalender(calD, option);
+            this.DataContext = vm;
         }
 
-        public List<string> list { get; set; }
+        /// <summary>
+        /// ロード時のイベント　カレンダーを表示する
+        /// </summary>
+        /// <param name="sender">sender</param>
+        /// <param name="e">イベントデータ情報</param>
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            this.UserContorol();
+        }
     }
 }

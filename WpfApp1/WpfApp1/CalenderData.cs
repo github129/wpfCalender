@@ -1,4 +1,8 @@
-﻿namespace WpfApp1
+﻿// <copyright file="CalenderData.cs" company="PlaceholderCompany">
+// Copyright (c) PlaceholderCompany. All rights reserved.
+// </copyright>
+
+namespace WpfApp1
 {
     using System;
     using System.Collections.Generic;
@@ -6,71 +10,51 @@
     using System.Text;
     using System.Threading.Tasks;
 
+    /// <summary>
+    /// カレンダーのデータを扱うクラス
+    /// </summary>
     public class CalenderData
     {
+        /// <summary>
+        /// 年月日　デフォルトは現在
+        /// </summary>
         private DateTime date = new DateTime(DateTime.Now.Year, DateTime.Now.Month, 01);
 
-        private List<string> list = new List<string>();
-
+        /// <summary>
+        /// 最初の曜日
+        /// </summary>
         private int fastDate;
 
+        /// <summary>
+        /// 最終日
+        /// </summary>
         private int calenderLastDay;
 
+        /// <summary>
+        /// Gets or sets 最初の曜日を扱うプロパティ
+        /// </summary>
         public int FastDate
         {
             get { return this.fastDate; }
             set { this.fastDate = value; }
         }
 
+        /// <summary>
+        /// Gets or sets 最終日を扱うプロパティ
+        /// </summary>
         public int CalenderLastDay
         {
             get { return this.calenderLastDay; }
             set { this.calenderLastDay = value; }
         }
 
+        /// <summary>
+        /// Gets or sets 年月日を扱うプロパティ
+        /// </summary>
         public DateTime Date
         {
-            get { return date; }
+            get { return this.date; }
             set { this.date = value; }
-        }
-
-        public List<string> List
-        {
-            get;
-            set;
-        }
-
-        private string calenderDate;
-
-        public string CalenderDate
-        {
-            get { return this.calenderDate; }
-            set { this.calenderDate = value; }
-        }
-
-        private int col;
-
-        public int Col
-        {
-            get { return col; }
-            set { col = value; }
-        }
-
-        private int row;
-
-        public int Row
-        {
-            get { return row; }
-            set { row = value; }
-        }
-
-
-        private int day;
-
-        public int Day
-        {
-            get { return day; }
-            set { day = value; }
         }
 
         /// <summary>
@@ -92,7 +76,7 @@
         {
             var fastDay = 1;
             var dt = new DateTime(this.date.Year, this.date.Month, fastDay);
-            FastDate = (int)dt.DayOfWeek;
+            this.FastDate = (int)dt.DayOfWeek;
         }
 
         /// <summary>
@@ -102,6 +86,5 @@
         {
             this.CalenderLastDay = DateTime.DaysInMonth(this.date.Year, this.date.Month);
         }
-
     }
 }
