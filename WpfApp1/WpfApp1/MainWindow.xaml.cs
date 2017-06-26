@@ -54,5 +54,16 @@ namespace WpfApp1
         {
             this.UserContorol();
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            var calenderData = new CalenderData();
+            var option = new Option();
+            UserInput input = new UserInput();
+            calenderData.Date = new DateTime(int.Parse(InputYear.Text), int.Parse(InputMonth.Text), 1);
+            var vm = new MainWindowViewModel();
+            vm.SetCalender(calenderData,option);
+            this.DataContext = vm;
+        }
     }
 }

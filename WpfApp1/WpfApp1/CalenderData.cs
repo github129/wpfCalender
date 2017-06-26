@@ -18,7 +18,7 @@ namespace WpfApp1
         /// <summary>
         /// 年月日　デフォルトは現在
         /// </summary>
-        private DateTime date = new DateTime(DateTime.Now.Year, DateTime.Now.Month, 01);
+        private DateTime date = new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1);
 
         /// <summary>
         /// 最初の曜日

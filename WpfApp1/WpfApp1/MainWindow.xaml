@@ -32,7 +32,7 @@
             <Setter Property="ItemContainerStyle">
                 <Setter.Value>
                     <Style TargetType="{x:Type ListBoxItem}">
-                        
+
                     </Style>
                 </Setter.Value>
             </Setter>
@@ -44,16 +44,35 @@
             <RowDefinition Height="100"/>
             <RowDefinition Height="30"/>
             <RowDefinition Height="Auto"/>
-            </Grid.RowDefinitions>
+        </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="1*"/>
         </Grid.ColumnDefinitions>
 
-        <TextBlock Grid.Row="0" Grid.Column="1" VerticalAlignment="Bottom" HorizontalAlignment="Center" FontSize="25">
+        <Grid Grid.Row="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <TextBox Grid.Row="0" Grid.Column="0" Width="50" Height="20" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="4,30,0,0" x:Name="InputYear"/>
+            <Label  Content="年" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Left" Margin="54,30,0,0" VerticalAlignment="Top" Height="Auto" Width="Auto"/>
+            <TextBox Grid.Row="0" Grid.Column="0" Width="50" Height="20" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="84,30,0,0" x:Name="InputMonth"/>
+            <Label Content="月" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Left" Margin="134,30,0,0" VerticalAlignment="Top" Height="Auto" Width="Auto"/>
+            <Button Content="検索" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Left" Margin="161,30,0,0" VerticalAlignment="Top" Width="50" Click="Button_Click"/>
+
+            <TextBlock Grid.Row="0" Grid.Column="1" VerticalAlignment="Bottom" HorizontalAlignment="Center" FontSize="25">
             <Run Text="{Binding Date.Year,Mode=OneTime}"/>年
             <Run Text="{Binding Date.Month,Mode=OneTime}"/>月
 
-        </TextBlock>
+            </TextBlock>
+        </Grid>
+
+
+
 
         <ListBox Grid.Row="2" Grid.Column="1" HorizontalAlignment="Center" Height="200" VerticalAlignment="Center" Width="285" 
                  ScrollViewer.HorizontalScrollBarVisibility="Disabled" Style="{StaticResource calenderStyle}" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Margin="0"
@@ -90,5 +109,7 @@
                 </ItemsPanelTemplate>
             </ListBox.ItemsPanel>
         </ListBox>
+
+
     </Grid>
 </Window>
