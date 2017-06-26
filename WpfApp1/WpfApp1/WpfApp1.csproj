@@ -55,9 +55,20 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="CalenderWindow.xaml.cs">
+      <DependentUpon>CalenderWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CalenderWindowViewModel.cs" />
     <Compile Include="Option.cs" />
-    <Compile Include="UserInput.cs" />
     <Compile Include="WeekItem.cs" />
+    <Page Include="CalenderDictionary.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="CalenderWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

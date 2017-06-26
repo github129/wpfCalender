@@ -38,10 +38,7 @@ namespace WpfApp1
         /// </summary>
         private void UserContorol()
         {
-            var calD = new CalenderData();
-            var option = new Option();
             var vm = new MainWindowViewModel();
-            vm.SetCalender(calD, option);
             this.DataContext = vm;
         }
 
@@ -55,15 +52,19 @@ namespace WpfApp1
             this.UserContorol();
         }
 
+        /// <summary>
+        /// 検索ボタンが押下されたときのイベント
+        /// </summary>
+        /// <param name="sender">sender</param>
+        /// <param name="e">イベントデータの情報</param>
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            var calenderData = new CalenderData();
-            var option = new Option();
-            UserInput input = new UserInput();
-            calenderData.Date = new DateTime(int.Parse(InputYear.Text), int.Parse(InputMonth.Text), 1);
-            var vm = new MainWindowViewModel();
-            vm.SetCalender(calenderData,option);
-            this.DataContext = vm;
+            var window = new CalenderWindow();
+            var year = int.Parse(((MainWindowViewModel)this.DataContext).InputYear);
+            var month = int.Parse(((MainWindowViewModel)this.DataContext).InputMonth);
+            ((MainWindowViewModel)this.DataContext).Date = new DateTime(year, month, 1);
+            window.UserContorol((MainWindowViewModel)this.DataContext);
+            window.Show();
         }
     }
 }
