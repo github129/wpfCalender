@@ -37,20 +37,7 @@
 
         private void CheckBox_Checked(object sender, RoutedEventArgs e)
         {
-            var op = new Option();
-            CalenderData c = new CalenderData();
-            if ((bool)this.weekChangeCheck.IsChecked)
-            {
-                op.DatePriontChangeFlg = false;
-                this.aaa.Text = "false";
-            }
-            else
-            {
-                op.DatePriontChangeFlg = true;
-                this.aaa.Text = "true";
-            }
 
-            ((CalenderWindowViewModel)this.DataContext).SetCalender( c,op);
         }
     }
 }
