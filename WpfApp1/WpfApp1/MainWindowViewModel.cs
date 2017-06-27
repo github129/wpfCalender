@@ -33,7 +33,7 @@ namespace WpfApp1
         /// </summary>
         private string inputMonth;
 
-
+        private string makeCalenderCount = "1";
 
         public event PropertyChangedEventHandler PropertyChanged;
 
@@ -88,6 +88,20 @@ namespace WpfApp1
                 {
                     this.inputMonth= value;
                     this.RaisePropertyChanged("InputMonth");
+                }
+            }
+        }
+
+        public string MakeCalenderCount
+        {
+            get { return this.makeCalenderCount; }
+
+            set
+            {
+                if (this.makeCalenderCount != value)
+                {
+                    this.makeCalenderCount = value;
+                    this.RaisePropertyChanged("MakeCalenderCount");
                 }
             }
         }

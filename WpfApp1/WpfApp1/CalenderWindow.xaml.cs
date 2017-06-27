@@ -55,7 +55,7 @@
             this.Data.Date = date;
             var option = new Option();
             var calVm = new CalenderWindowViewModel();
-            calVm.SetCalender(Data, option);
+            calVm.SetOneCalender(Data, option);
             this.DataContext = calVm;
         }
 
@@ -75,8 +75,7 @@
                 this.Op.DatePriontChangeFlg = true;
             }
 
-            ((CalenderWindowViewModel)this.DataContext).CalenderDays.Clear();
-            ((CalenderWindowViewModel)this.DataContext).CalenderWeekItems.Clear();
+            ((CalenderWindowViewModel)this.DataContext).CalenderEntitys.Clear();
             ((CalenderWindowViewModel)this.DataContext).SetCalender(this.Data, this.Op);
         }
 
@@ -91,7 +90,7 @@
                 this.Op.TodayColorChangeFlg = true;
             }
 
-            ((CalenderWindowViewModel)this.DataContext).CalenderWeekItems.Clear();
+            ((CalenderWindowViewModel)this.DataContext).CalenderEntitys.Clear();
             ((CalenderWindowViewModel)this.DataContext).SetCalender(this.Data, this.Op);
         }
     }

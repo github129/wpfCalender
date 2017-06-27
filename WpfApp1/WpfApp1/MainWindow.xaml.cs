@@ -60,11 +60,22 @@ namespace WpfApp1
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             var window = new CalenderWindow();
+            var someWindow = new SomeCalenderWindow();
             var year = int.Parse(((MainWindowViewModel)this.DataContext).InputYear);
             var month = int.Parse(((MainWindowViewModel)this.DataContext).InputMonth);
+            var count = int.Parse(((MainWindowViewModel)this.DataContext).MakeCalenderCount);
             ((MainWindowViewModel)this.DataContext).Date = new DateTime(year, month, 1);
-            window.UserContorol(((MainWindowViewModel)this.DataContext).Date);
-            window.Show();
+            if (count > 1)
+            {
+                someWindow.SomeCalenderControl(((MainWindowViewModel)this.DataContext).Date, count);
+                someWindow.Show();
+            }
+            else
+            {
+                window.UserContorol(((MainWindowViewModel)this.DataContext).Date);
+                window.Show();
+            }
+
         }
     }
 }
