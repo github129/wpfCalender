@@ -12,7 +12,7 @@
     mc:Ignorable="d">
     <Window.Resources>
         <DataTemplate x:Key="calenderList" DataType="{x:Type local:CalenderDay}">
-            <TextBlock Text="{Binding Day}" />
+            <TextBlock Foreground="{Binding ForeColor}" Text="{Binding Day}" />
         </DataTemplate>
         <Style x:Key="calenderStyle" TargetType="{x:Type ListBox}">
             <Setter Property="ItemTemplate" Value="{StaticResource calenderList}" />
@@ -21,6 +21,7 @@
                     <Style TargetType="{x:Type ListBoxItem}">
                         <Setter Property="Grid.Row" Value="{Binding Row}" />
                         <Setter Property="Grid.Column" Value="{Binding Col}" />
+                        <Setter Property="Background" Value="{Binding BgColor}" />
                     </Style>
                 </Setter.Value>
             </Setter>
@@ -46,26 +47,26 @@
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="100" />
-            <RowDefinition Height="30" />
+            <RowDefinition Height="80" />
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="1*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
 
-        <Grid Grid.Row="0">
+        <Grid Grid.Row="0" Grid.Column="1">
             <Grid.RowDefinitions>
                 <RowDefinition Height="*" />
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />
-                <ColumnDefinition Width="*" />
-                <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
 
             <TextBlock
                 Grid.Row="0"
-                Grid.Column="1"
+                Grid.Column="0"
                 HorizontalAlignment="Center"
                 VerticalAlignment="Bottom"
                 Background="Black"
@@ -75,17 +76,34 @@
                 年<Run Text="{Binding Date.Month, Mode=OneWay}" />
                 月</TextBlock>
         </Grid>
+        <Grid Grid.Row="1" Grid.Column="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions />
+            <StackPanel Grid.Row="0" Orientation="Horizontal">
+                <Label
+                    Margin="0"
+                    VerticalAlignment="Top"
+                    Content="{Binding StartText}" />
+                <CheckBox Name="weekChangeCheck" Click="CheckBox_Checked" />
+            </StackPanel>
+            <StackPanel Grid.Row="1" Orientation="Horizontal">
+                <Label
+                    Margin="0"
+                    VerticalAlignment="Top"
+                    Content="当日の色"
+                    Foreground="{Binding ChangeTextColor}" />
+                <CheckBox Name="TodayColorChange" Click="TodayColorChange_Click" />
+            </StackPanel>
 
 
-        <CheckBox
-            Name="weekChangeCheck"
-            Grid.Row="1"
-            Margin="0"
-            HorizontalAlignment="Left"
-            Click="CheckBox_Checked" />
+        </Grid>
 
         <ListBox
             Grid.Row="2"
+            Grid.Column="1"
             Margin="0"
             HorizontalAlignment="Center"
             VerticalAlignment="Center"
@@ -121,7 +139,10 @@
 
         <ListBox
             Grid.Row="1"
+            Grid.Column="1"
+            MaxHeight="50"
             HorizontalAlignment="Center"
+            VerticalAlignment="Bottom"
             HorizontalContentAlignment="Center"
             ItemsSource="{Binding CalenderWeekItems}"
             Style="{StaticResource calenderDateStyle}">

@@ -14,7 +14,7 @@ namespace WpfApp1
     /// <summary>
     /// カレンダーの日付を使うクラス
     /// </summary>
-    public class CalenderDay : INotifyPropertyChanged
+    public class CalenderDay
     {
 
         private string foreColor = "Black";
@@ -39,11 +39,7 @@ namespace WpfApp1
 
             set
             {
-                if (this.col != value)
-                {
-                    this.col = value;
-                    this.RaisePropertyChanged("Col");
-                }
+                this.col = value;
             }
         }
 
@@ -57,11 +53,7 @@ namespace WpfApp1
 
             set
             {
-                if (this.row != value)
-                {
-                    this.row = value;
-                    this.RaisePropertyChanged("Row");
-                }
+                this.row = value;
             }
         }
 
@@ -77,32 +69,20 @@ namespace WpfApp1
 
             set
             {
-                if (this.day != value)
-                {
-                    this.day = value;
-                    this.RaisePropertyChanged("Col");
-                }
+                this.day = value;
             }
         }
 
         public string BgColor
         {
-            get;set;
+            get { return this.bgColor; }
+            set { this.bgColor = value; }
         }
 
         public string ForeColor
         {
-            get;set;
-        }
-
-        public event PropertyChangedEventHandler PropertyChanged;
-
-
-        protected void RaisePropertyChanged(string propertyName)
-        {
-            var d = PropertyChanged;
-            if (d != null)
-                d(this, new PropertyChangedEventArgs(propertyName));
+            get { return this.foreColor; }
+            set { this.foreColor = value; }
         }
     }
 }

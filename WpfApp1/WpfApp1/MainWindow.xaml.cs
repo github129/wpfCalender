@@ -63,7 +63,7 @@ namespace WpfApp1
             var year = int.Parse(((MainWindowViewModel)this.DataContext).InputYear);
             var month = int.Parse(((MainWindowViewModel)this.DataContext).InputMonth);
             ((MainWindowViewModel)this.DataContext).Date = new DateTime(year, month, 1);
-            window.UserContorol((MainWindowViewModel)this.DataContext);
+            window.UserContorol(((MainWindowViewModel)this.DataContext).Date);
             window.Show();
         }
     }

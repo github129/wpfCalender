@@ -33,6 +33,8 @@ namespace WpfApp1
         /// </summary>
         private string inputMonth;
 
+
+
         public event PropertyChangedEventHandler PropertyChanged;
 
 
@@ -89,7 +91,6 @@ namespace WpfApp1
                 }
             }
         }
-
 
         protected void RaisePropertyChanged(string propertyName)
         {

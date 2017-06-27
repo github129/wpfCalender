@@ -20,24 +20,79 @@
     /// </summary>
     public partial class CalenderWindow : Window
     {
-        public CalenderWindow()
+
+        private CalenderData data = new CalenderData();
+
+        private Option op = new Option();
+
+        public CalenderData Data
         {
-            InitializeComponent();
+            get { return this.data; }
+            private set { this.data = value; }
         }
 
-        public void UserContorol(MainWindowViewModel mainVm)
+        public Option Op
         {
-            var calD = new CalenderData();
-            calD.Date = mainVm.Date;
+            get { return this.op; }
+            private set { this.op = value; }
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="CalenderWindow"/> class.
+        /// 初期化
+        /// </summary>
+        public CalenderWindow()
+        {
+            this.InitializeComponent();
+        }
+
+        /// <summary>
+        /// 実行メソッド
+        /// </summary>
+        /// <param name="date">日付</param>
+        public void UserContorol(DateTime date)
+        {
+            this.Data.Date = date;
             var option = new Option();
             var calVm = new CalenderWindowViewModel();
-            calVm.SetCalender(calD, option);
+            calVm.SetCalender(Data, option);
             this.DataContext = calVm;
         }
 
+        /// <summary>
+        /// チェックボックスクリック時の処理
+        /// </summary>
+        /// <param name="sender">sender</param>
+        /// <param name="e">イベントデータ</param>
         private void CheckBox_Checked(object sender, RoutedEventArgs e)
         {
+            if ((bool)this.weekChangeCheck.IsChecked)
+            {
+                this.Op.DatePriontChangeFlg = false;
+            }
+            else
+            {
+                this.Op.DatePriontChangeFlg = true;
+            }
 
+            ((CalenderWindowViewModel)this.DataContext).CalenderDays.Clear();
+            ((CalenderWindowViewModel)this.DataContext).CalenderWeekItems.Clear();
+            ((CalenderWindowViewModel)this.DataContext).SetCalender(this.Data, this.Op);
+        }
+
+        private void TodayColorChange_Click(object sender, RoutedEventArgs e)
+        {
+            if ((bool)this.TodayColorChange.IsChecked)
+            {
+                this.Op.TodayColorChangeFlg = false;
+            }
+            else
+            {
+                this.Op.TodayColorChangeFlg = true;
+            }
+
+            ((CalenderWindowViewModel)this.DataContext).CalenderWeekItems.Clear();
+            ((CalenderWindowViewModel)this.DataContext).SetCalender(this.Data, this.Op);
         }
     }
 }
