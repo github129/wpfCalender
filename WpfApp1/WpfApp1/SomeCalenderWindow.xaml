@@ -10,24 +10,8 @@
     Height="700"
     mc:Ignorable="d">
     <Window.Resources>
-        <DataTemplate x:Key="calenderList" DataType="{x:Type local:CalenderDay}">
-            <TextBlock Foreground="{Binding ForeColor}" Text="{Binding Day}" />
-        </DataTemplate>
-        <Style x:Key="calenderStyle" TargetType="{x:Type ListBox}">
-            <Setter Property="ItemTemplate" Value="{StaticResource calenderList}" />
-            <Setter Property="ItemContainerStyle">
-                <Setter.Value>
-                    <Style TargetType="{x:Type ListBoxItem}">
-                        <Setter Property="Grid.Row" Value="{Binding Row}" />
-                        <Setter Property="Grid.Column" Value="{Binding Col}" />
-                        <Setter Property="Background" Value="{Binding BgColor}" />
-                    </Style>
-                </Setter.Value>
-            </Setter>
-        </Style>
-
-        <DataTemplate x:Key="someCalenders" DataType="{x:Type local:CreateCalender}">
-            <local:CalenderControl />
+        <DataTemplate x:Key="someCalenders" DataType="{x:Type local:CalenderCreateEntity}">
+            <local:CalenderControl Height="300" />
         </DataTemplate>
         <Style x:Key="someCalendersStyle" TargetType="ListBox">
             <Setter Property="ItemTemplate" Value="{StaticResource someCalenders}" />
@@ -36,14 +20,14 @@
                     <Style TargetType="{x:Type ListBoxItem}" />
                 </Setter.Value>
             </Setter>
-
         </Style>
+
     </Window.Resources>
     <Grid>
-        <ListBox ItemsSource="{Binding Calenders}" Style="{StaticResource someCalendersStyle}">
+        <ListBox ItemsSource="{Binding CalenderEntitys}" Style="{StaticResource someCalendersStyle}">
             <ListBox.ItemsPanel>
                 <ItemsPanelTemplate>
-                    <WrapPanel />
+                    <UniformGrid Columns="3" Rows="4" />
                 </ItemsPanelTemplate>
             </ListBox.ItemsPanel>
         </ListBox>

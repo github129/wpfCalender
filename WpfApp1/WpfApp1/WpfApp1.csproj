@@ -76,19 +76,18 @@
     <Compile Include="CalenderControl.xaml.cs">
       <DependentUpon>CalenderControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="CalenderCreateEntity.cs" />
+    <Compile Include="Entity\CalenderCreateEntity.cs" />
     <Compile Include="CalenderWindow.xaml.cs">
       <DependentUpon>CalenderWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="CalenderWindowViewModel.cs" />
     <Compile Include="CommonCalenderCreate.cs" />
-    <Compile Include="CreateCalender.cs" />
-    <Compile Include="Option.cs" />
+    <Compile Include="Entity\Option.cs" />
     <Compile Include="SomeCalenderWindow.xaml.cs">
       <DependentUpon>SomeCalenderWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="SomeCalenderWindowViewModel.cs" />
-    <Compile Include="WeekItem.cs" />
+    <Compile Include="Entity\WeekItem.cs" />
     <Page Include="CalenderControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -109,8 +108,8 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="CalenderData.cs" />
-    <Compile Include="CalenderDay.cs" />
+    <Compile Include="Entity\CalenderData.cs" />
+    <Compile Include="Entity\CalenderDay.cs" />
     <Compile Include="MainWindowViewModel.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>

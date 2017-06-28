@@ -61,9 +61,24 @@ namespace WpfApp1
         {
             var window = new CalenderWindow();
             var someWindow = new SomeCalenderWindow();
-            var year = int.Parse(((MainWindowViewModel)this.DataContext).InputYear);
-            var month = int.Parse(((MainWindowViewModel)this.DataContext).InputMonth);
-            var count = int.Parse(((MainWindowViewModel)this.DataContext).MakeCalenderCount);
+            var year = DateTime.Now.Year;
+            if (((MainWindowViewModel)this.DataContext).InputYear.Length != 0)
+            {
+                year = int.Parse(((MainWindowViewModel)this.DataContext).InputYear);
+            }
+
+            var month = DateTime.Now.Month;
+            if (((MainWindowViewModel)this.DataContext).InputMonth.Length != 0)
+            {
+                month = int.Parse(((MainWindowViewModel)this.DataContext).InputMonth);
+            }
+
+            var count = 1;
+            if (((MainWindowViewModel)this.DataContext).MakeCalenderCount.Length != 0)
+            {
+                count = int.Parse(((MainWindowViewModel)this.DataContext).MakeCalenderCount);
+            }
+
             ((MainWindowViewModel)this.DataContext).Date = new DateTime(year, month, 1);
             if (count > 1)
             {

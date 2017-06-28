@@ -42,7 +42,7 @@
             </Setter>
         </Style>
     </UserControl.Resources>
-    <Grid>
+    <Grid Background="Red">
         <Grid.RowDefinitions>
             <RowDefinition Height="*" />
             <RowDefinition Height="*" />
@@ -54,8 +54,7 @@
             Grid.Row="0"
             HorizontalAlignment="Center"
             VerticalAlignment="Bottom"
-            FontSize="25"
-            Foreground="AliceBlue">
+            FontSize="25">
             <Run Text="{Binding Date.Year, Mode=OneWay}" />
             年<Run Text="{Binding Date.Month, Mode=OneWay}" />
             月</TextBlock>

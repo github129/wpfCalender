@@ -9,10 +9,8 @@
     using System.Threading.Tasks;
     using Calender.Entitey;
 
-    public class SomeCalenderWindowViewModel : CommonCalenderCreate, INotifyPropertyChanged
+    public class SomeCalenderWindowViewModel : CommonCalenderCreate
     {
-
-        public event PropertyChangedEventHandler PropertyChanged;
 
         private IList<CalenderCreateEntity> calenderEntitys = new ObservableCollection<CalenderCreateEntity>();
 
@@ -31,15 +29,6 @@
                     this.RaisePropertyChanged("CalenderEntitys");
                 }
             }
-        }
-
-        /// <summary>
-        /// 情報切り替え用のインターフェース
-        /// </summary>
-        /// <param name="propertyName">プロパティ名</param>
-        protected void RaisePropertyChanged(string propertyName)
-        {
-            this.PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
         /// <summary>

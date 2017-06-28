@@ -26,13 +26,16 @@ namespace WpfApp1
         /// <summary>
         /// 入力年
         /// </summary>
-        private string inputYear;
+        private string inputYear = DateTime.Now.Year.ToString();
 
         /// <summary>
         /// 入力月
         /// </summary>
-        private string inputMonth;
+        private string inputMonth = DateTime.Now.Month.ToString();
 
+        /// <summary>
+        /// カレンダーの作成数
+        /// </summary>
         private string makeCalenderCount = "1";
 
         public event PropertyChangedEventHandler PropertyChanged;

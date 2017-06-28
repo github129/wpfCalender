@@ -1,4 +1,8 @@
-﻿namespace WpfApp1
+﻿// <copyright file="CommonCalenderCreate.cs" company="PlaceholderCompany">
+// Copyright (c) PlaceholderCompany. All rights reserved.
+// </copyright>
+
+namespace WpfApp1
 {
     using System;
     using System.Collections.Generic;
@@ -9,11 +13,11 @@
     using System.Threading.Tasks;
     using Calender.Entitey;
 
+    /// <summary>
+    /// カレンダーを１つ作成するクラス
+    /// </summary>
     public class CommonCalenderCreate : INotifyPropertyChanged
     {
-
-        private IList<CreateCalender> calenders = new ObservableCollection<CreateCalender>();
-
         /// <summary>
         /// 曜日の入った配列 sFlgがtureの場合
         /// </summary>
@@ -29,8 +33,12 @@
         /// </summary>
         private string startText = "日曜始まり";
 
+        /// <summary>
+        /// 当日の色を変えるテキストのカラー
+        /// </summary>
         private string changeTextColor = "Khaki";
 
+        /// <inheritdoc/>
         public event PropertyChangedEventHandler PropertyChanged;
 
         /// <summary>
@@ -53,6 +61,9 @@
             }
         }
 
+        /// <summary>
+        /// Gets or sets 色を変えるためのプロパティ
+        /// </summary>
         public string ChangeTextColor
         {
             get
@@ -66,23 +77,6 @@
                 {
                     this.changeTextColor = value;
                     this.RaisePropertyChanged("ChangeTextColor");
-                }
-            }
-        }
-
-        public IList<CreateCalender> Calenders
-        {
-            get
-            {
-                return this.calenders;
-            }
-
-            set
-            {
-                if (calenders != value)
-                {
-                    this.calenders = value;
-                    this.RaisePropertyChanged("Calenders");
                 }
             }
         }
@@ -101,6 +95,7 @@
         /// </summary>
         /// <param name="calData">カレンダーデータクラス</param>
         /// <param name="option">オプションクラス</param>
+        /// <returns>CalenderCreateEntity カレンダーのデータを持ったクラス</returns>
         public CalenderCreateEntity SetCalender(CalenderData calData, Option option)
         {
             // 日付データの作成
@@ -197,7 +192,7 @@
         /// <summary>
         /// 当日のBG色を変えるメソッド
         /// </summary>
-        /// <param name="op">オプションクラスのvgcolorの判断</param>
+        /// <param name="color">オプションクラスのvgcolorの判断</param>
         public void ChangeColorTextColor(bool color)
         {
             if (!color)

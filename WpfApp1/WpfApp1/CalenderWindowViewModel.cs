@@ -17,11 +17,13 @@
         public CalenderCreateEntity Data
         {
             get { return this.data; }
+
             set
             {
                 if (this.data != value)
                 {
                     this.data = value;
+                    this.RaisePropertyChanged("Data");
                 }
             }
         }
