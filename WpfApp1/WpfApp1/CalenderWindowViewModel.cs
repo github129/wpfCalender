@@ -9,12 +9,21 @@
     using System.Threading.Tasks;
     using Calender.Entitey;
 
-    public class CalenderWindowViewModel :CommonCalenderCreate
+    public class CalenderWindowViewModel : CommonCalenderCreate
     {
+
+        private CalenderCreateEntity data;
 
         public CalenderCreateEntity Data
         {
-            get;set;
+            get { return this.data; }
+            set
+            {
+                if (this.data != value)
+                {
+                    this.data = value;
+                }
+            }
         }
 
         /// <summary>
@@ -24,7 +33,7 @@
         /// <param name="option">オプションクラス</param>
         public void SetOneCalender(CalenderData calData, Option option)
         {
-            this.SetCalender(calData,option);
+            this.Data = this.SetCalender(calData,option);
             this.ChangeWeekText(option.DatePriontChangeFlg);
             this.ChangeColorTextColor(option.TodayColorChangeFlg);
         }

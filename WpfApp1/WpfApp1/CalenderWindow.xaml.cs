@@ -75,9 +75,10 @@
                 this.Op.DatePriontChangeFlg = true;
             }
 
-            ((CalenderWindowViewModel)this.DataContext).CalenderEntitys.Clear();
-            ((CalenderWindowViewModel)this.DataContext).SetCalender(this.Data, this.Op);
+            ((CalenderWindowViewModel)this.DataContext).Data.CalenderDays.Clear();
+            ((CalenderWindowViewModel)this.DataContext).SetOneCalender(this.Data, this.Op);
         }
+
 
         private void TodayColorChange_Click(object sender, RoutedEventArgs e)
         {
@@ -90,8 +91,8 @@
                 this.Op.TodayColorChangeFlg = true;
             }
 
-            ((CalenderWindowViewModel)this.DataContext).CalenderEntitys.Clear();
-            ((CalenderWindowViewModel)this.DataContext).SetCalender(this.Data, this.Op);
+            ((CalenderWindowViewModel)this.DataContext).Data.CalenderDays.Clear();
+            ((CalenderWindowViewModel)this.DataContext).SetOneCalender(this.Data, this.Op);
         }
     }
 }
