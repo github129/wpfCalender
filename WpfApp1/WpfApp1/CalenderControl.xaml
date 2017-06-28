@@ -29,6 +29,8 @@
 
         <DataTemplate x:Key="calenderDate" DataType="{x:Type Calender:WeekItem}">
             <TextBlock
+                Width="30"
+                Margin="1"
                 HorizontalAlignment="Stretch"
                 VerticalAlignment="Center"
                 Text="{Binding Title}" />
@@ -54,15 +56,12 @@
             Grid.Row="0"
             HorizontalAlignment="Center"
             VerticalAlignment="Bottom"
-            FontSize="25">
-            <Run Text="{Binding Date.Year, Mode=OneWay}" />
-            年<Run Text="{Binding Date.Month, Mode=OneWay}" />
+            FontSize="25"><Run Text="{Binding Date.Month, Mode=OneWay}" />
             月</TextBlock>
         <ListBox
             Grid.Row="1"
-            HorizontalAlignment="Center"
-            VerticalAlignment="Bottom"
             HorizontalContentAlignment="Stretch"
+            VerticalContentAlignment="Stretch"
             ItemsSource="{Binding CalenderWeekItems}"
             Style="{StaticResource calenderDateStyle}">
             <ListBox.ItemsPanel>

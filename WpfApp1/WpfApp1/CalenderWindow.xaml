@@ -11,16 +11,28 @@
     Height="700"
     mc:Ignorable="d">
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="150" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*" />
             <ColumnDefinition Width="*" />
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
+        <TextBlock
+            Grid.Row="0"
+            Grid.Column="1"
+            Margin="1"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            FontSize="25"><Run Text="{Binding CalenderEntitys.Date.Month, Mode=OneWay}" />
+            年</TextBlock>
 
-        <Grid Grid.Column="0">
+        <Grid Grid.Row="0" Grid.Column="0">
             <Grid.RowDefinitions>
-                <RowDefinition Height="*" />
-                <RowDefinition Height="*" />
+                <RowDefinition Height="50" />
+                <RowDefinition Height="50" />
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions />
             <StackPanel Grid.Row="0" Orientation="Horizontal">
@@ -39,6 +51,9 @@
                 <CheckBox Name="TodayColorChange" Click="TodayColorChange_Click" />
             </StackPanel>
         </Grid>
-        <local:CalenderControl DataContext="{Binding Data}" Grid.Column="1" />
+        <local:CalenderControl
+            Grid.Row="1"
+            Grid.Column="1"
+            DataContext="{Binding Data}" />
     </Grid>
 </Window>

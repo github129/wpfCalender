@@ -34,7 +34,14 @@
                 <ColumnDefinition Width="5*" />
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
-
+            <TextBlock
+                Grid.Row="0"
+                Grid.Column="1"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                FontSize="25">
+                <Run Text="{Binding CalenderEntitys.CalenderDays.Date.Year, Mode=OneWay}" />
+                年</TextBlock>
             <Button
                 Grid.Column="0"
                 Click="Button_Click"
