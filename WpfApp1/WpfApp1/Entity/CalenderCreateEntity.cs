@@ -1,4 +1,8 @@
-﻿namespace WpfApp1
+﻿// <copyright file="CalenderCreateEntity.cs" company="PlaceholderCompany">
+// Copyright (c) PlaceholderCompany. All rights reserved.
+// </copyright>
+
+namespace WpfApp1
 {
     using System;
     using System.Collections.Generic;
@@ -8,6 +12,9 @@
     using System.Threading.Tasks;
     using Calender.Entitey;
 
+    /// <summary>
+    /// カレンダー情報をすべて保持しているクラス
+    /// </summary>
     public class CalenderCreateEntity
     {
         /// <summary>

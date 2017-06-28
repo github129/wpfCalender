@@ -42,7 +42,7 @@
             </Setter>
         </Style>
     </UserControl.Resources>
-    <Grid Background="Red">
+    <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*" />
             <RowDefinition Height="*" />
@@ -62,7 +62,7 @@
             Grid.Row="1"
             HorizontalAlignment="Center"
             VerticalAlignment="Bottom"
-            HorizontalContentAlignment="Center"
+            HorizontalContentAlignment="Stretch"
             ItemsSource="{Binding CalenderWeekItems}"
             Style="{StaticResource calenderDateStyle}">
             <ListBox.ItemsPanel>
@@ -78,8 +78,8 @@
                 Margin="0"
                 HorizontalAlignment="Left"
                 VerticalAlignment="Top"
-                HorizontalContentAlignment="Center"
-                VerticalContentAlignment="Center"
+                HorizontalContentAlignment="Stretch"
+                VerticalContentAlignment="Stretch"
                 Grid.IsSharedSizeScope="True"
                 ItemsSource="{Binding CalenderDays}"
                 ScrollViewer.HorizontalScrollBarVisibility="Disabled"

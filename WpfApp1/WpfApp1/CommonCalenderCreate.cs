@@ -91,11 +91,11 @@ namespace WpfApp1
         }
 
         /// <summary>
-        /// カレンダーを作成するメソッド
+        /// カレンダーを１つ作成するメソッド
         /// </summary>
         /// <param name="calData">カレンダーデータクラス</param>
         /// <param name="option">オプションクラス</param>
-        /// <returns>CalenderCreateEntity カレンダーのデータを持ったクラス</returns>
+        /// <returns>CalenderEntity カレンダーの情報</returns>
         public CalenderCreateEntity SetCalender(CalenderData calData, Option option)
         {
             // 日付データの作成

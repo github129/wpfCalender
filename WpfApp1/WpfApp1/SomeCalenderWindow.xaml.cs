@@ -21,6 +21,7 @@
     /// </summary>
     public partial class SomeCalenderWindow : Window
     {
+        private SomeCalenderWindowViewModel vm = new SomeCalenderWindowViewModel();
 
         private Option op = new Option();
 
@@ -28,18 +29,39 @@
 
         private IList<SomeCalenderWindowViewModel> calender = new ObservableCollection<SomeCalenderWindowViewModel>();
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="SomeCalenderWindow"/> class.
+        /// 初期化処理
+        /// </summary>
         public SomeCalenderWindow()
         {
             this.InitializeComponent();
         }
 
+        /// <summary>
+        /// カレンダーの情報をDateContextに入れる処理
+        /// </summary>
+        /// <param name="date">年月日</param>
+        /// <param name="n">個数</param>
         public void SomeCalenderControl(DateTime date, int n)
         {
             this.op.CalenderCreateCount = n;
             this.data.Date = date;
-            var vm = new SomeCalenderWindowViewModel();
-            vm.SetSomeCalender(this.data, this.op);
-            this.DataContext = vm;
+            this.data.InputDate = date;
+            this.vm.SetSomeCalender(this.data, this.op);
+            this.DataContext = this.vm;
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            this.vm.ChangeFilter(this.data.InputDate.AddYears(-1), this.data.InputDate);
+            this.data.InputDate = this.data.InputDate.AddYears(-1);
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            this.vm.ChangeFilter(this.data.InputDate.AddYears(1), this.data.InputDate);
+            this.data.InputDate = this.data.InputDate.AddYears(1);
         }
     }
 }

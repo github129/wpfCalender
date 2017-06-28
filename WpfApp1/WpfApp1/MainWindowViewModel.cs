@@ -6,12 +6,12 @@ namespace WpfApp1
 {
     using System;
     using System.Collections.Generic;
+    using System.Collections.ObjectModel;
+    using System.ComponentModel;
     using System.Linq;
     using System.Text;
     using System.Threading.Tasks;
-    using System.ComponentModel;
     using Calender.Entitey;
-    using System.Collections.ObjectModel;
 
     /// <summary>
     /// MainWindowのVMクラス
@@ -38,8 +38,8 @@ namespace WpfApp1
         /// </summary>
         private string makeCalenderCount = "1";
 
+        /// <inheritdoc/>
         public event PropertyChangedEventHandler PropertyChanged;
-
 
         /// <summary>
         /// Gets or sets 年月日を扱うプロパティ
@@ -61,6 +61,9 @@ namespace WpfApp1
             }
         }
 
+        /// <summary>
+        /// Gets or sets 入力年用のプロパティ
+        /// </summary>
         public string InputYear
         {
             get
@@ -78,6 +81,9 @@ namespace WpfApp1
             }
         }
 
+        /// <summary>
+        /// Gets or sets 入力月用のプロパティ
+        /// </summary>
         public string InputMonth
         {
             get
@@ -89,15 +95,21 @@ namespace WpfApp1
             {
                 if (this.inputMonth != value)
                 {
-                    this.inputMonth= value;
+                    this.inputMonth = value;
                     this.RaisePropertyChanged("InputMonth");
                 }
             }
         }
 
+        /// <summary>
+        /// Gets or sets カレンダーを作成する個数
+        /// </summary>
         public string MakeCalenderCount
         {
-            get { return this.makeCalenderCount; }
+            get
+            {
+                return this.makeCalenderCount;
+            }
 
             set
             {
@@ -109,12 +121,13 @@ namespace WpfApp1
             }
         }
 
+        /// <summary>
+        /// プロパティを書き換変わったかどうかを判断するメソッド
+        /// </summary>
+        /// <param name="propertyName">プロパティ名</param>
         protected void RaisePropertyChanged(string propertyName)
         {
-            var d = PropertyChanged;
-            if (d != null)
-                d(this, new PropertyChangedEventArgs(propertyName));
+            this.PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
-
     }
 }

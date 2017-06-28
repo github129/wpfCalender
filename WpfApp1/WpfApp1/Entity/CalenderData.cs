@@ -58,6 +58,14 @@ namespace WpfApp1
         }
 
         /// <summary>
+        /// 入力された年月日の保存用プロパティ
+        /// </summary>
+        public DateTime InputDate
+        {
+            get; set;
+        }
+
+        /// <summary>
         /// 年月日を更新するメソッド
         /// </summary>
         /// <param name="date">日</param>

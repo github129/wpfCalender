@@ -1,4 +1,8 @@
-﻿namespace WpfApp1
+﻿// <copyright file="CalenderWindow.xaml.cs" company="PlaceholderCompany">
+// Copyright (c) PlaceholderCompany. All rights reserved.
+// </copyright>
+
+namespace WpfApp1
 {
     using System;
     using System.Collections.Generic;
@@ -20,23 +24,6 @@
     /// </summary>
     public partial class CalenderWindow : Window
     {
-
-        private CalenderData data = new CalenderData();
-
-        private Option op = new Option();
-
-        public CalenderData Data
-        {
-            get { return this.data; }
-            private set { this.data = value; }
-        }
-
-        public Option Op
-        {
-            get { return this.op; }
-            private set { this.op = value; }
-        }
-
         /// <summary>
         /// Initializes a new instance of the <see cref="CalenderWindow"/> class.
         /// 初期化
@@ -44,6 +31,34 @@
         public CalenderWindow()
         {
             this.InitializeComponent();
+        }
+
+        /// <summary>
+        /// カレンダーデータクラス
+        /// </summary>
+        private CalenderData data = new CalenderData();
+
+        /// <summary>
+        /// オプションクラス
+        /// </summary>
+        private Option op = new Option();
+
+        /// <summary>
+        /// Gets データクラス用のプロパティ
+        /// </summary>
+        public CalenderData Data
+        {
+            get { return this.data; }
+            private set { this.data = value; }
+        }
+
+        /// <summary>
+        /// Gets オプションクラス用のプロパティ
+        /// </summary>
+        public Option Op
+        {
+            get { return this.op; }
+            private set { this.op = value; }
         }
 
         /// <summary>
@@ -55,7 +70,7 @@
             this.Data.Date = date;
             var option = new Option();
             var calVm = new CalenderWindowViewModel();
-            calVm.SetOneCalender(Data, option);
+            calVm.SetOneCalender(this.Data, option);
             this.DataContext = calVm;
         }
 
@@ -78,7 +93,6 @@
             ((CalenderWindowViewModel)this.DataContext).Data.CalenderDays.Clear();
             ((CalenderWindowViewModel)this.DataContext).SetOneCalender(this.Data, this.Op);
         }
-
 
         private void TodayColorChange_Click(object sender, RoutedEventArgs e)
         {

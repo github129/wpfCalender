@@ -24,7 +24,34 @@
 
     </Window.Resources>
     <Grid>
-        <ListBox ItemsSource="{Binding CalenderEntitys}" Style="{StaticResource someCalendersStyle}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="100" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="5*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <Button
+                Grid.Column="0"
+                Click="Button_Click"
+                Content="◀"
+                FontSize="30"
+                Visibility="{Binding GoBackYearIcon}" />
+            <Button
+                Grid.Column="2"
+                Click="Button_Click_1"
+                Content="▶"
+                FontSize="30"
+                Visibility="{Binding GoNextYearIcon}" />
+        </Grid>
+        <ListBox
+            Grid.Row="1"
+            ItemsSource="{Binding CalenderEntitys}"
+            Style="{StaticResource someCalendersStyle}">
             <ListBox.ItemsPanel>
                 <ItemsPanelTemplate>
                     <UniformGrid Columns="3" Rows="4" />

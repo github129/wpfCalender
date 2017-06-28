@@ -16,15 +16,29 @@ namespace WpfApp1
     /// </summary>
     public class CalenderDay
     {
-
+        /// <summary>
+        /// 日付の色
+        /// </summary>
         private string foreColor = "Black";
 
+        /// <summary>
+        /// 日付ごとの背景色
+        /// </summary>
         private string bgColor = "White";
 
+        /// <summary>
+        /// カラム
+        /// </summary>
         private int col;
 
+        /// <summary>
+        /// 高さ（位置）
+        /// </summary>
         private int row;
 
+        /// <summary>
+        /// 日付
+        /// </summary>
         private string day;
 
         /// <summary>
@@ -43,7 +57,9 @@ namespace WpfApp1
             }
         }
 
-
+        /// <summary>
+        /// Gets or sets rowを扱うプロティ
+        /// </summary>
         public int Row
         {
             get
@@ -73,12 +89,18 @@ namespace WpfApp1
             }
         }
 
+        /// <summary>
+        /// Gets or sets 背景色用のプロパティ
+        /// </summary>
         public string BgColor
         {
             get { return this.bgColor; }
             set { this.bgColor = value; }
         }
 
+        /// <summary>
+        /// Gets or sets 日付色用のプロパティ
+        /// </summary>
         public string ForeColor
         {
             get { return this.foreColor; }

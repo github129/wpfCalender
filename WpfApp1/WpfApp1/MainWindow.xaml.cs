@@ -68,9 +68,13 @@ namespace WpfApp1
             }
 
             var month = DateTime.Now.Month;
-            if (((MainWindowViewModel)this.DataContext).InputMonth.Length != 0)
+            if (((MainWindowViewModel)this.DataContext).InputMonth.Length != 0 && ((MainWindowViewModel)this.DataContext).InputYear.Length != 0)
             {
                 month = int.Parse(((MainWindowViewModel)this.DataContext).InputMonth);
+            }
+            else if (((MainWindowViewModel)this.DataContext).InputYear.Length != 0 && ((MainWindowViewModel)this.DataContext).InputMonth.Length == 0)
+            {
+                month = 1;
             }
 
             var count = 1;
@@ -90,7 +94,6 @@ namespace WpfApp1
                 window.UserContorol(((MainWindowViewModel)this.DataContext).Date);
                 window.Show();
             }
-
         }
     }
 }
