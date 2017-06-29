@@ -12,17 +12,16 @@
     mc:Ignorable="d">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="100" />
+            <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
         <Grid Grid.Row="0" Grid.Column="0">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto" />
-                <RowDefinition Height="50" />
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions />
             <Menu Grid.Row="0">
-                <MenuItem Header="オプション">
+                <MenuItem Header="オプション" VerticalContentAlignment="Center">
                     <MenuItem
                         Name="weekChangeCheck"
                         Click="CheckBox_Checked"

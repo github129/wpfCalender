@@ -171,7 +171,7 @@ namespace WpfApp1
             var nowYearCount = this.CalenderEntitys.Count - (12 - data.InputDate.AddMonths(-1).Month + 1);
             if (data.InputDate.AddMonths(op.CalenderCreateCount - 1).Year > data.InputDate.Year)
             {
-                for (; nowYearCount >= 0; this.NextYearCount++)
+                for (; nowYearCount > 0; this.NextYearCount++)
                 {
                     nowYearCount -= 12;
                 }

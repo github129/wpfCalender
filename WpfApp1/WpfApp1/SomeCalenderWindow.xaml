@@ -64,13 +64,15 @@
                 Click="Button_Click"
                 Content="◀"
                 FontSize="30"
-                Visibility="{Binding GoBackYearIcon}" />
+                Visibility="{Binding GoBackYearIcon}" Background="#FF9CA8F7" Foreground="White" >
+            </Button>
             <Button
                 Grid.Column="2"
                 Click="Button_Click_1"
                 Content="▶"
                 FontSize="30"
-                Visibility="{Binding GoNextYearIcon}" />
+                Visibility="{Binding GoNextYearIcon}" Background="#FF8D9BF9" Foreground="White" >
+            </Button>
         </Grid>
         <ListBox
             Grid.Row="2"
