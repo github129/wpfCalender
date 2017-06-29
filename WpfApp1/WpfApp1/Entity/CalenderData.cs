@@ -58,11 +58,19 @@ namespace WpfApp1
         }
 
         /// <summary>
-        /// 入力された年月日の保存用プロパティ
+        /// Gets or sets 入力された年月日の保存用プロパティ
         /// </summary>
         public DateTime InputDate
         {
             get; set;
+        }
+
+        /// <summary>
+        /// Gets or sets 上書き用の年月日プロパティ
+        /// </summary>
+        public DateTime UpDataDate
+        {
+            get;set;
         }
 
         /// <summary>

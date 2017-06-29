@@ -72,8 +72,6 @@ namespace WpfApp1
             var calVm = new CalenderWindowViewModel();
             calVm.SetOneCalender(this.Data, option);
             this.DataContext = calVm;
-            int i = 24;
-            Console.WriteLine(i/12);
         }
 
         /// <summary>

@@ -43,11 +43,17 @@
         /// </summary>
         /// <param name="date">年月日</param>
         /// <param name="n">個数</param>
-        public void SomeCalenderControl(DateTime date, int n)
+        public void SomeCalenderControl(DateTime date, int n, bool nFlg)
         {
             this.op.CalenderCreateCount = n;
-            this.data.Date = date;
+            this.op.InputCreateountFlg = nFlg;
             this.data.InputDate = date;
+            this.data.UpDataDate = date;
+            if (nFlg)
+            {
+                date = date.AddMonths(-1);
+            }
+            this.data.Date = date;
             this.vm.SetSomeCalender(this.data, this.op);
             this.DataContext = this.vm;
         }
@@ -61,8 +67,8 @@
         {
             this.vm.BackYearCount--;
             this.vm.NextYearCount++;
-            this.vm.ChangeFilter(this.data.InputDate.AddYears(-1), this.data.InputDate);
-            this.data.InputDate = this.data.InputDate.AddYears(-1);
+            this.vm.ChangeFilter(this.data.UpDataDate.AddYears(-1));
+            this.data.UpDataDate = this.data.UpDataDate.AddYears(-1);
         }
 
         /// <summary>
@@ -74,8 +80,8 @@
         {
             this.vm.BackYearCount++;
             this.vm.NextYearCount--;
-            this.vm.ChangeFilter(this.data.InputDate.AddYears(1), this.data.InputDate);
-            this.data.InputDate = this.data.InputDate.AddYears(1);
+            this.vm.ChangeFilter(this.data.UpDataDate.AddYears(1));
+            this.data.UpDataDate = this.data.UpDataDate.AddYears(1);
         }
 
         /// <summary>
@@ -95,6 +101,8 @@
             }
 
             ((SomeCalenderWindowViewModel)this.DataContext).CalenderEntitys.Clear();
+            this.data.UpDataDate = this.data.InputDate;
+            this.data.Date = this.data.InputDate.AddMonths(-1);
             ((SomeCalenderWindowViewModel)this.DataContext).SetSomeCalender(this.data, this.op);
         }
 
@@ -115,6 +123,8 @@
             }
 
             ((SomeCalenderWindowViewModel)this.DataContext).CalenderEntitys.Clear();
+            this.data.UpDataDate = this.data.InputDate;
+            this.data.Date = this.data.InputDate.AddMonths(-1);
             ((SomeCalenderWindowViewModel)this.DataContext).SetSomeCalender(this.data, this.op);
         }
     }

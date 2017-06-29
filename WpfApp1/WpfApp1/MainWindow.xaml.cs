@@ -25,6 +25,9 @@ namespace WpfApp1
     /// </summary>
     public partial class MainWindow : Window
     {
+
+        private MainWindowViewModel vm = new MainWindowViewModel();
+
         /// <summary>
         /// Initializes a new instance of the <see cref="MainWindow"/> class.
         /// </summary>
@@ -38,8 +41,7 @@ namespace WpfApp1
         /// </summary>
         private void UserContorol()
         {
-            var vm = new MainWindowViewModel();
-            this.DataContext = vm;
+            this.DataContext = this.vm;
         }
 
         /// <summary>
@@ -59,41 +61,8 @@ namespace WpfApp1
         /// <param name="e">イベントデータの情報</param>
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            var window = new CalenderWindow();
-            var someWindow = new SomeCalenderWindow();
-            var year = DateTime.Now.Year;
-            if (((MainWindowViewModel)this.DataContext).InputYear.Length != 0)
-            {
-                year = int.Parse(((MainWindowViewModel)this.DataContext).InputYear);
-            }
-
-            var month = DateTime.Now.Month;
-            if (((MainWindowViewModel)this.DataContext).InputMonth.Length != 0 && ((MainWindowViewModel)this.DataContext).InputYear.Length != 0)
-            {
-                month = int.Parse(((MainWindowViewModel)this.DataContext).InputMonth);
-            }
-            else if (((MainWindowViewModel)this.DataContext).InputYear.Length != 0 && ((MainWindowViewModel)this.DataContext).InputMonth.Length == 0)
-            {
-                month = 1;
-            }
-
-            var count = 1;
-            if (((MainWindowViewModel)this.DataContext).MakeCalenderCount.Length != 0)
-            {
-                count = int.Parse(((MainWindowViewModel)this.DataContext).MakeCalenderCount);
-            }
-
-            ((MainWindowViewModel)this.DataContext).Date = new DateTime(year, month, 1);
-            if (count > 1)
-            {
-                someWindow.SomeCalenderControl(((MainWindowViewModel)this.DataContext).Date, count);
-                someWindow.Show();
-            }
-            else
-            {
-                window.UserContorol(((MainWindowViewModel)this.DataContext).Date);
-                window.Show();
-            }
+            CalenderData data = new CalenderData();
+            this.vm.SearchButtonPushEvent(data);
         }
     }
 }

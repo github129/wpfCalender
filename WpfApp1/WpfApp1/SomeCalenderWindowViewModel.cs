@@ -29,14 +29,14 @@ namespace WpfApp1
         /// </summary>
         private string goBackYearIcon = "Visible";
 
-        private int backYearCount = 1;
+        private int backYearCount;
 
         /// <summary>
         /// カレンダーを１年進めるアイコン
         /// </summary>
         private string goNextYearIcon = "Visible";
 
-        private int nextYearCount = 0;
+        private int nextYearCount;
 
         /// <summary>
         /// カレンダー上部の年テキスト
@@ -148,19 +148,21 @@ namespace WpfApp1
         /// <param name="op">オプションクラス</param>
         public void SetSomeCalender(CalenderData data, Option op)
         {
-            data.Date = data.InputDate.AddMonths(-1);
+            this.BackYearCount = 1;
+            this.NextYearCount = 0;
+
             for (int i = 0; i < op.CalenderCreateCount; i++)
             {
                 var calEntity = this.SetCalender(data, op);
                 this.calenderEntitys.Add(calEntity);
-                data.Date = data.InputDate.AddMonths(i);
+                data.Date = data.Date.AddMonths(1);
             }
 
             this.ChangeWeekText(op.DatePriontChangeFlg);
             this.ChangeColorTextColor(op.TodayColorChangeFlg);
 
             // カレンダーの年を移動するアイコン表示の確認
-            if (data.InputDate.Month >= 2)
+            if (data.InputDate.Month > 1 || !op.InputCreateountFlg)
             {
                 this.GoBackYearIcon = "Hidden";
                 this.BackYearCount--;
@@ -180,15 +182,14 @@ namespace WpfApp1
                 this.GoNextYearIcon = "Hidden";
             }
 
-            this.ChangeFilter(data.InputDate, data.Date);
+            this.ChangeFilter(data.InputDate);
         }
 
         /// <summary>
         /// 指定された年度のみを表示するためのフィルタ
         /// </summary>
         /// <param name="date">Datetime 入力情報を「-1」年した年月日</param>
-        /// <param name="bifoDate">Datetime 入力情報の年月日</param>
-        public void ChangeFilter(DateTime date, DateTime bifoDate)
+        public void ChangeFilter(DateTime date)
         {
             if (this.BackYearCount > 0)
             {

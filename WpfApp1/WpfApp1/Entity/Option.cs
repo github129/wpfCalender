@@ -20,6 +20,11 @@ namespace Calender.Entitey
         private int calenderCreateCount = 1;
 
         /// <summary>
+        /// nが入力されたかどうか判断するフラグ
+        /// </summary>
+        private bool inputCreateCountFlg = true;
+
+        /// <summary>
         /// 曜日の始まり判断用
         /// </summary>
         private bool datePriontChangeFlg = true;
@@ -68,6 +73,15 @@ namespace Calender.Entitey
         {
             get { return this.todayColorChangeFlg; }
             set { this.todayColorChangeFlg = value; }
+        }
+
+        /// <summary>
+        /// Gets or sets a value indicating whether nに入力があったかどうかを判断するフラグ用のプロパティ
+        /// </summary>
+        public bool InputCreateountFlg
+        {
+            get { return this.inputCreateCountFlg; }
+            set { this.inputCreateCountFlg = value; }
         }
     }
 }

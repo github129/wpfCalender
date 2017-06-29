@@ -122,6 +122,63 @@ namespace WpfApp1
         }
 
         /// <summary>
+        /// 検索ボタンが押されたときのイベント処理メソッド
+        /// </summary>
+        /// <param name="data">カレンダーデータクラス</param>
+        public void SearchButtonPushEvent(CalenderData data)
+        {
+            var op = new Option();
+            var inputCreateountFlg = true;
+            var window = new CalenderWindow();
+            var someWindow = new SomeCalenderWindow();
+
+            // 年の確認
+            if (this.InputYear.Length == 0)
+            {
+                this.InputYear = DateTime.Now.Year.ToString();
+            }
+
+            // 作成個数の確認
+            if (this.MakeCalenderCount.Length == 0 && this.InputYear.Length == 0)
+            {
+                inputCreateountFlg = false;
+                op.CalenderCreateCount = 1;
+            }
+            else if (this.MakeCalenderCount.Length == 0 && this.InputYear.Length > 0 && this.InputMonth.Length == 0)
+            {
+                inputCreateountFlg = false;
+                op.CalenderCreateCount = 12;
+            }
+            else if (this.MakeCalenderCount.Length > 0)
+            {
+                op.CalenderCreateCount = int.Parse(this.MakeCalenderCount);
+            }
+
+            // 月の確認
+            if (this.InputMonth.Length == 0 && this.InputYear.Length == 0)
+            {
+                this.InputMonth = DateTime.Now.Month.ToString();
+            }
+            else if (this.InputMonth.Length == 0 && this.InputYear.Length != 0 && this.MakeCalenderCount.Length == 0)
+            {
+                this.InputMonth = "1";
+            }
+
+            this.Date = new DateTime(int.Parse(this.InputYear), int.Parse(this.InputMonth), 1);
+
+            if (op.CalenderCreateCount > 1)
+            {
+                someWindow.SomeCalenderControl(this.Date, op.CalenderCreateCount , inputCreateountFlg);
+                someWindow.Show();
+            }
+            else
+            {
+                window.UserContorol(this.Date);
+                window.Show();
+            }
+        }
+
+        /// <summary>
         /// プロパティを書き換変わったかどうかを判断するメソッド
         /// </summary>
         /// <param name="propertyName">プロパティ名</param>
