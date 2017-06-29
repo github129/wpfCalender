@@ -16,12 +16,13 @@ namespace Calender.Entitey
     /// </summary>
     public class WeekItem : INotifyPropertyChanged
     {
-
+        /// <summary>
+        /// 曜日
+        /// </summary>
         private string title;
 
-
+        /// <inheritdoc/>
         public event PropertyChangedEventHandler PropertyChanged;
-
 
         /// <summary>
         /// Gets or sets 曜日プロパティ

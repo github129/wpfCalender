@@ -1,4 +1,8 @@
-﻿namespace WpfApp1
+﻿// <copyright file="SomeCalenderWindow.xaml.cs" company="PlaceholderCompany">
+// Copyright (c) PlaceholderCompany. All rights reserved.
+// </copyright>
+
+namespace WpfApp1
 {
     using System;
     using System.Collections.Generic;
@@ -21,12 +25,24 @@
     /// </summary>
     public partial class SomeCalenderWindow : Window
     {
+        /// <summary>
+        /// SomeCalenderWindowViewModelクラス
+        /// </summary>
         private SomeCalenderWindowViewModel vm = new SomeCalenderWindowViewModel();
 
+        /// <summary>
+        /// オプションクラス
+        /// </summary>
         private Option op = new Option();
 
+        /// <summary>
+        /// カレンダーデータクラス
+        /// </summary>
         private CalenderData data = new CalenderData();
 
+        /// <summary>
+        /// SomeCalenderWindowViewModelクラスが入ったリスト
+        /// </summary>
         private IList<SomeCalenderWindowViewModel> calender = new ObservableCollection<SomeCalenderWindowViewModel>();
 
         /// <summary>
@@ -43,6 +59,7 @@
         /// </summary>
         /// <param name="date">年月日</param>
         /// <param name="n">個数</param>
+        /// <param name="nFlg">個数を入力しているかどうかのフラグ</param>
         public void SomeCalenderControl(DateTime date, int n, bool nFlg)
         {
             this.op.CalenderCreateCount = n;
@@ -53,6 +70,7 @@
             {
                 date = date.AddMonths(-1);
             }
+
             this.data.Date = date;
             this.vm.SetSomeCalender(this.data, this.op);
             this.DataContext = this.vm;

@@ -25,7 +25,9 @@ namespace WpfApp1
     /// </summary>
     public partial class MainWindow : Window
     {
-
+        /// <summary>
+        /// ViewModelクラス
+        /// </summary>
         private MainWindowViewModel vm = new MainWindowViewModel();
 
         /// <summary>

@@ -75,7 +75,7 @@ namespace WpfApp1
         }
 
         /// <summary>
-        /// チェックボックスクリック時の処理
+        /// 曜日の始まり選択クリック時の処理
         /// </summary>
         /// <param name="sender">sender</param>
         /// <param name="e">イベントデータ</param>
@@ -94,6 +94,11 @@ namespace WpfApp1
             ((CalenderWindowViewModel)this.DataContext).SetOneCalender(this.Data, this.Op);
         }
 
+        /// <summary>
+        /// 当日の背景色洗濯時の処理
+        /// </summary>
+        /// <param name="sender">sender</param>
+        /// <param name="e">イベントデータ</param>
         private void TodayColorChange_Click(object sender, RoutedEventArgs e)
         {
             if ((bool)this.TodayColorChange.IsChecked)
