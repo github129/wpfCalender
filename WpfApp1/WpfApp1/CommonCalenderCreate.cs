@@ -36,7 +36,7 @@ namespace WpfApp1
         /// <summary>
         /// 当日の色を変えるテキストのカラー
         /// </summary>
-        private string changeTextColor = "Khaki";
+        private string todayTextColor = "Khaki";
 
         /// <inheritdoc/>
         public event PropertyChangedEventHandler PropertyChanged;
@@ -64,19 +64,19 @@ namespace WpfApp1
         /// <summary>
         /// Gets or sets 色を変えるためのプロパティ
         /// </summary>
-        public string ChangeTextColor
+        public string TodayTextColor
         {
             get
             {
-                return this.changeTextColor;
+                return this.todayTextColor;
             }
 
             set
             {
-                if (this.changeTextColor != value)
+                if (this.todayTextColor != value)
                 {
-                    this.changeTextColor = value;
-                    this.RaisePropertyChanged("ChangeTextColor");
+                    this.todayTextColor = value;
+                    this.RaisePropertyChanged("TodayTextColor");
                 }
             }
         }
@@ -197,11 +197,11 @@ namespace WpfApp1
         {
             if (!color)
             {
-                this.changeTextColor = "Black";
+                this.TodayTextColor = "Black";
             }
             else
             {
-                this.changeTextColor = "Khaki";
+                this.TodayTextColor = "Khaki";
             }
         }
     }

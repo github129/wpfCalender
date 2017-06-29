@@ -11,7 +11,10 @@
     mc:Ignorable="d">
     <UserControl.Resources>
         <DataTemplate x:Key="calenderList" DataType="{x:Type local:CalenderDay}">
-            <TextBlock Foreground="{Binding ForeColor}" Text="{Binding Day}" />
+            <TextBlock
+                Padding="12,12,0,0"
+                Foreground="{Binding ForeColor}"
+                Text="{Binding Day}" />
         </DataTemplate>
         <Style x:Key="calenderStyle" TargetType="{x:Type ListBox}">
             <Setter Property="ItemTemplate" Value="{StaticResource calenderList}" />
@@ -29,9 +32,9 @@
 
         <DataTemplate x:Key="calenderDate" DataType="{x:Type Calender:WeekItem}">
             <TextBlock
-                Width="30"
-                Margin="1"
-                HorizontalAlignment="Stretch"
+                Width="31.5"
+                Padding="10,0,0,0"
+                HorizontalAlignment="Right"
                 VerticalAlignment="Center"
                 Text="{Binding Title}" />
         </DataTemplate>
@@ -56,7 +59,9 @@
             Grid.Row="0"
             HorizontalAlignment="Center"
             VerticalAlignment="Bottom"
-            FontSize="25"><Run Text="{Binding Date.Month, Mode=OneWay}" />
+            FontSize="25">
+            <Run Text="{Binding Date.Year, Mode=OneWay}" />
+            年<Run Text="{Binding Date.Month, Mode=OneWay}" />
             月</TextBlock>
         <ListBox
             Grid.Row="1"
@@ -66,7 +71,7 @@
             Style="{StaticResource calenderDateStyle}">
             <ListBox.ItemsPanel>
                 <ItemsPanelTemplate>
-                    <StackPanel Orientation="Horizontal" />
+                    <DockPanel />
                 </ItemsPanelTemplate>
             </ListBox.ItemsPanel>
         </ListBox>

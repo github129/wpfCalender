@@ -52,16 +52,70 @@
             this.DataContext = this.vm;
         }
 
+        /// <summary>
+        /// 前年に戻るイベント
+        /// </summary>
+        /// <param name="sender">sender</param>
+        /// <param name="e">イベント情報</param>
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+            this.vm.BackYearCount--;
+            this.vm.NextYearCount++;
             this.vm.ChangeFilter(this.data.InputDate.AddYears(-1), this.data.InputDate);
             this.data.InputDate = this.data.InputDate.AddYears(-1);
         }
 
+        /// <summary>
+        /// 来年に進むイベント
+        /// </summary>
+        /// <param name="sender">sender</param>
+        /// <param name="e">イベント情報</param>
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
+            this.vm.BackYearCount++;
+            this.vm.NextYearCount--;
             this.vm.ChangeFilter(this.data.InputDate.AddYears(1), this.data.InputDate);
             this.data.InputDate = this.data.InputDate.AddYears(1);
+        }
+
+        /// <summary>
+        /// 始まりの曜日を変えるイベント
+        /// </summary>
+        /// <param name="sender">sender</param>
+        /// <param name="e">イベント情報</param>
+        private void CheckBox_Checked(object sender, RoutedEventArgs e)
+        {
+            if ((bool)this.weekChangeCheck.IsChecked)
+            {
+                this.op.DatePriontChangeFlg = false;
+            }
+            else
+            {
+                this.op.DatePriontChangeFlg = true;
+            }
+
+            ((SomeCalenderWindowViewModel)this.DataContext).CalenderEntitys.Clear();
+            ((SomeCalenderWindowViewModel)this.DataContext).SetSomeCalender(this.data, this.op);
+        }
+
+        /// <summary>
+        /// 当日のカラーを変更するイベント
+        /// </summary>
+        /// <param name="sender">sender</param>
+        /// <param name="e">イベント情報</param>
+        private void TodayColorChange_Click(object sender, RoutedEventArgs e)
+        {
+            if ((bool)this.TodayColorChange.IsChecked)
+            {
+                this.op.TodayColorChangeFlg = false;
+            }
+            else
+            {
+                this.op.TodayColorChangeFlg = true;
+            }
+
+            ((SomeCalenderWindowViewModel)this.DataContext).CalenderEntitys.Clear();
+            ((SomeCalenderWindowViewModel)this.DataContext).SetSomeCalender(this.data, this.op);
         }
     }
 }

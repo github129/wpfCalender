@@ -29,10 +29,19 @@ namespace WpfApp1
         /// </summary>
         private string goBackYearIcon = "Visible";
 
+        private int backYearCount = 1;
+
         /// <summary>
         /// カレンダーを１年進めるアイコン
         /// </summary>
         private string goNextYearIcon = "Visible";
+
+        private int nextYearCount = 0;
+
+        /// <summary>
+        /// カレンダー上部の年テキスト
+        /// </summary>
+        private DateTime topDateText;
 
         /// <summary>
         /// Gets or sets カレンダー用のアイコンを扱うプロパティ
@@ -95,55 +104,117 @@ namespace WpfApp1
         }
 
         /// <summary>
+        /// Gets or sets カレンダー上部のテキストを扱うプロパティ
+        /// </summary>
+        public DateTime TopDateText
+        {
+            get
+            {
+                return this.topDateText;
+            }
+
+            set
+            {
+                if (this.topDateText != value)
+                {
+                    this.topDateText = value;
+                    this.RaisePropertyChanged("TopDateText");
+                }
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets 前年に移動できる回数を扱うプロパティ
+        /// </summary>
+        public int BackYearCount
+        {
+            get { return this.backYearCount; }
+            set { this.backYearCount = value; }
+        }
+
+        /// <summary>
+        /// Gets or sets 来年移動できる回数を扱うプロパティ
+        /// </summary>
+        public int NextYearCount
+        {
+            get { return this.nextYearCount; }
+            set { this.nextYearCount = value; }
+        }
+
+        /// <summary>
         /// カレンダーを作成するメソッド
         /// </summary>
         /// <param name="data">カレンダーデータクラス</param>
         /// <param name="op">オプションクラス</param>
         public void SetSomeCalender(CalenderData data, Option op)
         {
-            data.Date = data.Date.AddMonths(-1);
+            data.Date = data.InputDate.AddMonths(-1);
             for (int i = 0; i < op.CalenderCreateCount; i++)
             {
                 var calEntity = this.SetCalender(data, op);
                 this.calenderEntitys.Add(calEntity);
-                data.Date = data.Date.AddMonths(1);
+                data.Date = data.InputDate.AddMonths(i);
             }
 
             this.ChangeWeekText(op.DatePriontChangeFlg);
             this.ChangeColorTextColor(op.TodayColorChangeFlg);
+
+            // カレンダーの年を移動するアイコン表示の確認
+            if (data.InputDate.Month >= 2)
+            {
+                this.GoBackYearIcon = "Hidden";
+                this.BackYearCount--;
+            }
+
+            var nowYearCount = this.CalenderEntitys.Count - (12 - data.InputDate.AddMonths(-1).Month + 1);
+            if (data.InputDate.AddMonths(op.CalenderCreateCount - 1).Year > data.InputDate.Year)
+            {
+                for (; nowYearCount >= 0; this.NextYearCount++)
+                {
+                    nowYearCount -= 12;
+                }
+            }
+
+            if (this.NextYearCount < 1)
+            {
+                this.GoNextYearIcon = "Hidden";
+            }
+
             this.ChangeFilter(data.InputDate, data.Date);
         }
 
         /// <summary>
         /// 指定された年度のみを表示するためのフィルタ
         /// </summary>
-        /// <param name="date">Datetime 指定年月日</param>
-        /// <param name="bifoDate">Datetime 更新前の年月日</param>
-        public void ChangeFilter(DateTime date,DateTime bifoDate)
+        /// <param name="date">Datetime 入力情報を「-1」年した年月日</param>
+        /// <param name="bifoDate">Datetime 入力情報の年月日</param>
+        public void ChangeFilter(DateTime date, DateTime bifoDate)
         {
+            if (this.BackYearCount > 0)
+            {
+                this.GoBackYearIcon = "Visible";
+            }
+            else
+            {
+                this.GoBackYearIcon = "Hidden";
+            }
+
+            if (this.NextYearCount > 0)
+            {
+                this.GoNextYearIcon = "Visible";
+            }
+            else
+            {
+                this.GoNextYearIcon = "Hidden";
+            }
+
+            this.TopDateText = date;
             var collectionView = CollectionViewSource.GetDefaultView(this.calenderEntitys);
             collectionView.Filter = (x) =>
             {
                 var nowYear = (CalenderCreateEntity)x;
                 return nowYear.Date.Year == date.Year;
             };
-
-            this.GoNextYearIcon = "Visible";
-            this.GoBackYearIcon = "Visible";
-
-            if (collectionView.IsEmpty)
-            {
-                if (date < bifoDate)
-                {
-                    this.GoNextYearIcon = "Visible";
-                    this.GoBackYearIcon = "Hidden";
-                }
-                else
-                {
-                    this.GoNextYearIcon = "Hidden";
-                    this.GoBackYearIcon = "Visible";
-                }
-            }
         }
     }
 }

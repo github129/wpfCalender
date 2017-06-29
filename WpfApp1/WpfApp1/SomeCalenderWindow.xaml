@@ -7,11 +7,11 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     Title="SomeCalenderWindow"
     Width="700"
-    Height="700"
+    Height="600"
     mc:Ignorable="d">
     <Window.Resources>
         <DataTemplate x:Key="someCalenders" DataType="{x:Type local:CalenderCreateEntity}">
-            <local:CalenderControl Height="300" />
+            <local:CalenderControl Height="400" />
         </DataTemplate>
         <Style x:Key="someCalendersStyle" TargetType="ListBox">
             <Setter Property="ItemTemplate" Value="{StaticResource someCalenders}" />
@@ -25,10 +25,27 @@
     </Window.Resources>
     <Grid>
         <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
             <RowDefinition Height="100" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
-        <Grid Grid.Row="0">
+        <Menu Grid.Row="0">
+            <MenuItem Header="オプション">
+                <MenuItem
+                    Name="weekChangeCheck"
+                    Click="CheckBox_Checked"
+                    Header="{Binding StartText}"
+                    IsCheckable="True" />
+                <MenuItem
+                    Name="TodayColorChange"
+                    Click="TodayColorChange_Click"
+                    Foreground="{Binding TodayTextColor}"
+                    Header="当日の色"
+                    IsCheckable="True" />
+            </MenuItem>
+        </Menu>
+        <Grid Grid.Row="1">
+
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="5*" />
@@ -40,7 +57,7 @@
                 HorizontalAlignment="Center"
                 VerticalAlignment="Center"
                 FontSize="25">
-                <Run Text="{Binding CalenderEntitys.CalenderDays.Date.Year, Mode=OneWay}" />
+                <Run Text="{Binding TopDateText.Year, Mode=OneWay}" />
                 年</TextBlock>
             <Button
                 Grid.Column="0"
@@ -56,12 +73,12 @@
                 Visibility="{Binding GoNextYearIcon}" />
         </Grid>
         <ListBox
-            Grid.Row="1"
+            Grid.Row="2"
             ItemsSource="{Binding CalenderEntitys}"
             Style="{StaticResource someCalendersStyle}">
             <ListBox.ItemsPanel>
                 <ItemsPanelTemplate>
-                    <UniformGrid Columns="3" Rows="4" />
+                    <UniformGrid Columns="3" />
                 </ItemsPanelTemplate>
             </ListBox.ItemsPanel>
         </ListBox>
