@@ -19,6 +19,8 @@ namespace WpfApp1
     /// </summary>
     public class SomeCalenderWindowViewModel : CommonCalenderCreate
     {
+        public event EventHandler CalenderUpdate;
+
         /// <summary>
         /// カレンダー情報を保持しているリスト
         /// </summary>
@@ -250,6 +252,12 @@ namespace WpfApp1
                 var nowYear = (CalenderCreateEntity)x;
                 return nowYear.Date.Year == data.UpDataDate.Year;
             };
+        }
+
+        public void CalenderUpdateEvent(EventArgs e)
+        {
+            if (CalenderUpdate != null)
+                CalenderUpdate(this, e);
         }
     }
 }
