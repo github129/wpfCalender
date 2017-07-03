@@ -27,15 +27,23 @@ namespace WpfApp1
         /// <summary>
         /// カレンダーを１年戻すアイコン
         /// </summary>
-        private string goBackYearIcon = "Visible";
+        private bool goBackYearIcon = true;
 
+        /// <summary>
+        /// goBackYearIconの表示用アイコン
+        /// 0なら表示させない
+        /// </summary>
         private int backYearCount;
 
         /// <summary>
         /// カレンダーを１年進めるアイコン
         /// </summary>
-        private string goNextYearIcon = "Visible";
+        private bool goNextYearIcon = true;
 
+        /// <summary>
+        /// goNextYearIconの表示用カウント
+        /// ０なら表示させない
+        /// </summary>
         private int nextYearCount;
 
         /// <summary>
@@ -44,9 +52,9 @@ namespace WpfApp1
         private DateTime topDateText;
 
         /// <summary>
-        /// Gets or sets カレンダー用のアイコンを扱うプロパティ
+        /// Gets or sets a value indicating whether gets or sets カレンダー用のアイコンを扱うプロパティ
         /// </summary>
-        public string GoBackYearIcon
+        public bool GoBackYearIcon
         {
             get
             {
@@ -64,9 +72,9 @@ namespace WpfApp1
         }
 
         /// <summary>
-        /// Gets or sets カレンダー用のアイコンを扱うプロパティ
+        /// Gets or sets a value indicating whether gets or sets カレンダー用のアイコンを扱うプロパティ
         /// </summary>
-        public string GoNextYearIcon
+        public bool GoNextYearIcon
         {
             get
             {
@@ -162,12 +170,14 @@ namespace WpfApp1
             this.ChangeColorTextColor(op.TodayColorChangeFlg);
 
             // カレンダーの年を移動するアイコン表示の確認
+            var convert = new CalenderConverter();
             if (data.InputDate.Month > 1 || !op.InputCreateountFlg)
             {
-                this.GoBackYearIcon = "Hidden";
+                this.GoBackYearIcon = false;
                 this.BackYearCount--;
             }
 
+            // nextYearCountの計算
             var nowYearCount = this.CalenderEntitys.Count - (12 - data.InputDate.AddMonths(-1).Month + 1);
             if (data.InputDate.AddMonths(op.CalenderCreateCount - 1).Year > data.InputDate.Year)
             {
@@ -179,7 +189,7 @@ namespace WpfApp1
 
             if (this.NextYearCount < 1)
             {
-                this.GoNextYearIcon = "Hidden";
+                this.GoNextYearIcon = false;
             }
 
             this.ChangeFilter(data.InputDate);
@@ -188,25 +198,25 @@ namespace WpfApp1
         /// <summary>
         /// 指定された年度のみを表示するためのフィルタ
         /// </summary>
-        /// <param name="date">Datetime 入力情報を「-1」年した年月日</param>
+        /// <param name="date">Datetime 入力情報を「+-1」年した年月日</param>
         public void ChangeFilter(DateTime date)
         {
             if (this.BackYearCount > 0)
             {
-                this.GoBackYearIcon = "Visible";
+                this.GoBackYearIcon = true;
             }
             else
             {
-                this.GoBackYearIcon = "Hidden";
+                this.GoBackYearIcon = false;
             }
 
             if (this.NextYearCount > 0)
             {
-                this.GoNextYearIcon = "Visible";
+                this.GoNextYearIcon = true;
             }
             else
             {
-                this.GoNextYearIcon = "Hidden";
+                this.GoNextYearIcon = false;
             }
 
             this.TopDateText = date;

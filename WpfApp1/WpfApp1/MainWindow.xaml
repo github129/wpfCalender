@@ -11,6 +11,7 @@
     Width="600"
     Height="600"
     Loaded="Window_Loaded"
+    SnapsToDevicePixels="True"
     mc:Ignorable="d">
     <Window.Resources />
     <Grid>
@@ -22,9 +23,16 @@
             <ColumnDefinition Width="*" />
             <ColumnDefinition Width="5*" />
         </Grid.ColumnDefinitions>
-        <Grid Grid.Row="0" Grid.Column="0" Background="Black" OpacityMask="Black"/>
-        <Grid Grid.Row="1" Grid.Column="0" Background="Black" OpacityMask="Black">
-        </Grid>
+        <Grid
+            Grid.Row="0"
+            Grid.Column="0"
+            Background="Black"
+            OpacityMask="Black" />
+        <Grid
+            Grid.Row="1"
+            Grid.Column="0"
+            Background="Black"
+            OpacityMask="Black" />
         <TextBox
             Grid.Row="1"
             Grid.Column="1"
@@ -69,7 +77,8 @@
             Margin="250,47,0,0"
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
-            Text="{Binding MakeCalenderCount, Mode=TwoWay}" Background="White" />
+            Background="White"
+            Text="{Binding MakeCalenderCount, Mode=TwoWay}" />
         <Label
             Grid.Row="1"
             Grid.Column="1"
@@ -87,7 +96,11 @@
             Margin="320,47,0,0"
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
+            Background="#FFA4B7F7"
+            BorderBrush="Black"
             Click="Button_Click"
-            Content="検索" Background="#FFA4B7F7" Foreground="White" BorderBrush="Black" FontFamily="Yu Gothic" />
+            Content="検索"
+            FontFamily="Yu Gothic"
+            Foreground="White" />
     </Grid>
 </Window>

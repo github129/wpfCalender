@@ -82,12 +82,35 @@ namespace WpfApp1
         }
 
         /// <summary>
-        /// 情報切り替え用のインターフェース
+        /// 曜日のチェックラベルの変更用メソッド
         /// </summary>
-        /// <param name="propertyName">プロパティ名</param>
-        protected void RaisePropertyChanged(string propertyName)
+        /// <param name="week">オプションクラスの曜日の判断</param>
+        public void ChangeWeekText(bool week)
         {
-            this.PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+            if (!week)
+            {
+                this.StartText = "月曜始まり";
+            }
+            else
+            {
+                this.StartText = "日曜始まり";
+            }
+        }
+
+        /// <summary>
+        /// 当日のBG色を変えるメソッド
+        /// </summary>
+        /// <param name="color">オプションクラスのvgcolorの判断</param>
+        public void ChangeColorTextColor(bool color)
+        {
+            if (!color)
+            {
+                this.TodayTextColor = "Black";
+            }
+            else
+            {
+                this.TodayTextColor = "Khaki";
+            }
         }
 
         /// <summary>
@@ -174,35 +197,12 @@ namespace WpfApp1
         }
 
         /// <summary>
-        /// 曜日のチェックラベルの変更用メソッド
+        /// 情報切り替え用のインターフェース
         /// </summary>
-        /// <param name="week">オプションクラスの曜日の判断</param>
-        public void ChangeWeekText(bool week)
+        /// <param name="propertyName">プロパティ名</param>
+        protected void RaisePropertyChanged(string propertyName)
         {
-            if (!week)
-            {
-                this.StartText = "月曜始まり";
-            }
-            else
-            {
-                this.StartText = "日曜始まり";
-            }
-        }
-
-        /// <summary>
-        /// 当日のBG色を変えるメソッド
-        /// </summary>
-        /// <param name="color">オプションクラスのvgcolorの判断</param>
-        public void ChangeColorTextColor(bool color)
-        {
-            if (!color)
-            {
-                this.TodayTextColor = "Black";
-            }
-            else
-            {
-                this.TodayTextColor = "Khaki";
-            }
+            this.PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
     }
 }
