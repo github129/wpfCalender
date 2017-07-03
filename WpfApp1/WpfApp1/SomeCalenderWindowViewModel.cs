@@ -22,7 +22,7 @@ namespace WpfApp1
         /// <summary>
         /// カレンダー情報を保持しているリスト
         /// </summary>
-        private IList<CalenderCreateEntity> calenderEntitys = new ObservableCollection<CalenderCreateEntity>();
+        private IList<CalenderCreateEntity> calenderEntitys;
 
         /// <summary>
         /// カレンダーを１年戻すアイコン
@@ -150,6 +150,17 @@ namespace WpfApp1
         }
 
         /// <summary>
+        /// カレンダー情報を初めて作るときの処理
+        /// </summary>
+        /// <param name="data">カレンダーデータクラス</param>
+        /// <param name="op">オプションクラス</param>
+        public void CalenderEntitysNew(CalenderData data, Option op)
+        {
+            this.CalenderEntitys = new ObservableCollection<CalenderCreateEntity>();
+            this.SetSomeCalender(data, op);
+        }
+
+        /// <summary>
         /// カレンダーを作成するメソッド
         /// </summary>
         /// <param name="data">カレンダーデータクラス</param>
@@ -158,7 +169,6 @@ namespace WpfApp1
         {
             this.BackYearCount = 1;
             this.NextYearCount = 0;
-
             for (int i = 0; i < op.CalenderCreateCount; i++)
             {
                 var calEntity = this.SetCalender(data, op);
@@ -170,7 +180,6 @@ namespace WpfApp1
             this.ChangeColorTextColor(op.TodayColorChangeFlg);
 
             // カレンダーの年を移動するアイコン表示の確認
-            var convert = new CalenderConverter();
             if (data.InputDate.Month > 1 || !op.InputCreateountFlg)
             {
                 this.GoBackYearIcon = false;
@@ -192,15 +201,30 @@ namespace WpfApp1
                 this.GoNextYearIcon = false;
             }
 
-            this.ChangeFilter(data.InputDate);
+            this.ChangeFilter(data);
+        }
+
+        /// <summary>
+        /// カレンダーを上書きする処理
+        /// </summary>
+        /// <param name="data">カレンダーデータクラス</param>
+        /// <param name="op">オプションクラス</param>
+        public void UpdataCalender(CalenderData data, Option op)
+        {
+            for (int i = 0; i < op.CalenderCreateCount; i++)
+            {
+                this.CalenderEntitys[i] = this.SetCalender(data, op);
+                data.Date = data.Date.AddMonths(1);
+            }
         }
 
         /// <summary>
         /// 指定された年度のみを表示するためのフィルタ
         /// </summary>
         /// <param name="date">Datetime 入力情報を「+-1」年した年月日</param>
-        public void ChangeFilter(DateTime date)
+        public void ChangeFilter(CalenderData data)
         {
+            data.UpDataDate = data.UpDataDate;
             if (this.BackYearCount > 0)
             {
                 this.GoBackYearIcon = true;
@@ -219,12 +243,12 @@ namespace WpfApp1
                 this.GoNextYearIcon = false;
             }
 
-            this.TopDateText = date;
+            this.TopDateText = data.UpDataDate;
             var collectionView = CollectionViewSource.GetDefaultView(this.calenderEntitys);
             collectionView.Filter = (x) =>
             {
                 var nowYear = (CalenderCreateEntity)x;
-                return nowYear.Date.Year == date.Year;
+                return nowYear.Date.Year == data.UpDataDate.Year;
             };
         }
     }

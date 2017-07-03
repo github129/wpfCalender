@@ -72,7 +72,7 @@ namespace WpfApp1
             }
 
             this.data.Date = date;
-            this.vm.SetSomeCalender(this.data, this.op);
+            this.vm.CalenderEntitysNew(this.data, this.op);
             this.DataContext = this.vm;
         }
 
@@ -85,8 +85,8 @@ namespace WpfApp1
         {
             this.vm.BackYearCount--;
             this.vm.NextYearCount++;
-            this.vm.ChangeFilter(this.data.UpDataDate.AddYears(-1));
             this.data.UpDataDate = this.data.UpDataDate.AddYears(-1);
+            this.vm.ChangeFilter(this.data);
         }
 
         /// <summary>
@@ -98,8 +98,8 @@ namespace WpfApp1
         {
             this.vm.BackYearCount++;
             this.vm.NextYearCount--;
-            this.vm.ChangeFilter(this.data.UpDataDate.AddYears(1));
             this.data.UpDataDate = this.data.UpDataDate.AddYears(1);
+            this.vm.ChangeFilter(this.data);
         }
 
         /// <summary>
@@ -117,11 +117,8 @@ namespace WpfApp1
             {
                 this.op.DatePriontChangeFlg = true;
             }
-
-            ((SomeCalenderWindowViewModel)this.DataContext).CalenderEntitys.Clear();
-            this.data.UpDataDate = this.data.InputDate;
             this.data.Date = this.data.InputDate.AddMonths(-1);
-            ((SomeCalenderWindowViewModel)this.DataContext).SetSomeCalender(this.data, this.op);
+            ((SomeCalenderWindowViewModel)this.DataContext).UpdataCalender(this.data, this.op);
         }
 
         /// <summary>
@@ -139,11 +136,8 @@ namespace WpfApp1
             {
                 this.op.TodayColorChangeFlg = true;
             }
-
-            ((SomeCalenderWindowViewModel)this.DataContext).CalenderEntitys.Clear();
-            this.data.UpDataDate = this.data.InputDate;
             this.data.Date = this.data.InputDate.AddMonths(-1);
-            ((SomeCalenderWindowViewModel)this.DataContext).SetSomeCalender(this.data, this.op);
+            ((SomeCalenderWindowViewModel)this.DataContext).UpdataCalender(this.data, this.op);
         }
     }
 }
