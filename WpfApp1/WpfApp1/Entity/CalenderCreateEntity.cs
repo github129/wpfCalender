@@ -11,12 +11,14 @@ namespace WpfApp1
     using System.Text;
     using System.Threading.Tasks;
     using Calender.Entitey;
+    using System.ComponentModel;
 
     /// <summary>
     /// カレンダー情報をすべて保持しているクラス
     /// </summary>
-    public class CalenderCreateEntity
+    public class CalenderCreateEntity : INotifyPropertyChanged
     {
+
         /// <summary>
         /// 日付クラスの情報が入ったリスト
         /// </summary>
@@ -32,6 +34,8 @@ namespace WpfApp1
         /// </summary>
         private DateTime date;
 
+        public event PropertyChangedEventHandler PropertyChanged;
+
         /// <summary>
         /// Gets or sets カレンダーの日付リストを扱うプロパティ
         /// </summary>
@@ -44,7 +48,11 @@ namespace WpfApp1
 
             set
             {
-                this.dayList = value;
+                if (this.dayList != value)
+                {
+                    this.dayList = value;
+                    this.RaisePropertyChanged("CalenderDays");
+                }
             }
         }
 
@@ -78,6 +86,51 @@ namespace WpfApp1
             {
                 this.date = value;
             }
+        }
+
+        /// <summary>
+        /// イベントハンドラー
+        /// </summary>
+        /// <param name="sender">呼び出し元のクラス</param>
+        /// <param name="e">イベントデータを含まないイベント</param>
+        public void StartHandler(SomeCalenderWindowViewModel vm)
+        {
+            vm.CalenderUpdate += new EventHandler(this.DayListUpdate);
+        }
+
+        public void DayListUpdate(object sender, EventArgs e)
+        {
+            var col = 0;
+            var row = 0;
+            if (this.CalenderDays[0].Col > 0)
+            {
+                col = this.CalenderDays[0].Col - 1;
+            }
+            else
+            {
+                col = 6;
+            }
+
+            for (int i = 0; i < this.CalenderDays.Count; i++)
+            {
+                this.CalenderDays[i].Col = col;
+                this.CalenderDays[i].Row = row;
+                col++;
+                if (col > 6)
+                {
+                    col = 0;
+                    row++;
+                }
+            }
+        }
+
+        /// <summary>
+        /// 情報切り替え用のインターフェース
+        /// </summary>
+        /// <param name="propertyName">プロパティ名</param>
+        protected void RaisePropertyChanged(string propertyName)
+        {
+            this.PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
     }
 }

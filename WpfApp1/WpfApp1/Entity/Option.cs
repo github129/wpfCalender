@@ -27,7 +27,7 @@ namespace Calender.Entitey
         /// <summary>
         /// 曜日の始まり判断用
         /// </summary>
-        private bool datePriontChangeFlg = true;
+        private bool datePrintChangeFlg = true;
 
         /// <summary>
         /// bgColor判断用
@@ -60,10 +60,10 @@ namespace Calender.Entitey
         /// <summary>
         /// Gets or sets a value indicating whether 曜日の変更用のプロパティ
         /// </summary>
-        public bool DatePriontChangeFlg
+        public bool DatePrintChangeFlg
         {
-            get { return this.datePriontChangeFlg; }
-            set { this.datePriontChangeFlg = value; }
+            get { return this.datePrintChangeFlg; }
+            set { this.datePrintChangeFlg = value; }
         }
 
         /// <summary>

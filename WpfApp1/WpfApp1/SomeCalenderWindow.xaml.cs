@@ -111,11 +111,11 @@ namespace WpfApp1
         {
             if ((bool)this.weekChangeCheck.IsChecked)
             {
-                this.op.DatePriontChangeFlg = false;
+                this.op.DatePrintChangeFlg = false;
             }
             else
             {
-                this.op.DatePriontChangeFlg = true;
+                this.op.DatePrintChangeFlg = true;
             }
             this.data.Date = this.data.InputDate.AddMonths(-1);
             ((SomeCalenderWindowViewModel)this.DataContext).UpdataCalender(this.data, this.op);

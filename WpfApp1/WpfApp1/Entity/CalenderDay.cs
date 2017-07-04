@@ -14,8 +14,9 @@ namespace WpfApp1
     /// <summary>
     /// カレンダーの日付を使うクラス
     /// </summary>
-    public class CalenderDay
+    public class CalenderDay : INotifyPropertyChanged
     {
+
         /// <summary>
         /// 日付の色
         /// </summary>
@@ -41,6 +42,8 @@ namespace WpfApp1
         /// </summary>
         private string day;
 
+        public event PropertyChangedEventHandler PropertyChanged;
+
         /// <summary>
         /// Gets or sets grid coulm
         /// </summary>
@@ -53,7 +56,11 @@ namespace WpfApp1
 
             set
             {
-                this.col = value;
+                if (this.col != value)
+                {
+                    this.col = value;
+                    this.RaisePropertyChanged("Col");
+                }
             }
         }
 
@@ -69,7 +76,11 @@ namespace WpfApp1
 
             set
             {
-                this.row = value;
+                if (this.row != value)
+                {
+                    this.row = value;
+                    this.RaisePropertyChanged("Row");
+                }
             }
         }
 
@@ -85,7 +96,11 @@ namespace WpfApp1
 
             set
             {
-                this.day = value;
+                if (this.day != value)
+                {
+                    this.day = value;
+                    this.RaisePropertyChanged("Day");
+                }
             }
         }
 
@@ -105,6 +120,15 @@ namespace WpfApp1
         {
             get { return this.foreColor; }
             set { this.foreColor = value; }
+        }
+
+        /// <summary>
+        /// 情報切り替え用のインターフェース
+        /// </summary>
+        /// <param name="propertyName">プロパティ名</param>
+        protected void RaisePropertyChanged(string propertyName)
+        {
+            this.PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
     }
 }

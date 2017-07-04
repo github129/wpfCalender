@@ -12,7 +12,7 @@ namespace WpfApp1
     using System.Text;
     using System.Threading.Tasks;
     using Calender.Entitey;
-
+    
     /// <summary>
     /// カレンダーの処理をするVMクラス
     /// </summary>
@@ -51,7 +51,7 @@ namespace WpfApp1
         public void SetOneCalender(CalenderData calData, Option option)
         {
             this.Data = this.SetCalender(calData, option);
-            this.ChangeWeekText(option.DatePriontChangeFlg);
+            this.ChangeWeekText(option.DatePrintChangeFlg);
             this.ChangeColorTextColor(option.TodayColorChangeFlg);
         }
     }

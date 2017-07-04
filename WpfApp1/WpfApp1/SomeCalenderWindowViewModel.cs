@@ -14,12 +14,24 @@ namespace WpfApp1
     using System.Windows.Data;
     using Calender.Entitey;
 
+    public delegate void EventHandler(object sender, EventArgs e);
+
     /// <summary>
     /// カレンダーを複数作るクラス
     /// </summary>
     public class SomeCalenderWindowViewModel : CommonCalenderCreate
     {
+
         public event EventHandler CalenderUpdate;
+
+        protected virtual void OnCalenderUpDate(EventArgs e)
+        {
+            if (CalenderUpdate != null)
+            {
+                CalenderUpdate(this, e);
+            }
+        }
+
 
         /// <summary>
         /// カレンダー情報を保持しているリスト
@@ -176,9 +188,10 @@ namespace WpfApp1
                 var calEntity = this.SetCalender(data, op);
                 this.calenderEntitys.Add(calEntity);
                 data.Date = data.Date.AddMonths(1);
+                this.CalenderUpdate += new EventHandler(calEntity.DayListUpdate);
             }
 
-            this.ChangeWeekText(op.DatePriontChangeFlg);
+            this.ChangeWeekText(op.DatePrintChangeFlg);
             this.ChangeColorTextColor(op.TodayColorChangeFlg);
 
             // カレンダーの年を移動するアイコン表示の確認
@@ -213,11 +226,7 @@ namespace WpfApp1
         /// <param name="op">オプションクラス</param>
         public void UpdataCalender(CalenderData data, Option op)
         {
-            for (int i = 0; i < op.CalenderCreateCount; i++)
-            {
-                this.CalenderEntitys[i] = this.SetCalender(data, op);
-                data.Date = data.Date.AddMonths(1);
-            }
+            this.OnCalenderUpDate(EventArgs.Empty);
         }
 
         /// <summary>
@@ -252,12 +261,6 @@ namespace WpfApp1
                 var nowYear = (CalenderCreateEntity)x;
                 return nowYear.Date.Year == data.UpDataDate.Year;
             };
-        }
-
-        public void CalenderUpdateEvent(EventArgs e)
-        {
-            if (CalenderUpdate != null)
-                CalenderUpdate(this, e);
         }
     }
 }

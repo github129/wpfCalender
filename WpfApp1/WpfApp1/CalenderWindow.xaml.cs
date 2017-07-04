@@ -83,11 +83,11 @@ namespace WpfApp1
         {
             if ((bool)this.weekChangeCheck.IsChecked)
             {
-                this.Op.DatePriontChangeFlg = false;
+                this.Op.DatePrintChangeFlg = false;
             }
             else
             {
-                this.Op.DatePriontChangeFlg = true;
+                this.Op.DatePrintChangeFlg = true;
             }
 
             ((CalenderWindowViewModel)this.DataContext).Data.CalenderDays.Clear();
