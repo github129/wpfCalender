@@ -7,18 +7,17 @@ namespace WpfApp1
     using System;
     using System.Collections.Generic;
     using System.Collections.ObjectModel;
+    using System.ComponentModel;
     using System.Linq;
     using System.Text;
     using System.Threading.Tasks;
     using Calender.Entitey;
-    using System.ComponentModel;
 
     /// <summary>
     /// カレンダー情報をすべて保持しているクラス
     /// </summary>
     public class CalenderCreateEntity : INotifyPropertyChanged
     {
-
         /// <summary>
         /// 日付クラスの情報が入ったリスト
         /// </summary>
@@ -34,6 +33,9 @@ namespace WpfApp1
         /// </summary>
         private DateTime date;
 
+        /// <summary>
+        /// インターフェース
+        /// </summary>
         public event PropertyChangedEventHandler PropertyChanged;
 
         /// <summary>
@@ -89,15 +91,10 @@ namespace WpfApp1
         }
 
         /// <summary>
-        /// イベントハンドラー
+        /// カレンダーの日付を書き換えるメソッド
         /// </summary>
         /// <param name="sender">呼び出し元のクラス</param>
-        /// <param name="e">イベントデータを含まないイベント</param>
-        public void StartHandler(SomeCalenderWindowViewModel vm)
-        {
-            vm.CalenderUpdate += new EventHandler(this.DayListUpdate);
-        }
-
+        /// <param name="e">イベント情報</param>
         public void DayListUpdate(object sender, EventArgs e)
         {
             var col = 0;

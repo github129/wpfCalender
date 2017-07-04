@@ -14,24 +14,34 @@ namespace WpfApp1
     using System.Windows.Data;
     using Calender.Entitey;
 
-    public delegate void EventHandler(object sender, EventArgs e);
+    /// <summary>
+    /// イベントハンドラー
+    /// </summary>
+    /// <param name="sender">クラス情報</param>
+    /// <param name="e">イベント情報</param>
+    public delegate void SomeCalenderEventHandler(object sender, EventArgs e);
 
     /// <summary>
     /// カレンダーを複数作るクラス
     /// </summary>
     public class SomeCalenderWindowViewModel : CommonCalenderCreate
     {
+        /// <summary>
+        /// イベント
+        /// </summary>
+        public event SomeCalenderEventHandler CalenderUpdate;
 
-        public event EventHandler CalenderUpdate;
-
+        /// <summary>
+        /// イベント起動
+        /// </summary>
+        /// <param name="e">イベント情報</param>
         protected virtual void OnCalenderUpDate(EventArgs e)
         {
-            if (CalenderUpdate != null)
+            if (this.CalenderUpdate != null)
             {
-                CalenderUpdate(this, e);
+                this.CalenderUpdate(this, e);
             }
         }
-
 
         /// <summary>
         /// カレンダー情報を保持しているリスト
@@ -188,14 +198,14 @@ namespace WpfApp1
                 var calEntity = this.SetCalender(data, op);
                 this.calenderEntitys.Add(calEntity);
                 data.Date = data.Date.AddMonths(1);
-                this.CalenderUpdate += new EventHandler(calEntity.DayListUpdate);
+                this.CalenderUpdate += new SomeCalenderEventHandler(calEntity.DayListUpdate);
             }
 
-            this.ChangeWeekText(op.DatePrintChangeFlg);
-            this.ChangeColorTextColor(op.TodayColorChangeFlg);
+            this.ChangeWeekText(op.IsDatePrintChange);
+            this.ChangeColorTextColor(op.IsTodayColorChange);
 
             // カレンダーの年を移動するアイコン表示の確認
-            if (data.InputDate.Month > 1 || !op.InputCreateountFlg)
+            if (data.InputDate.Month > 1 || !op.IsInputCreateount)
             {
                 this.GoBackYearIcon = false;
                 this.BackYearCount--;
@@ -232,7 +242,7 @@ namespace WpfApp1
         /// <summary>
         /// 指定された年度のみを表示するためのフィルタ
         /// </summary>
-        /// <param name="date">Datetime 入力情報を「+-1」年した年月日</param>
+        /// <param name="data">カレンダーデータクラス</param>
         public void ChangeFilter(CalenderData data)
         {
             data.UpDataDate = data.UpDataDate;

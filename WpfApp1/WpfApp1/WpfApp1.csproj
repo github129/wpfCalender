@@ -69,54 +69,54 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <ApplicationDefinition Include="App.xaml">
+    <ApplicationDefinition Include="xaml\App.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="CalenderControl.xaml.cs">
+    <Compile Include="xaml\CalenderControl.xaml.cs">
       <DependentUpon>CalenderControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="CalenderConverter.cs" />
     <Compile Include="Entity\CalenderCreateEntity.cs" />
-    <Compile Include="CalenderWindow.xaml.cs">
+    <Compile Include="xaml\CalenderWindow.xaml.cs">
       <DependentUpon>CalenderWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="CalenderWindowViewModel.cs" />
+    <Compile Include="VM\CalenderWindowViewModel.cs" />
     <Compile Include="CommonCalenderCreate.cs" />
     <Compile Include="Entity\Option.cs" />
-    <Compile Include="SomeCalenderWindow.xaml.cs">
+    <Compile Include="xaml\SomeCalenderWindow.xaml.cs">
       <DependentUpon>SomeCalenderWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="SomeCalenderWindowViewModel.cs" />
+    <Compile Include="VM\SomeCalenderWindowViewModel.cs" />
     <Compile Include="Entity\WeekItem.cs" />
-    <Page Include="CalenderControl.xaml">
+    <Page Include="xaml\CalenderControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="CalenderDictionary.xaml">
+    <Page Include="xaml\CalenderDictionary.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="CalenderWindow.xaml">
+    <Page Include="xaml\CalenderWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="MainWindow.xaml">
+    <Page Include="xaml\MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Compile Include="App.xaml.cs">
+    <Compile Include="xaml\App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Entity\CalenderData.cs" />
     <Compile Include="Entity\CalenderDay.cs" />
-    <Compile Include="MainWindowViewModel.cs" />
-    <Compile Include="MainWindow.xaml.cs">
+    <Compile Include="VM\MainWindowViewModel.cs" />
+    <Compile Include="xaml\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="SomeCalenderWindow.xaml">
+    <Page Include="xaml\SomeCalenderWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -13,18 +13,29 @@ namespace WpfApp1
     using System.Threading.Tasks;
     using Calender.Entitey;
 
-
     /// <summary>
     /// カレンダーを１つ作成するクラス
     /// </summary>
     public class CommonCalenderCreate : INotifyPropertyChanged
     {
+        /// <summary>
+        /// カレンダーDayクラス
+        /// </summary>
         private CalenderDay calenderDay;
 
+        /// <summary>
+        /// カレンダーデータクラス
+        /// </summary>
         private CalenderData data;
 
+        /// <summary>
+        /// カレンダー情報クラス
+        /// </summary>
         private CalenderCreateEntity entity;
 
+        /// <summary>
+        /// オプションクラス
+        /// </summary>
         private Option option;
 
         /// <summary>
@@ -94,9 +105,12 @@ namespace WpfApp1
             }
         }
 
+        /// <summary>
+        /// Gets or sets カレンダー情報クラス用プロパティ
+        /// </summary>
         public CalenderCreateEntity Entity
         {
-            get {return this.entity; }
+            get { return this.entity; }
             set { this.entity = value; }
         }
 
@@ -209,41 +223,12 @@ namespace WpfApp1
                 this.DateColorChange(col, this.calenderDay);
 
                 // 当日かどうかの判断
-                if (option.TodayColorChangeFlg && i == DateTime.Now.Day && data.Date.Year == DateTime.Now.Year && data.Date.Month == DateTime.Now.Month)
+                if (option.IsTodayColorChange && i == DateTime.Now.Day && data.Date.Year == DateTime.Now.Year && data.Date.Month == DateTime.Now.Month)
                 {
                     this.calenderDay.BgColor = "Khaki";
                 }
 
                 entity.CalenderDays.Add(this.calenderDay);
-                col++;
-                if (col > 6)
-                {
-                    row++;
-                    col = 0;
-                }
-            }
-        }
-
-        /// <summary>
-        /// 日付を更新するメソッド
-        /// </summary>
-        /// <param name="data">Dataクラス</param>
-        public void DaysUpDate(CalenderData data, Option op)
-        {
-            this.option = op;
-            this.data = data;
-            var row = 0;
-            data.FastDateCreate();
-            data.LastDay();
-            var col = this.DateSwitch(this.option.DatePrintChangeFlg, data.FastDate);
-            for (var i = 0; i < data.CalenderLastDay; i++)
-            {
-                this.DayCreate(this.calenderDay, i, col, row);
-
-                // 曜日の色を変える処理
-                this.DateColorChange(col, this.calenderDay);
-
-                this.entity.CalenderDays[i] = this.calenderDay;
                 col++;
                 if (col > 6)
                 {
@@ -271,14 +256,14 @@ namespace WpfApp1
             this.entity.Date = calData.Date;
             this.option = paramOption;
 
-            var col = this.DateSwitch(this.option.DatePrintChangeFlg,  calData.FastDate);
+            var col = this.DateSwitch(this.option.IsDatePrintChange,  calData.FastDate);
 
             var row = 0;
             this.DaysCreate(this.entity, calData, col, row, this.option);
 
             // 曜日タイトルの作成
             var week = DateListS;
-            if (!this.option.DatePrintChangeFlg)
+            if (!this.option.IsDatePrintChange)
             {
                 week = DateListM;
             }

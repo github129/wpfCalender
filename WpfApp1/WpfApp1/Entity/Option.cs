@@ -22,17 +22,17 @@ namespace Calender.Entitey
         /// <summary>
         /// nが入力されたかどうか判断するフラグ
         /// </summary>
-        private bool inputCreateCountFlg = true;
+        private bool isInputCreateCount = true;
 
         /// <summary>
         /// 曜日の始まり判断用
         /// </summary>
-        private bool datePrintChangeFlg = true;
+        private bool isDatePrintChange = true;
 
         /// <summary>
         /// bgColor判断用
         /// </summary>
-        private bool todayColorChangeFlg = true;
+        private bool isTodayColorChange = true;
 
         /// <summary>
         /// 入力年月
@@ -60,28 +60,28 @@ namespace Calender.Entitey
         /// <summary>
         /// Gets or sets a value indicating whether 曜日の変更用のプロパティ
         /// </summary>
-        public bool DatePrintChangeFlg
+        public bool IsDatePrintChange
         {
-            get { return this.datePrintChangeFlg; }
-            set { this.datePrintChangeFlg = value; }
+            get { return this.isDatePrintChange; }
+            set { this.isDatePrintChange = value; }
         }
 
         /// <summary>
         /// Gets or sets a value indicating whether bgColor変更用のプロパティ
         /// </summary>
-        public bool TodayColorChangeFlg
+        public bool IsTodayColorChange
         {
-            get { return this.todayColorChangeFlg; }
-            set { this.todayColorChangeFlg = value; }
+            get { return this.isTodayColorChange; }
+            set { this.isTodayColorChange = value; }
         }
 
         /// <summary>
         /// Gets or sets a value indicating whether nに入力があったかどうかを判断するフラグ用のプロパティ
         /// </summary>
-        public bool InputCreateountFlg
+        public bool IsInputCreateount
         {
-            get { return this.inputCreateCountFlg; }
-            set { this.inputCreateCountFlg = value; }
+            get { return this.isInputCreateCount; }
+            set { this.isInputCreateCount = value; }
         }
     }
 }

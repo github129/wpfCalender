@@ -63,7 +63,7 @@ namespace WpfApp1
         public void SomeCalenderControl(DateTime date, int n, bool nFlg)
         {
             this.op.CalenderCreateCount = n;
-            this.op.InputCreateountFlg = nFlg;
+            this.op.IsInputCreateount = nFlg;
             this.data.InputDate = date;
             this.data.UpDataDate = date;
             if (nFlg)
@@ -111,11 +111,11 @@ namespace WpfApp1
         {
             if ((bool)this.weekChangeCheck.IsChecked)
             {
-                this.op.DatePrintChangeFlg = false;
+                this.op.IsDatePrintChange = false;
             }
             else
             {
-                this.op.DatePrintChangeFlg = true;
+                this.op.IsDatePrintChange = true;
             }
             this.data.Date = this.data.InputDate.AddMonths(-1);
             ((SomeCalenderWindowViewModel)this.DataContext).UpdataCalender(this.data, this.op);
@@ -130,11 +130,11 @@ namespace WpfApp1
         {
             if ((bool)this.TodayColorChange.IsChecked)
             {
-                this.op.TodayColorChangeFlg = false;
+                this.op.IsTodayColorChange = false;
             }
             else
             {
-                this.op.TodayColorChangeFlg = true;
+                this.op.IsTodayColorChange = true;
             }
             this.data.Date = this.data.InputDate.AddMonths(-1);
             ((SomeCalenderWindowViewModel)this.DataContext).UpdataCalender(this.data, this.op);

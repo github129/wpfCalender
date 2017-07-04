@@ -83,11 +83,11 @@ namespace WpfApp1
         {
             if ((bool)this.weekChangeCheck.IsChecked)
             {
-                this.Op.DatePrintChangeFlg = false;
+                this.Op.IsDatePrintChange = false;
             }
             else
             {
-                this.Op.DatePrintChangeFlg = true;
+                this.Op.IsDatePrintChange = true;
             }
 
             ((CalenderWindowViewModel)this.DataContext).Data.CalenderDays.Clear();
@@ -103,11 +103,11 @@ namespace WpfApp1
         {
             if ((bool)this.TodayColorChange.IsChecked)
             {
-                this.Op.TodayColorChangeFlg = false;
+                this.Op.IsTodayColorChange = false;
             }
             else
             {
-                this.Op.TodayColorChangeFlg = true;
+                this.Op.IsTodayColorChange = true;
             }
 
             ((CalenderWindowViewModel)this.DataContext).Data.CalenderDays.Clear();

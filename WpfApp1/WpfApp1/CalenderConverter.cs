@@ -2,7 +2,7 @@
 // Copyright (c) PlaceholderCompany. All rights reserved.
 // </copyright>
 
-namespace WpfApp1
+namespace CalenderConverter
 {
     using System;
     using System.Collections.Generic;
@@ -28,7 +28,6 @@ namespace WpfApp1
         /// <returns>Visiblityのパラメーター</returns>
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-
             if ((bool)value)
             {
                 return Visibility.Visible;

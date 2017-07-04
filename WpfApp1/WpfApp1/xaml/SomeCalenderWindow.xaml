@@ -4,6 +4,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="clr-namespace:WpfApp1"
+    xmlns:converter="clr-namespace:CalenderConverter"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     Title="SomeCalenderWindow"
     Width="700"
@@ -68,7 +69,7 @@
                 <Button.Visibility>
                     <Binding Path="GoBackYearIcon">
                         <Binding.Converter>
-                            <local:CalenderConverter />
+                            <converter:CalenderConverter />
                         </Binding.Converter>
                     </Binding>
                 </Button.Visibility>
@@ -83,7 +84,7 @@
                 <Button.Visibility>
                     <Binding Path="GoNextYearIcon">
                         <Binding.Converter>
-                            <local:CalenderConverter />
+                            <converter:CalenderConverter />
                         </Binding.Converter>
                     </Binding>
                 </Button.Visibility>
