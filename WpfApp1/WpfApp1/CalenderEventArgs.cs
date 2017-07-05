@@ -17,12 +17,26 @@ namespace CustomEventArgs
     /// </summary>
     public class CalenderEventArgs : EventArgs
     {
-        public Option option;
+        /// <summary>
+        /// オプションクラス
+        /// </summary>
+        private Option option;
 
-        public CalenderData data;
+        /// <summary>
+        /// カレンダーデータクラス
+        /// </summary>
+        private CalenderData data;
 
-        public IList<DateTime> dateTimes = new List<DateTime>();
+        public Option Option
+        {
+            get { return this.option; }
+            set { this.option = value; }
+        }
 
-        public int listNumber;
+        public CalenderData Data
+        {
+            get { return this.data; }
+            set { this.data = value; }
+        }
     }
 }

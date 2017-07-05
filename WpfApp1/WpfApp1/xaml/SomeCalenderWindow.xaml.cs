@@ -7,17 +7,7 @@ namespace WpfApp1
     using System;
     using System.Collections.Generic;
     using System.Collections.ObjectModel;
-    using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
     using System.Windows;
-    using System.Windows.Controls;
-    using System.Windows.Data;
-    using System.Windows.Documents;
-    using System.Windows.Input;
-    using System.Windows.Media;
-    using System.Windows.Media.Imaging;
-    using System.Windows.Shapes;
     using Calender.Entitey;
 
     /// <summary>
@@ -119,7 +109,7 @@ namespace WpfApp1
             }
 
             this.data.Date = this.data.InputDate.AddMonths(-1);
-            ((SomeCalenderWindowViewModel)this.DataContext).UpdataCalender(this.data, this.op);
+            ((SomeCalenderWindowViewModel)this.DataContext).UpdataCalender(this.op);
         }
 
         /// <summary>
@@ -138,7 +128,7 @@ namespace WpfApp1
                 this.op.IsTodayColorChange = true;
             }
             this.data.Date = this.data.InputDate.AddMonths(-1);
-            ((SomeCalenderWindowViewModel)this.DataContext).ColorChangeEvent(this.data, this.op);
+            ((SomeCalenderWindowViewModel)this.DataContext).ColorChangeEvent(this.op);
         }
     }
 }

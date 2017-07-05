@@ -21,6 +21,11 @@ namespace Calender.Entitey
         /// </summary>
         private string title;
 
+        /// <summary>
+        /// 横の位置
+        /// </summary>
+        private int col;
+
         /// <inheritdoc/>
         public event PropertyChangedEventHandler PropertyChanged;
 
@@ -40,6 +45,26 @@ namespace Calender.Entitey
                 {
                     this.title = value;
                     this.RaisePropertyChanged("Title");
+                }
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets 曜日プロパティ
+        /// </summary>
+        public int Col
+        {
+            get
+            {
+                return this.col;
+            }
+
+            set
+            {
+                if (this.col != value)
+                {
+                    this.col = value;
+                    this.RaisePropertyChanged("Col");
                 }
             }
         }

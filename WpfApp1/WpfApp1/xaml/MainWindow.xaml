@@ -8,8 +8,8 @@
     xmlns:local="clr-namespace:WpfApp1"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     Title="MainWindow"
-    Width="600"
-    Height="191.716"
+    Width="700"
+    Height="300"
     Loaded="Window_Loaded"
     SnapsToDevicePixels="True"
     mc:Ignorable="d">
@@ -27,73 +27,57 @@
             Background="Black"
             OpacityMask="Black" />
         <TextBox
-            Grid.Row="1"
+            Grid.Column="1"
+            Margin="54,70,418,137"
+            Padding="2"
+            BorderThickness="4"
+            FontSize="25"
+            Text="{Binding InputYear, Mode=TwoWay}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <Label
+            Grid.Column="1"
+            Height="48"
+            Margin="153,76,381,145"
+            Content="年"
+            FontSize="25"
+            RenderTransformOrigin="0.692,0.537" />
+        <ComboBox
+            Name="monthComboBox"
+            Grid.Column="1"
+            Height="Auto"
+            Margin="233,76,271,145"
+            FontSize="25" />
+        <Label
+            Grid.Column="1"
+            Width="36.988"
+            Margin="318,76,222,146"
+            Content="月"
+            FontSize="25" />
+        <TextBox
             Grid.Column="1"
             Width="50"
-            Height="20"
-            Margin="86,47,0,0"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Top"
-            Text="{Binding InputYear, Mode=TwoWay}" />
-        <Label
-            Grid.Row="1"
-            Grid.Column="1"
-            Width="Auto"
-            Height="Auto"
-            Margin="135.988,46,0,0"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Top"
-            Content="年" />
-        <TextBox
-            Grid.Row="1"
-            Grid.Column="1"
-            Width="50"
-            Height="20"
-            Margin="166,47,0,0"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Top"
-            Text="{Binding InputMonth, Mode=TwoWay}" />
-        <Label
-            Grid.Row="1"
-            Grid.Column="1"
-            Width="Auto"
-            Height="Auto"
-            Margin="215.999,47,0,0"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Top"
-            Content="月" />
-        <TextBox
-            Grid.Row="1"
-            Grid.Column="1"
-            Width="30"
-            Height="20"
-            Margin="250,47,0,0"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Top"
-            Background="White"
+            Margin="397,76,121,149"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            FontSize="25"
             Text="{Binding MakeCalenderCount, Mode=TwoWay}" />
         <Label
-            Grid.Row="1"
             Grid.Column="1"
-            Width="Auto"
-            Height="Auto"
-            Margin="279.999,47,0,0"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Top"
+            Width="38.514"
+            Height="44.35"
+            Margin="466,76,72,149"
             Content="件"
+            FontSize="25"
             RenderTransformOrigin="3.318,0.5" />
         <Button
-            Grid.Row="1"
             Grid.Column="1"
-            Width="50"
-            Margin="320,47,0,0"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Top"
+            Height="48"
+            Margin="43,103,69,10"
             Background="#FFA4B7F7"
             BorderBrush="Black"
             Click="Button_Click"
             Content="検索"
             FontFamily="Yu Gothic"
+            FontSize="25"
             Foreground="White" />
     </Grid>
 </Window>

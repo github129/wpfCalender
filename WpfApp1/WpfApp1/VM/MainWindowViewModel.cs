@@ -31,7 +31,7 @@ namespace WpfApp1
         /// <summary>
         /// 入力月
         /// </summary>
-        private string inputMonth = DateTime.Now.Month.ToString();
+        private int inputMonth = DateTime.Now.Month;
 
         /// <summary>
         /// カレンダーの作成数
@@ -40,6 +40,8 @@ namespace WpfApp1
 
         /// <inheritdoc/>
         public event PropertyChangedEventHandler PropertyChanged;
+
+        private IList<MainWindowData> mainDataList = new ObservableCollection<MainWindowData>();
 
         /// <summary>
         /// Gets or sets 年月日を扱うプロパティ
@@ -84,7 +86,7 @@ namespace WpfApp1
         /// <summary>
         /// Gets or sets 入力月用のプロパティ
         /// </summary>
-        public string InputMonth
+        public int InputMonth
         {
             get
             {
@@ -122,6 +124,15 @@ namespace WpfApp1
         }
 
         /// <summary>
+        /// メインデータクラスを扱うプロパティ
+        /// </summary>
+        public IList<MainWindowData> MainDataList
+        {
+            get { return this.mainDataList; }
+            set { this.mainDataList = value; }
+        }
+
+        /// <summary>
         /// 検索ボタンが押されたときのイベント処理メソッド
         /// </summary>
         /// <param name="data">カレンダーデータクラス</param>
@@ -144,7 +155,7 @@ namespace WpfApp1
                 inputCreateountFlg = false;
                 op.CalenderCreateCount = 1;
             }
-            else if (this.MakeCalenderCount.Length == 0 && this.InputYear.Length > 0 && this.InputMonth.Length == 0)
+            else if (this.MakeCalenderCount.Length == 0 && this.InputYear.Length > 0 && this.InputMonth == 0)
             {
                 inputCreateountFlg = false;
                 op.CalenderCreateCount = 12;
@@ -155,26 +166,39 @@ namespace WpfApp1
             }
 
             // 月の確認
-            if (this.InputMonth.Length == 0 && this.InputYear.Length == 0)
+            if (this.InputMonth == 0 && this.InputYear.Length == 0)
             {
-                this.InputMonth = DateTime.Now.Month.ToString();
+                this.InputMonth = DateTime.Now.Month;
             }
-            else if (this.InputMonth.Length == 0 && this.InputYear.Length != 0 && this.MakeCalenderCount.Length == 0)
+            else if (this.InputMonth == 0 && this.InputYear.Length != 0 && this.MakeCalenderCount.Length == 0)
             {
-                this.InputMonth = "1";
+                this.InputMonth = 1;
             }
 
-            this.Date = new DateTime(int.Parse(this.InputYear), int.Parse(this.InputMonth), 1);
+            this.Date = new DateTime(int.Parse(this.InputYear), this.InputMonth , 1);
 
             if (op.CalenderCreateCount > 1)
             {
-                someWindow.SomeCalenderControl(this.Date, op.CalenderCreateCount , inputCreateountFlg);
+                someWindow.SomeCalenderControl(this.Date, op.CalenderCreateCount, inputCreateountFlg);
                 someWindow.Show();
             }
             else
             {
                 window.UserContorol(this.Date);
                 window.Show();
+            }
+        }
+
+        /// <summary>
+        /// 月のcombobox作成用
+        /// </summary>
+        public void MonthListCreate()
+        {
+            for (var i = 0; i < 12; i++)
+            {
+                var mainData = new MainWindowData();
+                mainData.Month = i + 1;
+                this.MainDataList.Add(mainData);
             }
         }
 

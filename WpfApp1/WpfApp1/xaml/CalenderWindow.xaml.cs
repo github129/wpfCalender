@@ -90,8 +90,7 @@ namespace WpfApp1
                 this.Op.IsDatePrintChange = true;
             }
 
-            ((CalenderWindowViewModel)this.DataContext).Data.CalenderDays.Clear();
-            ((CalenderWindowViewModel)this.DataContext).SetOneCalender(this.Data, this.Op);
+            ((CalenderWindowViewModel)this.DataContext).UpdataCalender(this.op);
         }
 
         /// <summary>
@@ -110,8 +109,7 @@ namespace WpfApp1
                 this.Op.IsTodayColorChange = true;
             }
 
-            ((CalenderWindowViewModel)this.DataContext).Data.CalenderDays.Clear();
-            ((CalenderWindowViewModel)this.DataContext).SetOneCalender(this.Data, this.Op);
+            ((CalenderWindowViewModel)this.DataContext).ColorChangeEvent(this.op);
         }
     }
 }

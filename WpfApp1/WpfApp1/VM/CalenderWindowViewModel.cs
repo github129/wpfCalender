@@ -12,7 +12,7 @@ namespace WpfApp1
     using System.Text;
     using System.Threading.Tasks;
     using Calender.Entitey;
-    
+
     /// <summary>
     /// カレンダーの処理をするVMクラス
     /// </summary>
@@ -21,24 +21,24 @@ namespace WpfApp1
         /// <summary>
         /// カレンダーの情報クラス
         /// </summary>
-        private CalenderCreateEntity data;
+        private CalenderCreateEntity entity;
 
         /// <summary>
         /// Gets or sets カレンダー情報プロパティ
         /// </summary>
-        public CalenderCreateEntity Data
+        public CalenderCreateEntity Entity
         {
             get
             {
-                return this.data;
+                return this.entity;
             }
 
             set
             {
-                if (this.data != value)
+                if (this.entity != value)
                 {
-                    this.data = value;
-                    this.RaisePropertyChanged("Data");
+                    this.entity = value;
+                    this.RaisePropertyChanged("Entity");
                 }
             }
         }
@@ -50,9 +50,32 @@ namespace WpfApp1
         /// <param name="option">オプションクラス</param>
         public void SetOneCalender(CalenderData calData, Option option)
         {
-            this.Data = this.SetCalender(calData, option);
+            this.Entity = this.SetCalender(calData, option);
             this.ChangeWeekText(option.IsDatePrintChange);
             this.ChangeColorTextColor(option.IsTodayColorChange);
+            this.CalenderUpdate += new SomeCalenderEventHandler(this.Entity.DayListUpdate);
+            this.CalenderUpdate += new SomeCalenderEventHandler(this.Entity.WeekChange);
+            this.TodayColorChenge += new SomeCalenderColorChangeEventHandler(this.Entity.TodayColorChange);
+        }
+
+        /// <summary>
+        /// カレンダーを上書きする処理
+        /// </summary>
+        /// <param name="op">オプションクラス</param>
+        public void UpdataCalender(Option op)
+        {
+            this.Args.Option = op;
+            this.OnCalenderUpDate(this.Args);
+        }
+
+        /// <summary>
+        /// 当日の色を変更する処理
+        /// </summary>
+        /// <param name="op">オプションクラス</param>
+        public void ColorChangeEvent(Option op)
+        {
+            this.Args.Option = op;
+            this.OnTodayColorChange(this.Args);
         }
     }
 }

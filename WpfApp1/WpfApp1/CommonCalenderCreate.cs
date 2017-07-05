@@ -16,19 +16,67 @@ namespace WpfApp1
     using CustomEventArgs;
 
     /// <summary>
+    /// イベントハンドラーの設定
+    /// </summary>
+    /// <param name="sender">クラス情報</param>
+    /// <param name="e">イベント情報</param>
+    public delegate void SomeCalenderEventHandler(object sender, CalenderEventArgs e);
+
+    /// <summary>
+    /// イベントハンドラーの設定
+    /// </summary>
+    /// <param name="sender">呼び出し元のクラス</param>
+    /// <param name="e">イベント情報</param>
+    public delegate void SomeCalenderColorChangeEventHandler(object sender, CalenderEventArgs e);
+
+    /// <summary>
     /// カレンダーを１つ作成するクラス
     /// </summary>
     public class CommonCalenderCreate : INotifyPropertyChanged
     {
         /// <summary>
+        /// EventArgsクラス
+        /// </summary>
+        private CalenderEventArgs args = new CalenderEventArgs();
+
+        /// <summary>
+        /// 日付更新イベント
+        /// </summary>
+        public event SomeCalenderEventHandler CalenderUpdate;
+
+        /// <summary>
+        /// 当日の色更新イベント
+        /// </summary>
+        public event SomeCalenderColorChangeEventHandler TodayColorChenge;
+
+        /// <summary>
+        /// 日付更新イベント起動
+        /// </summary>
+        /// <param name="e">イベント情報</param>
+        protected virtual void OnCalenderUpDate(CalenderEventArgs e)
+        {
+            if (this.CalenderUpdate != null)
+            {
+                this.CalenderUpdate(this, e);
+            }
+        }
+
+        /// <summary>
+        /// 当日の背景色更新イベント起動
+        /// </summary>
+        /// <param name="e">イベント情報</param>
+        protected virtual void OnTodayColorChange(CalenderEventArgs e)
+        {
+            if (this.TodayColorChenge != null)
+            {
+                this.TodayColorChenge(this, e);
+            }
+        }
+
+        /// <summary>
         /// カレンダーDayクラス
         /// </summary>
         private CalenderDay calenderDay;
-
-        /// <summary>
-        /// カレンダーデータクラス
-        /// </summary>
-        private CalenderData data;
 
         /// <summary>
         /// カレンダー情報クラス
@@ -66,6 +114,15 @@ namespace WpfApp1
 
         /// <inheritdoc/>
         public event PropertyChangedEventHandler PropertyChanged;
+
+        /// <summary>
+        /// Gets or sets argsを扱うプロパティ
+        /// </summary>
+        public CalenderEventArgs Args
+        {
+            get { return this.args; }
+            set { this.args = value; }
+        }
 
         /// <summary>
         /// Gets or sets ラベルを扱うプロパティ
@@ -115,7 +172,6 @@ namespace WpfApp1
             get { return this.entity; }
             set { this.entity = value; }
         }
-
 
         /// <summary>
         /// 曜日のチェックラベルの変更用メソッド
@@ -262,6 +318,8 @@ namespace WpfApp1
             var row = 0;
             this.DaysCreate(this.entity, calData, col, row, this.option);
 
+            var dateCol = 0;
+
             // 曜日タイトルの作成
             var week = DateListS;
             if (!this.option.IsDatePrintChange)
@@ -273,6 +331,8 @@ namespace WpfApp1
             {
                 var weekItem = new WeekItem();
                 weekItem.Title = s;
+                weekItem.Col = dateCol;
+                dateCol++;
                 this.entity.CalenderWeekItems.Add(weekItem);
             }
 

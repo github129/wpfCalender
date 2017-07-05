@@ -12,9 +12,11 @@
     <UserControl.Resources>
         <DataTemplate x:Key="calenderList" DataType="{x:Type local:CalenderDay}">
             <TextBlock
-                Padding="12,12,0,0"
+                VerticalAlignment="Center"
                 Foreground="{Binding ForeColor}"
-                Text="{Binding Day}" />
+                Text="{Binding Day}"
+                TextAlignment="Center" />
+
         </DataTemplate>
         <Style x:Key="calenderStyle" TargetType="{x:Type ListBox}">
             <Setter Property="ItemTemplate" Value="{StaticResource calenderList}" />
@@ -27,68 +29,8 @@
                     </Style>
                 </Setter.Value>
             </Setter>
-        </Style>
-
-
-        <DataTemplate x:Key="calenderDate" DataType="{x:Type Calender:WeekItem}">
-            <TextBlock
-                Width="31.5"
-                Padding="10,0,0,0"
-                HorizontalAlignment="Right"
-                VerticalAlignment="Center"
-                Text="{Binding Title}" />
-        </DataTemplate>
-        <Style x:Key="calenderDateStyle" TargetType="{x:Type ListBox}">
-            <Setter Property="ItemTemplate" Value="{StaticResource calenderDate}" />
-            <Setter Property="ItemContainerStyle">
+            <Setter Property="ItemsPanel">
                 <Setter.Value>
-                    <Style TargetType="{x:Type ListBoxItem}" />
-                </Setter.Value>
-            </Setter>
-        </Style>
-    </UserControl.Resources>
-    <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="*" />
-            <RowDefinition Height="*" />
-            <RowDefinition Height="4*" />
-            <RowDefinition Height="*" />
-            <RowDefinition Height="*" />
-        </Grid.RowDefinitions>
-        <TextBlock
-            Grid.Row="0"
-            HorizontalAlignment="Center"
-            VerticalAlignment="Bottom"
-            FontSize="25">
-            <Run Text="{Binding Date.Year, Mode=OneWay}" />
-            年<Run Text="{Binding Date.Month, Mode=OneWay}" />
-            月</TextBlock>
-        <ListBox
-            Grid.Row="1"
-            HorizontalContentAlignment="Stretch"
-            VerticalContentAlignment="Stretch"
-            ItemsSource="{Binding CalenderWeekItems}"
-            Style="{StaticResource calenderDateStyle}">
-            <ListBox.ItemsPanel>
-                <ItemsPanelTemplate>
-                    <DockPanel />
-                </ItemsPanelTemplate>
-            </ListBox.ItemsPanel>
-        </ListBox>
-        <Grid x:Name="LayoutRoot" Grid.Row="2">
-            <ListBox
-                Width="{Binding ElementName=LayoutRoot, Path=ActualWidth}"
-                Height="{Binding ElementName=LayoutRoot, Path=ActualHeight}"
-                Margin="0"
-                HorizontalAlignment="Left"
-                VerticalAlignment="Top"
-                HorizontalContentAlignment="Stretch"
-                VerticalContentAlignment="Stretch"
-                Grid.IsSharedSizeScope="True"
-                ItemsSource="{Binding CalenderDays}"
-                ScrollViewer.HorizontalScrollBarVisibility="Disabled"
-                Style="{StaticResource calenderStyle}">
-                <ListBox.ItemsPanel>
                     <ItemsPanelTemplate>
                         <Grid>
                             <Grid.RowDefinitions>
@@ -110,8 +52,81 @@
                             </Grid.ColumnDefinitions>
                         </Grid>
                     </ItemsPanelTemplate>
-                </ListBox.ItemsPanel>
-            </ListBox>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+
+        <DataTemplate x:Key="calenderDate" DataType="{x:Type Calender:WeekItem}">
+            <TextBlock
+                Width="46"
+                Padding="10,0,0,0"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Center"
+                Text="{Binding Title}" />
+        </DataTemplate>
+        <Style x:Key="calenderDateStyle" TargetType="{x:Type ListBox}">
+            <Setter Property="ItemTemplate" Value="{StaticResource calenderDate}" />
+            <Setter Property="ItemContainerStyle">
+                <Setter.Value>
+                    <Style TargetType="{x:Type ListBoxItem}">
+                        <Setter Property="Grid.Column" Value="{Binding Col}" />
+                    </Style>
+                </Setter.Value>
+            </Setter>
+
+            <Setter Property="ItemsPanel">
+                <Setter.Value>
+                    <ItemsPanelTemplate>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                        </Grid>
+                    </ItemsPanelTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </UserControl.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="4*" />
+        </Grid.RowDefinitions>
+        <TextBlock
+            Grid.Row="0"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Bottom"
+            FontSize="25">
+            <Run Text="{Binding Date.Year, Mode=OneWay}" />
+            年<Run Text="{Binding Date.Month, Mode=OneWay}" />
+            月</TextBlock>
+        <ListBox
+            Grid.Row="1"
+            HorizontalContentAlignment="Stretch"
+            VerticalContentAlignment="Stretch"
+            ItemsSource="{Binding CalenderWeekItems}"
+            Style="{StaticResource calenderDateStyle}" />
+        <Grid x:Name="CalenderDays" Grid.Row="2">
+            <ListBox
+                Width="{Binding ElementName=CalenderDays, Path=ActualWidth}"
+                Height="{Binding ElementName=CalenderDays, Path=ActualHeight}"
+                Margin="0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                HorizontalContentAlignment="Stretch"
+                VerticalContentAlignment="Stretch"
+                Grid.IsSharedSizeScope="True"
+                ItemsSource="{Binding CalenderDays}"
+                ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                Style="{StaticResource calenderStyle}" />
         </Grid>
     </Grid>
 </UserControl>

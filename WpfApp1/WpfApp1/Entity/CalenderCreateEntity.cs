@@ -8,11 +8,8 @@ namespace WpfApp1
     using System.Collections.Generic;
     using System.Collections.ObjectModel;
     using System.ComponentModel;
-    using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
-    using Calender.Entitey;
     using System.Windows.Media;
+    using Calender.Entitey;
     using CustomEventArgs;
 
     /// <summary>
@@ -111,7 +108,7 @@ namespace WpfApp1
         {
             var col = 0;
             var row = 0;
-            if (!e.option.IsDatePrintChange)
+            if (!e.Option.IsDatePrintChange)
             {
                 if (this.CalenderDays[0].Col > 0)
                 {
@@ -143,14 +140,20 @@ namespace WpfApp1
             }
         }
 
+        /// <summary>
+        /// カレンダーを変更するイベント
+        /// </summary>
+        /// <param name="sender">呼び出し元のクラス</param>
+        /// <param name="e">イベント情報</param>
         public void WeekChange(object sender, CalenderEventArgs e)
         {
             // 曜日タイトルの作成
             var week = DateListS;
-            if (!e.option.IsDatePrintChange)
+            if (!e.Option.IsDatePrintChange)
             {
                 week = DateListM;
             }
+
             int count = 0;
             foreach (string s in week)
             {
@@ -170,11 +173,11 @@ namespace WpfApp1
         {
             for (int i = 0; i < this.CalenderDays.Count; i++)
             {
-                if (e.option.IsTodayColorChange && i == DateTime.Now.Day && this.date.Year == DateTime.Now.Year && this.date.Month == DateTime.Now.Month)
+                if (e.Option.IsTodayColorChange && i == DateTime.Now.Day && this.date.Year == DateTime.Now.Year && this.date.Month == DateTime.Now.Month)
                 {
                     this.dayList[i].BgColor = new SolidColorBrush(Colors.Khaki);
                 }
-                else if (!e.option.IsTodayColorChange && i == DateTime.Now.Day && this.date.Year == DateTime.Now.Year && this.date.Month == DateTime.Now.Month)
+                else if (!e.Option.IsTodayColorChange && i == DateTime.Now.Day && this.date.Year == DateTime.Now.Year && this.date.Month == DateTime.Now.Month)
                 {
                     this.dayList[i].BgColor = new SolidColorBrush(Colors.White);
                 }

@@ -17,7 +17,6 @@ namespace WpfApp1
     /// </summary>
     public class CalenderDay : INotifyPropertyChanged
     {
-
         /// <summary>
         /// 日付の色
         /// </summary>
@@ -43,6 +42,9 @@ namespace WpfApp1
         /// </summary>
         private string day;
 
+        /// <summary>
+        /// インターフェースの実装
+        /// </summary>
         public event PropertyChangedEventHandler PropertyChanged;
 
         /// <summary>
