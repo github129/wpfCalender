@@ -12,6 +12,8 @@ namespace WpfApp1
     using System.Text;
     using System.Threading.Tasks;
     using Calender.Entitey;
+    using System.Windows.Media;
+    using CustomEventArgs;
 
     /// <summary>
     /// カレンダー情報をすべて保持しているクラス
@@ -32,6 +34,16 @@ namespace WpfApp1
         /// 日付
         /// </summary>
         private DateTime date;
+
+        /// <summary>
+        /// 曜日の入った配列 sFlgがtureの場合
+        /// </summary>
+        private static readonly string[] DateListS = { "日", "月", "火", "水", "木", "金", "土" };
+
+        /// <summary>
+        /// 曜日の入った配列　sFlgがfalseの場合
+        /// </summary>
+        private static readonly string[] DateListM = { "月", "火", "水", "木", "金", "土", "日" };
 
         /// <summary>
         /// インターフェース
@@ -95,17 +107,27 @@ namespace WpfApp1
         /// </summary>
         /// <param name="sender">呼び出し元のクラス</param>
         /// <param name="e">イベント情報</param>
-        public void DayListUpdate(object sender, EventArgs e)
+        public void DayListUpdate(object sender, CalenderEventArgs e)
         {
             var col = 0;
             var row = 0;
-            if (this.CalenderDays[0].Col > 0)
+            if (!e.option.IsDatePrintChange)
             {
-                col = this.CalenderDays[0].Col - 1;
+                if (this.CalenderDays[0].Col > 0)
+                {
+                    col = this.CalenderDays[0].Col - 1;
+                }
+                else
+                {
+                    col = 6;
+                }
             }
             else
             {
-                col = 6;
+                if (this.CalenderDays[0].Col < 6)
+                {
+                    col = this.CalenderDays[0].Col + 1;
+                }
             }
 
             for (int i = 0; i < this.CalenderDays.Count; i++)
@@ -117,6 +139,44 @@ namespace WpfApp1
                 {
                     col = 0;
                     row++;
+                }
+            }
+        }
+
+        public void WeekChange(object sender, CalenderEventArgs e)
+        {
+            // 曜日タイトルの作成
+            var week = DateListS;
+            if (!e.option.IsDatePrintChange)
+            {
+                week = DateListM;
+            }
+            int count = 0;
+            foreach (string s in week)
+            {
+                var weekItem = new WeekItem();
+                weekItem.Title = s;
+                this.CalenderWeekItems[count] = weekItem;
+                count++;
+            }
+        }
+
+        /// <summary>
+        /// 当日の色を変えるメソッド
+        /// </summary>
+        /// <param name="sender">呼び出し元のクラス情報</param>
+        /// <param name="e">イベント情報</param>
+        public void TodayColorChange(object sender, CalenderEventArgs e)
+        {
+            for (int i = 0; i < this.CalenderDays.Count; i++)
+            {
+                if (e.option.IsTodayColorChange && i == DateTime.Now.Day && this.date.Year == DateTime.Now.Year && this.date.Month == DateTime.Now.Month)
+                {
+                    this.dayList[i].BgColor = new SolidColorBrush(Colors.Khaki);
+                }
+                else if (!e.option.IsTodayColorChange && i == DateTime.Now.Day && this.date.Year == DateTime.Now.Year && this.date.Month == DateTime.Now.Month)
+                {
+                    this.dayList[i].BgColor = new SolidColorBrush(Colors.White);
                 }
             }
         }

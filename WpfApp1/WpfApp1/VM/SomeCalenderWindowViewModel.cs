@@ -13,33 +13,52 @@ namespace WpfApp1
     using System.Threading.Tasks;
     using System.Windows.Data;
     using Calender.Entitey;
+    using CustomEventArgs;
 
     /// <summary>
-    /// イベントハンドラー
+    /// イベントハンドラーの設定
     /// </summary>
     /// <param name="sender">クラス情報</param>
     /// <param name="e">イベント情報</param>
-    public delegate void SomeCalenderEventHandler(object sender, EventArgs e);
+    public delegate void SomeCalenderEventHandler(object sender, CalenderEventArgs e);
+
+    public delegate void SomeCalenderColorChangeEventHandler(object sender, CalenderEventArgs e);
 
     /// <summary>
     /// カレンダーを複数作るクラス
     /// </summary>
     public class SomeCalenderWindowViewModel : CommonCalenderCreate
     {
+        CalenderEventArgs args = new CalenderEventArgs();
         /// <summary>
-        /// イベント
+        /// 日付更新イベント
         /// </summary>
         public event SomeCalenderEventHandler CalenderUpdate;
 
         /// <summary>
-        /// イベント起動
+        /// 当日の色講師にベント
+        /// </summary>
+        public event SomeCalenderColorChangeEventHandler TodayColorChenge;
+
+        public Option option;
+
+        /// <summary>
+        /// 日付更新イベント起動
         /// </summary>
         /// <param name="e">イベント情報</param>
-        protected virtual void OnCalenderUpDate(EventArgs e)
+        protected virtual void OnCalenderUpDate(CalenderEventArgs e)
         {
             if (this.CalenderUpdate != null)
             {
                 this.CalenderUpdate(this, e);
+            }
+        }
+
+        protected virtual void OnTodayColorChange(CalenderEventArgs e)
+        {
+            if (this.TodayColorChenge != null)
+            {
+                this.TodayColorChenge(this, e);
             }
         }
 
@@ -193,12 +212,16 @@ namespace WpfApp1
         {
             this.BackYearCount = 1;
             this.NextYearCount = 0;
+            this.option = op;
             for (int i = 0; i < op.CalenderCreateCount; i++)
             {
                 var calEntity = this.SetCalender(data, op);
                 this.calenderEntitys.Add(calEntity);
                 data.Date = data.Date.AddMonths(1);
                 this.CalenderUpdate += new SomeCalenderEventHandler(calEntity.DayListUpdate);
+                this.CalenderUpdate += new SomeCalenderEventHandler(calEntity.WeekChange);
+                this.TodayColorChenge += new SomeCalenderColorChangeEventHandler(calEntity.TodayColorChange);
+
             }
 
             this.ChangeWeekText(op.IsDatePrintChange);
@@ -236,7 +259,14 @@ namespace WpfApp1
         /// <param name="op">オプションクラス</param>
         public void UpdataCalender(CalenderData data, Option op)
         {
-            this.OnCalenderUpDate(EventArgs.Empty);
+            this.args.option = op;
+            this.OnCalenderUpDate(this.args);
+        }
+
+        public void ColorChangeEvent(CalenderData data, Option op)
+        {
+            this.args.option = op;
+            this.OnTodayColorChange(this.args);
         }
 
         /// <summary>

@@ -10,6 +10,7 @@ namespace WpfApp1
     using System.Linq;
     using System.Text;
     using System.Threading.Tasks;
+    using System.Windows.Media;
 
     /// <summary>
     /// カレンダーの日付を使うクラス
@@ -20,12 +21,12 @@ namespace WpfApp1
         /// <summary>
         /// 日付の色
         /// </summary>
-        private string foreColor = "Black";
+        private Brush foreColor = new SolidColorBrush(Colors.Black);
 
         /// <summary>
         /// 日付ごとの背景色
         /// </summary>
-        private string bgColor = "White";
+        private Brush bgColor = new SolidColorBrush(Colors.White);
 
         /// <summary>
         /// カラム
@@ -107,19 +108,41 @@ namespace WpfApp1
         /// <summary>
         /// Gets or sets 背景色用のプロパティ
         /// </summary>
-        public string BgColor
+        public Brush BgColor
         {
-            get { return this.bgColor; }
-            set { this.bgColor = value; }
+            get
+            {
+                return this.bgColor;
+            }
+
+            set
+            {
+                if (this.bgColor != value)
+                {
+                    this.bgColor = value;
+                    this.RaisePropertyChanged("BgColor");
+                }
+            }
         }
 
         /// <summary>
         /// Gets or sets 日付色用のプロパティ
         /// </summary>
-        public string ForeColor
+        public Brush ForeColor
         {
-            get { return this.foreColor; }
-            set { this.foreColor = value; }
+            get
+            {
+                return this.foreColor;
+            }
+
+            set
+            {
+                if (this.foreColor != value)
+                {
+                    this.foreColor = value;
+                    this.RaisePropertyChanged("ForeColor");
+                }
+            }
         }
 
         /// <summary>

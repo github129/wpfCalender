@@ -73,6 +73,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="CalenderEventArgs.cs" />
     <Compile Include="xaml\CalenderControl.xaml.cs">
       <DependentUpon>CalenderControl.xaml</DependentUpon>
     </Compile>
@@ -82,7 +83,7 @@
       <DependentUpon>CalenderWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="VM\CalenderWindowViewModel.cs" />
-    <Compile Include="CommonCalenderCreate.cs" />
+    <Compile Include="xaml\CommonCalenderCreate.cs" />
     <Compile Include="Entity\Option.cs" />
     <Compile Include="xaml\SomeCalenderWindow.xaml.cs">
       <DependentUpon>SomeCalenderWindow.xaml</DependentUpon>

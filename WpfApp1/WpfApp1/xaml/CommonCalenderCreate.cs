@@ -11,7 +11,9 @@ namespace WpfApp1
     using System.Linq;
     using System.Text;
     using System.Threading.Tasks;
+    using System.Windows.Media;
     using Calender.Entitey;
+    using CustomEventArgs;
 
     /// <summary>
     /// カレンダーを１つ作成するクラス
@@ -114,6 +116,7 @@ namespace WpfApp1
             set { this.entity = value; }
         }
 
+
         /// <summary>
         /// 曜日のチェックラベルの変更用メソッド
         /// </summary>
@@ -194,13 +197,11 @@ namespace WpfApp1
         {
                 if (col == this.sunColorNumber)
                 {
-                    day.ForeColor = "red";
-                    day.BgColor = "Tomato";
+                    day.ForeColor = new SolidColorBrush(Colors.Red);
                 }
                 else if (col == this.satColorNumber)
                 {
-                    day.ForeColor = "SlateBlue";
-                    day.BgColor = "SkyBlue";
+                    day.ForeColor = new SolidColorBrush(Colors.SlateBlue);
                 }
         }
 
@@ -225,7 +226,7 @@ namespace WpfApp1
                 // 当日かどうかの判断
                 if (option.IsTodayColorChange && i == DateTime.Now.Day && data.Date.Year == DateTime.Now.Year && data.Date.Month == DateTime.Now.Month)
                 {
-                    this.calenderDay.BgColor = "Khaki";
+                    this.calenderDay.BgColor = new SolidColorBrush(Colors.Khaki);
                 }
 
                 entity.CalenderDays.Add(this.calenderDay);

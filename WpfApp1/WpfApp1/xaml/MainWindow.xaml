@@ -9,14 +9,13 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     Title="MainWindow"
     Width="600"
-    Height="600"
+    Height="191.716"
     Loaded="Window_Loaded"
     SnapsToDevicePixels="True"
     mc:Ignorable="d">
     <Window.Resources />
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="*" />
             <RowDefinition Height="7*" />
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
@@ -24,12 +23,6 @@
             <ColumnDefinition Width="5*" />
         </Grid.ColumnDefinitions>
         <Grid
-            Grid.Row="0"
-            Grid.Column="0"
-            Background="Black"
-            OpacityMask="Black" />
-        <Grid
-            Grid.Row="1"
             Grid.Column="0"
             Background="Black"
             OpacityMask="Black" />

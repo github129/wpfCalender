@@ -117,6 +117,7 @@ namespace WpfApp1
             {
                 this.op.IsDatePrintChange = true;
             }
+
             this.data.Date = this.data.InputDate.AddMonths(-1);
             ((SomeCalenderWindowViewModel)this.DataContext).UpdataCalender(this.data, this.op);
         }
@@ -137,7 +138,7 @@ namespace WpfApp1
                 this.op.IsTodayColorChange = true;
             }
             this.data.Date = this.data.InputDate.AddMonths(-1);
-            ((SomeCalenderWindowViewModel)this.DataContext).UpdataCalender(this.data, this.op);
+            ((SomeCalenderWindowViewModel)this.DataContext).ColorChangeEvent(this.data, this.op);
         }
     }
 }
