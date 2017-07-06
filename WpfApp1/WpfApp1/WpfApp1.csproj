@@ -78,6 +78,9 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="CalenderEventArgs.cs" />
+    <Compile Include="xaml\CalenderMainDesign.xaml.cs">
+      <DependentUpon>CalenderMainDesign.xaml</DependentUpon>
+    </Compile>
     <Compile Include="MainWindowData.cs" />
     <Compile Include="xaml\CalenderControl.xaml.cs">
       <DependentUpon>CalenderControl.xaml</DependentUpon>
@@ -95,6 +98,10 @@
     </Compile>
     <Compile Include="VM\SomeCalenderWindowViewModel.cs" />
     <Compile Include="Entity\WeekItem.cs" />
+    <Page Include="xaml\CalenderMainDesign.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="xaml\CalenderControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

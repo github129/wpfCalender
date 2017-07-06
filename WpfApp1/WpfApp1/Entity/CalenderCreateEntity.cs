@@ -155,10 +155,13 @@ namespace WpfApp1
             }
 
             int count = 0;
+            int col = 0;
             foreach (string s in week)
             {
                 var weekItem = new WeekItem();
                 weekItem.Title = s;
+                weekItem.Col = col;
+                col++;
                 this.CalenderWeekItems[count] = weekItem;
                 count++;
             }

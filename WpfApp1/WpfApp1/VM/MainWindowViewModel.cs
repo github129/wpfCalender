@@ -140,7 +140,7 @@ namespace WpfApp1
         {
             var op = new Option();
             var inputCreateountFlg = true;
-            var window = new CalenderWindow();
+            var window = new CalenderMainDesign();
             var someWindow = new SomeCalenderWindow();
 
             // 年の確認

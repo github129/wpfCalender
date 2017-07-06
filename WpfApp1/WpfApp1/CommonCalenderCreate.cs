@@ -106,7 +106,7 @@ namespace WpfApp1
         /// <summary>
         /// 当日の色を変えるテキストのカラー
         /// </summary>
-        private string todayTextColor = "Khaki";
+        private Brush todayTextColor = new SolidColorBrush(Colors.Khaki);
 
         private int sunColorNumber = 0;
 
@@ -147,7 +147,7 @@ namespace WpfApp1
         /// <summary>
         /// Gets or sets 色を変えるためのプロパティ
         /// </summary>
-        public string TodayTextColor
+        public Brush TodayTextColor
         {
             get
             {
@@ -197,11 +197,11 @@ namespace WpfApp1
         {
             if (!color)
             {
-                this.TodayTextColor = "Black";
+                this.TodayTextColor = new SolidColorBrush(Colors.Black);
             }
             else
             {
-                this.TodayTextColor = "Khaki";
+                this.TodayTextColor = new SolidColorBrush(Colors.Khaki);
             }
         }
 
