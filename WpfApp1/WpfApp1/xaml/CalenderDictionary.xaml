@@ -3,7 +3,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="clr-namespace:WpfApp1">
 
-    <VisualBrush x:Key="Day0">
+    <VisualBrush x:Key="NUmber0" Stretch="Uniform">
         <VisualBrush.Visual>
             <Canvas
                 Canvas.Left="898.357"
@@ -19,7 +19,7 @@
         </VisualBrush.Visual>
     </VisualBrush>
 
-    <VisualBrush x:Key="Day1">
+    <VisualBrush x:Key="Day1" Stretch="None">
         <VisualBrush.Visual>
             <Canvas
                 Canvas.Left="1250.709"
@@ -35,7 +35,7 @@
         </VisualBrush.Visual>
     </VisualBrush>
 
-    <VisualBrush x:Key="Day2">
+    <VisualBrush x:Key="Day2" Stretch="Uniform">
         <VisualBrush.Visual>
             <Canvas
                 Canvas.Left="1328.024"

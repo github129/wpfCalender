@@ -17,11 +17,19 @@
             set { this.data = value; }
         }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="CalenderMainDesign"/> class.
+        /// 初期化処理
+        /// </summary>
         public CalenderMainDesign()
         {
-            InitializeComponent();
+            this.InitializeComponent();
         }
 
+        /// <summary>
+        /// 実行メソッド
+        /// </summary>
+        /// <param name="date">DaateTime　入力された年月日</param>
         public void UserContorol(DateTime date)
         {
             this.Data.Date = date;

@@ -43,6 +43,11 @@ namespace WpfApp1
         private string day;
 
         /// <summary>
+        /// ビヘイビア用のキー
+        /// </summary>
+        private string dayKeyName = "Day";
+
+        /// <summary>
         /// インターフェースの実装
         /// </summary>
         public event PropertyChangedEventHandler PropertyChanged;
@@ -145,6 +150,15 @@ namespace WpfApp1
                     this.RaisePropertyChanged("ForeColor");
                 }
             }
+        }
+
+        /// <summary>
+        /// Gets or sets keyNameを扱うプロパティ
+        /// </summary>
+        public string DayKeyName
+        {
+            get { return this.dayKeyName; }
+            set { this.dayKeyName = value; }
         }
 
         /// <summary>

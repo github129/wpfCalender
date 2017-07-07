@@ -4,6 +4,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:Calender="clr-namespace:Calender.Entitey"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
     xmlns:local="clr-namespace:WpfApp1"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     Title="CalenderMainDesign"
@@ -11,15 +12,17 @@
     Height="700"
     mc:Ignorable="d">
     <Window.Resources>
-        <DataTemplate DataType="{x:Type local:CalenderDay}">
-            <StackPanel VerticalAlignment="Top">
-                <TextBlock
-                    Foreground="{Binding ForeColor}"
-                    Text="{Binding Day}"
-                    TextAlignment="Left" />
-            </StackPanel>
+        <DataTemplate x:Key="CalenderDay" DataType="{x:Type local:CalenderDay}">
+            <Grid Width="20" Height="20">
+                <Rectangle>
+                    <i:Interaction.Behaviors>
+                        <local:CalenderPrintBehavior Key="Day" Number="{Binding Day}" />
+                    </i:Interaction.Behaviors>
+                </Rectangle>
+            </Grid>
         </DataTemplate>
         <Style x:Key="calenderStyle" TargetType="{x:Type ListBox}">
+            <Setter Property="ItemTemplate" Value="{StaticResource CalenderDay}" />
             <Setter Property="ItemContainerStyle">
                 <Setter.Value>
                     <Style TargetType="{x:Type ListBoxItem}">
@@ -86,6 +89,23 @@
                 </Setter.Value>
             </Setter>
         </Style>
+
+
+        <!--<DataTemplate x:Key="CalenderMonth" DataType="{x:Type local:CalenderCreateEntity}">
+            <Rectangle>
+                <i:Interaction.Behaviors>
+                    <local:CalenderPrintBehavior Key="Month" Number="{Binding StringMonth}" />
+                </i:Interaction.Behaviors>
+            </Rectangle>
+        </DataTemplate>
+        <Style x:Key="CalenderMonthStyle" TargetType="{x:Type ListBox}">
+            <Setter Property="ItemTemplate" Value="{StaticResource CalenderMonth}" />
+            <Setter Property="ItemContainerStyle">
+                <Setter.Value>
+                    <Style TargetType="{x:Type ListBoxItem}" />
+                </Setter.Value>
+            </Setter>
+        </Style>-->
     </Window.Resources>
     <Grid Margin="40">
         <Grid.RowDefinitions>
@@ -103,13 +123,16 @@
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="3*" />
             </Grid.ColumnDefinitions>
+            <!--<ListBox ItemsSource="{Binding Entity}" Style="{StaticResource CalenderMonthStyle}" />-->
             <Rectangle
                 Grid.Column="0"
-                Width="51.314"
-                Height="55.789"
-                Margin="43,0,43,120"
-                VerticalAlignment="Top"
-                Fill="{StaticResource Month11}" />
+                Width="80"
+                Height="80"
+                DataContext="{Binding Entity}">
+                <i:Interaction.Behaviors>
+                    <local:CalenderPrintBehavior Key="Month" Number="{Binding StringMonth}" />
+                </i:Interaction.Behaviors>
+            </Rectangle>
             <Rectangle
                 Grid.Column="0"
                 Width="80"

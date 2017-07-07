@@ -33,6 +33,13 @@ namespace WpfApp1
         private DateTime date;
 
         /// <summary>
+        /// ビヘイビア用キーName
+        /// </summary>
+        private string monthKeyName = "Month";
+
+        private string stringMonth;
+
+        /// <summary>
         /// 曜日の入った配列 sFlgがtureの場合
         /// </summary>
         private static readonly string[] DateListS = { "日", "月", "火", "水", "木", "金", "土" };
@@ -96,6 +103,35 @@ namespace WpfApp1
             set
             {
                 this.date = value;
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets keyNameを扱うプロパティ
+        /// </summary>
+        public string MonthKeyName
+        {
+            get { return this.monthKeyName; }
+            set { this.monthKeyName = value; }
+        }
+
+        /// <summary>
+        /// Gets or sets string型のmonthを扱うプロパティ
+        /// </summary>
+        public string StringMonth
+        {
+            get
+            {
+                return this.stringMonth;
+            }
+
+            set
+            {
+                if (this.stringMonth != value)
+                {
+                    this.stringMonth = value;
+                    this.RaisePropertyChanged("StringMonth");
+                }
             }
         }
 

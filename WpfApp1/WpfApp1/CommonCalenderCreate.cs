@@ -326,6 +326,7 @@ namespace WpfApp1
             calData.LastDay();
             calData.FastDateCreate();
             this.entity.Date = calData.Date;
+            this.entity.StringMonth = calData.Date.Month.ToString();
             this.option = paramOption;
 
             var col = this.DateSwitch(this.option.IsDatePrintChange,  calData.FastDate);
