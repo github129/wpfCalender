@@ -6,6 +6,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
     xmlns:local="clr-namespace:WpfApp1"
+    xmlns:WeekItem="clr-namespace:WpfApp1.Entity.WeekNumber"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     Title="CalenderMainDesign"
     Width="650"
@@ -13,8 +14,10 @@
     mc:Ignorable="d">
     <Window.Resources>
         <DataTemplate x:Key="CalenderDay" DataType="{x:Type local:CalenderDay}">
-            <Grid Width="20" Height="20">
-                <Rectangle>
+            <Grid Background="Tomato"   x:Name="CalenderDays"             
+                  >
+                <Rectangle Width="{Binding ElementName=CalenderDays, Path=ActualWidth}"
+                Height="{Binding ElementName=CalenderDays, Path=ActualHeight}">
                     <i:Interaction.Behaviors>
                         <local:CalenderPrintBehavior Key="Day" Number="{Binding Day}" />
                     </i:Interaction.Behaviors>
@@ -32,12 +35,12 @@
                     </Style>
                 </Setter.Value>
             </Setter>
-            <Setter Property="ItemsPanel">
+            <Setter Property="ItemsPanel" >
                 <Setter.Value>
                     <ItemsPanelTemplate>
                         <Grid>
                             <Grid.RowDefinitions>
-                                <RowDefinition Height="*" />
+                                <RowDefinition Height="*"/>
                                 <RowDefinition Height="*" />
                                 <RowDefinition Height="*" />
                                 <RowDefinition Height="*" />
@@ -45,7 +48,7 @@
                                 <RowDefinition Height="*" />
                             </Grid.RowDefinitions>
                             <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*"/>
                                 <ColumnDefinition Width="*" />
                                 <ColumnDefinition Width="*" />
                                 <ColumnDefinition Width="*" />
@@ -89,8 +92,27 @@
                 </Setter.Value>
             </Setter>
         </Style>
-
-
+        <DataTemplate DataType="{x:Type WeekItem:WeekTitleSun}">
+            <TextBlock Text="{Binding Title}" TextAlignment="Left" />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type WeekItem:WeekTitleMon}">
+            <TextBlock Text="{Binding Title}" TextAlignment="Left" />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type WeekItem:WeekTitleTue}">
+            <TextBlock Text="{Binding Title}" TextAlignment="Left" />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type WeekItem:WeekTitleWen}">
+            <TextBlock Text="{Binding Title}" TextAlignment="Left" />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type WeekItem:WeekTitleThu}">
+            <TextBlock Text="{Binding Title}" TextAlignment="Left" />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type WeekItem:WeekTitleFri}">
+            <TextBlock Text="{Binding Title}" TextAlignment="Left" />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type WeekItem:WeekTitleSat}">
+            <TextBlock Text="{Binding Title}" TextAlignment="Left" />
+        </DataTemplate>
         <!--<DataTemplate x:Key="CalenderMonth" DataType="{x:Type local:CalenderCreateEntity}">
             <Rectangle>
                 <i:Interaction.Behaviors>
@@ -139,7 +161,12 @@
                 Height="13.697"
                 Margin="29,61,29,101"
                 VerticalAlignment="Top"
-                Fill="{StaticResource MonthTitle11}" />
+                DataContext="{Binding Entity}"
+                >
+                <i:Interaction.Behaviors>
+                    <local:CalenderPrintBehavior Key="MonthTitle" Number="{Binding StringMonth}" />
+                </i:Interaction.Behaviors>
+            </Rectangle>
             <Grid Grid.Row="1" Grid.Column="1">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*" />
@@ -153,6 +180,7 @@
                     ItemsSource="{Binding Path=Entity.CalenderWeekItems}"
                     Style="{StaticResource calenderDateStyle}" />
                 <ListBox
+                    ScrollViewer.HorizontalScrollBarVisibility="Disabled"
                     Grid.Row="1"
                     HorizontalContentAlignment="Left"
                     VerticalContentAlignment="Top"

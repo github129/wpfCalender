@@ -3,7 +3,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="clr-namespace:WpfApp1">
 
-    <VisualBrush x:Key="NUmber0" Stretch="Uniform">
+    <VisualBrush x:Key="Number0" Stretch="Uniform">
         <VisualBrush.Visual>
             <Canvas
                 Canvas.Left="898.357"
@@ -19,7 +19,7 @@
         </VisualBrush.Visual>
     </VisualBrush>
 
-    <VisualBrush x:Key="Day1" Stretch="None">
+    <VisualBrush x:Key="Day1" Stretch="Uniform">
         <VisualBrush.Visual>
             <Canvas
                 Canvas.Left="1250.709"
@@ -51,7 +51,7 @@
         </VisualBrush.Visual>
     </VisualBrush>
 
-    <VisualBrush x:Key="Day3">
+    <VisualBrush x:Key="Day3" Stretch="Uniform">
         <VisualBrush.Visual>
             <Canvas
                 Canvas.Left="1409.339"
@@ -67,7 +67,7 @@
         </VisualBrush.Visual>
     </VisualBrush>
 
-    <VisualBrush x:Key="Day4">
+    <VisualBrush x:Key="Day4" Stretch="Uniform">
         <VisualBrush.Visual>
             <Canvas
                 Canvas.Left="1489.13"
@@ -83,7 +83,7 @@
         </VisualBrush.Visual>
     </VisualBrush>
 
-    <VisualBrush x:Key="Day5">
+    <VisualBrush x:Key="Day5" Stretch="Uniform">
         <VisualBrush.Visual>
             <Canvas
                 Canvas.Left="1004.7"
@@ -99,7 +99,7 @@
         </VisualBrush.Visual>
     </VisualBrush>
 
-    <VisualBrush x:Key="Day6">
+    <VisualBrush x:Key="Day6" Stretch="Uniform">
         <VisualBrush.Visual>
             <Canvas
                 Canvas.Left="1086.571"
@@ -115,7 +115,7 @@
         </VisualBrush.Visual>
     </VisualBrush>
 
-    <VisualBrush x:Key="Day7">
+    <VisualBrush x:Key="Day7" Stretch="Uniform">
         <VisualBrush.Visual>
             <Canvas
                 Canvas.Left="1167.139"
@@ -131,7 +131,7 @@
         </VisualBrush.Visual>
     </VisualBrush>
 
-    <VisualBrush x:Key="Day8">
+    <VisualBrush x:Key="Day8" Stretch="Uniform">
         <VisualBrush.Visual>
             <Canvas
                 Canvas.Left="1248.644"
@@ -147,7 +147,7 @@
         </VisualBrush.Visual>
     </VisualBrush>
 
-    <VisualBrush x:Key="Day9">
+    <VisualBrush x:Key="Day9" Stretch="Uniform">
         <VisualBrush.Visual>
             <Canvas
                 Canvas.Left="1328.933"
@@ -163,7 +163,7 @@
         </VisualBrush.Visual>
     </VisualBrush>
 
-    <VisualBrush x:Key="Day10">
+    <VisualBrush x:Key="Day10" Stretch="Uniform">
         <VisualBrush.Visual>
             <Canvas
                 Canvas.Left="1403.98"
@@ -186,7 +186,7 @@
         </VisualBrush.Visual>
     </VisualBrush>
 
-    <VisualBrush x:Key="Day11">
+    <VisualBrush x:Key="Day11" Stretch="Uniform">
         <VisualBrush.Visual>
             <Canvas
                 Canvas.Left="1485.977"
@@ -208,7 +208,7 @@
         </VisualBrush.Visual>
     </VisualBrush>
 
-    <VisualBrush x:Key="Day12">
+    <VisualBrush x:Key="Day12" Stretch="Uniform">
         <VisualBrush.Visual>
             <Canvas
                 Canvas.Left="1000.358"
@@ -231,7 +231,7 @@
         </VisualBrush.Visual>
     </VisualBrush>
 
-    <VisualBrush x:Key="Day13">
+    <VisualBrush x:Key="Day13" Stretch="Uniform">
         <VisualBrush.Visual>
             <Canvas
                 Canvas.Left="1081.042"
@@ -254,7 +254,7 @@
         </VisualBrush.Visual>
     </VisualBrush>
 
-    <VisualBrush x:Key="Day14">
+    <VisualBrush x:Key="Day14" Stretch="Uniform">
         <VisualBrush.Visual>
             <Canvas
                 Canvas.Left="1161.817"
@@ -277,7 +277,7 @@
         </VisualBrush.Visual>
     </VisualBrush>
 
-    <VisualBrush x:Key="Day15">
+    <VisualBrush x:Key="Day15" Stretch="Uniform">
         <VisualBrush.Visual>
             <Canvas
                 Canvas.Left="1242.682"
@@ -299,7 +299,7 @@
         </VisualBrush.Visual>
     </VisualBrush>
 
-    <VisualBrush x:Key="Day16">
+    <VisualBrush x:Key="Day16" Stretch="Uniform">
         <VisualBrush.Visual>
             <Canvas
                 Canvas.Left="1323.579"
@@ -322,7 +322,7 @@
         </VisualBrush.Visual>
     </VisualBrush>
 
-    <VisualBrush x:Key="Day17">
+    <VisualBrush x:Key="Day17" Stretch="Uniform">
         <VisualBrush.Visual>
             <Canvas
                 Canvas.Left="1404.472"
@@ -344,7 +344,7 @@
         </VisualBrush.Visual>
     </VisualBrush>
 
-    <VisualBrush x:Key="Day18">
+    <VisualBrush x:Key="Day18" Stretch="Uniform">
         <VisualBrush.Visual>
             <Canvas
                 Canvas.Left="1484.993"
@@ -367,7 +367,7 @@
         </VisualBrush.Visual>
     </VisualBrush>
 
-    <VisualBrush x:Key="Day19">
+    <VisualBrush x:Key="Day19" Stretch="Uniform">
         <VisualBrush.Visual>
             <Canvas
                 Canvas.Left="1000.355"
@@ -390,7 +390,7 @@
         </VisualBrush.Visual>
     </VisualBrush>
 
-    <VisualBrush x:Key="Day20">
+    <VisualBrush x:Key="Day20" Stretch="Uniform">
         <VisualBrush.Visual>
             <Canvas
                 Canvas.Left="1076.633"
@@ -412,7 +412,7 @@
         </VisualBrush.Visual>
     </VisualBrush>
 
-    <VisualBrush x:Key="Day21">
+    <VisualBrush x:Key="Day21" Stretch="Uniform">
         <VisualBrush.Visual>
             <Canvas
                 Canvas.Left="1158.376"
@@ -435,7 +435,7 @@
         </VisualBrush.Visual>
     </VisualBrush>
 
-    <VisualBrush x:Key="Day22">
+    <VisualBrush x:Key="Day22" Stretch="Uniform">
         <VisualBrush.Visual>
             <Canvas
                 Canvas.Left="1238.113"
@@ -457,7 +457,7 @@
         </VisualBrush.Visual>
     </VisualBrush>
 
-    <VisualBrush x:Key="Day23">
+    <VisualBrush x:Key="Day23" Stretch="Uniform">
         <VisualBrush.Visual>
             <Canvas
                 Canvas.Left="1319.178"
@@ -480,7 +480,7 @@
         </VisualBrush.Visual>
     </VisualBrush>
 
-    <VisualBrush x:Key="Day24">
+    <VisualBrush x:Key="Day24" Stretch="Uniform">
         <VisualBrush.Visual>
             <Canvas
                 Canvas.Left="1399.57"
@@ -503,7 +503,7 @@
         </VisualBrush.Visual>
     </VisualBrush>
 
-    <VisualBrush x:Key="Day25">
+    <VisualBrush x:Key="Day25" Stretch="Uniform">
         <VisualBrush.Visual>
             <Canvas
                 Canvas.Left="1480.475"
@@ -526,7 +526,7 @@
         </VisualBrush.Visual>
     </VisualBrush>
 
-    <VisualBrush x:Key="Day26">
+    <VisualBrush x:Key="Day26" Stretch="Uniform">
         <VisualBrush.Visual>
             <Canvas
                 Canvas.Left="996.213"
@@ -549,7 +549,7 @@
         </VisualBrush.Visual>
     </VisualBrush>
 
-    <VisualBrush x:Key="Day27">
+    <VisualBrush x:Key="Day27" Stretch="Uniform">
         <VisualBrush.Visual>
             <Canvas
                 Canvas.Left="1076.715"
@@ -572,7 +572,7 @@
         </VisualBrush.Visual>
     </VisualBrush>
 
-    <VisualBrush x:Key="Day28">
+    <VisualBrush x:Key="Day28" Stretch="Uniform">
         <VisualBrush.Visual>
             <Canvas
                 Canvas.Left="1157.602"
@@ -594,7 +594,7 @@
         </VisualBrush.Visual>
     </VisualBrush>
 
-    <VisualBrush x:Key="Day29">
+    <VisualBrush x:Key="Day29" Stretch="Uniform">
         <VisualBrush.Visual>
             <Canvas
                 Canvas.Left="1238.366"
@@ -616,7 +616,7 @@
         </VisualBrush.Visual>
     </VisualBrush>
 
-    <VisualBrush x:Key="Day30">
+    <VisualBrush x:Key="Day30" Stretch="Uniform">
         <VisualBrush.Visual>
             <Canvas
                 Canvas.Left="1319.425"
@@ -639,7 +639,7 @@
         </VisualBrush.Visual>
     </VisualBrush>
 
-    <VisualBrush x:Key="Day31">
+    <VisualBrush x:Key="Day31" Stretch="Uniform">
         <VisualBrush.Visual>
             <Canvas
                 Canvas.Left="1401.349"
@@ -662,7 +662,7 @@
         </VisualBrush.Visual>
     </VisualBrush>
 
-    <VisualBrush x:Key="WeekTitleSun">
+    <VisualBrush x:Key="WeekTitleSun" Stretch="Uniform">
         <VisualBrush.Visual>
             <Canvas
                 Canvas.Left="995.801"
@@ -692,7 +692,7 @@
         </VisualBrush.Visual>
     </VisualBrush>
 
-    <VisualBrush x:Key="WeekTitleMon">
+    <VisualBrush x:Key="WeekTitleMon" Stretch="Uniform">
         <VisualBrush.Visual>
             <Canvas
                 Canvas.Left="1076.908"
@@ -722,7 +722,7 @@
         </VisualBrush.Visual>
     </VisualBrush>
 
-    <VisualBrush x:Key="WeekTitleTue">
+    <VisualBrush x:Key="WeekTitleTue" Stretch="Uniform">
         <VisualBrush.Visual>
             <Canvas
                 Canvas.Left="1156.516"
@@ -752,7 +752,7 @@
         </VisualBrush.Visual>
     </VisualBrush>
 
-    <VisualBrush x:Key="WeekTitleWen">
+    <VisualBrush x:Key="WeekTitleWen" Stretch="Uniform">
         <VisualBrush.Visual>
             <Canvas
                 Canvas.Left="1237.623"
@@ -782,7 +782,7 @@
         </VisualBrush.Visual>
     </VisualBrush>
 
-    <VisualBrush x:Key="WeekTitleThu">
+    <VisualBrush x:Key="WeekTitleThu" Stretch="Uniform">
         <VisualBrush.Visual>
             <Canvas
                 Canvas.Left="1318.09"
@@ -812,7 +812,7 @@
         </VisualBrush.Visual>
     </VisualBrush>
 
-    <VisualBrush x:Key="WeekTitleFri">
+    <VisualBrush x:Key="WeekTitleFri" Stretch="Uniform">
         <VisualBrush.Visual>
             <Canvas
                 Canvas.Left="1400.418"
@@ -842,7 +842,7 @@
         </VisualBrush.Visual>
     </VisualBrush>
 
-    <VisualBrush x:Key="WeekTitleSat">
+    <VisualBrush x:Key="WeekTitleSat" Stretch="Uniform">
         <VisualBrush.Visual>
             <Canvas
                 Canvas.Left="1480.525"
@@ -872,7 +872,7 @@
         </VisualBrush.Visual>
     </VisualBrush>
 
-    <VisualBrush x:Key="MonthTitle1">
+    <VisualBrush x:Key="MonthTitle1" Stretch="Uniform">
         <VisualBrush.Visual>
             <Canvas
                 Canvas.Left="875.599"
@@ -930,7 +930,7 @@
         </VisualBrush.Visual>
     </VisualBrush>
 
-    <VisualBrush x:Key="MonthTitle2">
+    <VisualBrush x:Key="MonthTitle2" Stretch="Uniform">
         <VisualBrush.Visual>
             <Canvas
                 Canvas.Left="872.617"
@@ -995,7 +995,7 @@
         </VisualBrush.Visual>
     </VisualBrush>
 
-    <VisualBrush x:Key="MonthTitle3">
+    <VisualBrush x:Key="MonthTitle3" Stretch="Uniform">
         <VisualBrush.Visual>
             <Canvas
                 Canvas.Left="883.217"
@@ -1040,7 +1040,7 @@
     </VisualBrush>
 
 
-    <VisualBrush x:Key="MonthTitle4">
+    <VisualBrush x:Key="MonthTitle4" Stretch="Uniform">
         <VisualBrush.Visual>
             <Canvas
                 Canvas.Left="888.544"
@@ -1085,7 +1085,7 @@
     </VisualBrush>
 
 
-    <VisualBrush x:Key="MonthTitle5">
+    <VisualBrush x:Key="MonthTitle5" Stretch="Uniform">
         <VisualBrush.Visual>
             <Canvas
                 Canvas.Left="891.324"
@@ -1116,7 +1116,7 @@
     </VisualBrush>
 
 
-    <VisualBrush x:Key="MonthTitle6">
+    <VisualBrush x:Key="MonthTitle6" Stretch="Uniform">
         <VisualBrush.Visual>
             <Canvas
                 Canvas.Left="888.328"
@@ -1153,7 +1153,7 @@
         </VisualBrush.Visual>
     </VisualBrush>
 
-    <VisualBrush x:Key="MonthTitle7">
+    <VisualBrush x:Key="MonthTitle7" Stretch="Uniform">
         <VisualBrush.Visual>
             <Canvas
                 Canvas.Left="891.457"
@@ -1190,7 +1190,7 @@
         </VisualBrush.Visual>
     </VisualBrush>
 
-    <VisualBrush x:Key="MonthTitle8">
+    <VisualBrush x:Key="MonthTitle8" Stretch="Uniform">
         <VisualBrush.Visual>
             <Canvas
                 Canvas.Left="879.04"
@@ -1241,7 +1241,7 @@
         </VisualBrush.Visual>
     </VisualBrush>
 
-    <VisualBrush x:Key="MonthTitle9">
+    <VisualBrush x:Key="MonthTitle9" Stretch="Uniform">
         <VisualBrush.Visual>
             <Canvas
                 Canvas.Left="863.814"
@@ -1313,7 +1313,7 @@
         </VisualBrush.Visual>
     </VisualBrush>
 
-    <VisualBrush x:Key="MonthTitle10">
+    <VisualBrush x:Key="MonthTitle10" Stretch="Uniform">
         <VisualBrush.Visual>
             <Canvas
                 Canvas.Left="875.234"
@@ -1371,7 +1371,7 @@
         </VisualBrush.Visual>
     </VisualBrush>
 
-    <VisualBrush x:Key="MonthTitle11">
+    <VisualBrush x:Key="MonthTitle11" Stretch="Uniform">
         <VisualBrush.Visual>
             <Canvas
                 Canvas.Left="866.544"
@@ -1436,7 +1436,7 @@
         </VisualBrush.Visual>
     </VisualBrush>
 
-    <VisualBrush x:Key="MonthTitle12">
+    <VisualBrush x:Key="MonthTitle12" Stretch="Uniform">
         <VisualBrush.Visual>
             <Canvas
                 Canvas.Left="867.262"
@@ -1502,7 +1502,7 @@
     </VisualBrush>
 
 
-    <VisualBrush x:Key="Month1">
+    <VisualBrush x:Key="Month1" Stretch="Uniform">
         <VisualBrush.Visual>
             <Canvas
                 Canvas.Left="894.816"
@@ -1519,7 +1519,7 @@
     </VisualBrush>
 
 
-    <VisualBrush x:Key="Month2">
+    <VisualBrush x:Key="Month2" Stretch="Uniform">
         <VisualBrush.Visual>
             <Canvas
                 Canvas.Left="886.252"
@@ -1535,7 +1535,7 @@
         </VisualBrush.Visual>
     </VisualBrush>
 
-    <VisualBrush x:Key="Month3">
+    <VisualBrush x:Key="Month3" Stretch="Uniform">
         <VisualBrush.Visual>
             <Canvas
                 Canvas.Left="887.553"
@@ -1551,7 +1551,7 @@
         </VisualBrush.Visual>
     </VisualBrush>
 
-    <VisualBrush x:Key="Month4">
+    <VisualBrush x:Key="Month4" Stretch="Uniform">
         <VisualBrush.Visual>
             <Canvas
                 Canvas.Left="885.096"
@@ -1567,7 +1567,7 @@
         </VisualBrush.Visual>
     </VisualBrush>
 
-    <VisualBrush x:Key="Month5">
+    <VisualBrush x:Key="Month5" Stretch="Uniform">
         <VisualBrush.Visual>
             <Canvas
                 Canvas.Left="885.819"
@@ -1583,7 +1583,7 @@
         </VisualBrush.Visual>
     </VisualBrush>
 
-    <VisualBrush x:Key="Month6">
+    <VisualBrush x:Key="Month6" Stretch="Uniform">
         <VisualBrush.Visual>
             <Canvas
                 Canvas.Left="888.493"
@@ -1599,7 +1599,7 @@
         </VisualBrush.Visual>
     </VisualBrush>
 
-    <VisualBrush x:Key="Month7">
+    <VisualBrush x:Key="Month7" Stretch="Uniform">
         <VisualBrush.Visual>
             <Canvas
                 Canvas.Left="887.951"
@@ -1615,7 +1615,7 @@
         </VisualBrush.Visual>
     </VisualBrush>
 
-    <VisualBrush x:Key="Month8">
+    <VisualBrush x:Key="Month8" Stretch="Uniform">
         <VisualBrush.Visual>
             <Canvas
                 Canvas.Left="889.721"
@@ -1631,7 +1631,7 @@
         </VisualBrush.Visual>
     </VisualBrush>
 
-    <VisualBrush x:Key="Month9">
+    <VisualBrush x:Key="Month9" Stretch="Uniform">
         <VisualBrush.Visual>
             <Canvas
                 Canvas.Left="888.493"
@@ -1647,7 +1647,7 @@
         </VisualBrush.Visual>
     </VisualBrush>
 
-    <VisualBrush x:Key="Month10">
+    <VisualBrush x:Key="Month10" Stretch="Uniform">
         <VisualBrush.Visual>
             <Canvas
                 Canvas.Left="875.006"
@@ -1670,7 +1670,7 @@
         </VisualBrush.Visual>
     </VisualBrush>
 
-    <VisualBrush x:Key="Month11">
+    <VisualBrush x:Key="Month11" Stretch="Uniform">
         <VisualBrush.Visual>
             <Canvas
                 Canvas.Left="878.192"
@@ -1692,7 +1692,7 @@
         </VisualBrush.Visual>
     </VisualBrush>
 
-    <VisualBrush x:Key="Month12">
+    <VisualBrush x:Key="Month12" Stretch="Uniform">
         <VisualBrush.Visual>
             <Canvas
                 Canvas.Left="875.831"
