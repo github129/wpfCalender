@@ -34,6 +34,9 @@ namespace WpfApp1
 
         private string stringMonth;
 
+        /// <summary>
+        /// string型の年
+        /// </summary>
         private string stringYear;
 
         /// <summary>
