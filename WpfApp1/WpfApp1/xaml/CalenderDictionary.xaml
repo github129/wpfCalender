@@ -6,10 +6,9 @@
     <VisualBrush x:Key="Number0" Stretch="Uniform">
         <VisualBrush.Visual>
             <Canvas
-                Canvas.Left="898.357"
-                Canvas.Top="2730.964"
-                Width="9.58"
-                Height="14.019">
+                Width="35.561"
+                Height="24.302"
+                Background="Transparent">
                 <Path
                     Width="9.58"
                     Height="14.019"
@@ -22,10 +21,9 @@
     <VisualBrush x:Key="Day1" Stretch="Uniform">
         <VisualBrush.Visual>
             <Canvas
-                Canvas.Left="1250.709"
-                Canvas.Top="2668.999"
-                Width="7.324"
-                Height="22.617">
+                Width="35.561"
+                Height="24.302"
+                Background="Transparent">
                 <Path
                     Width="7.324"
                     Height="22.617"
@@ -38,10 +36,9 @@
     <VisualBrush x:Key="Day2" Stretch="Uniform">
         <VisualBrush.Visual>
             <Canvas
-                Canvas.Left="1328.024"
-                Canvas.Top="2668.618"
-                Width="15.19"
-                Height="22.998">
+                Width="35.561"
+                Height="24.302"
+                Background="Transparent">
                 <Path
                     Width="15.19"
                     Height="22.998"
@@ -54,10 +51,9 @@
     <VisualBrush x:Key="Day3" Stretch="Uniform">
         <VisualBrush.Visual>
             <Canvas
-                Canvas.Left="1409.339"
-                Canvas.Top="2668.604"
-                Width="14.429"
-                Height="23.379">
+                Width="35.561"
+                Height="24.302"
+                Background="Transparent">
                 <Path
                     Width="14.429"
                     Height="23.379"
@@ -70,10 +66,9 @@
     <VisualBrush x:Key="Day4" Stretch="Uniform">
         <VisualBrush.Visual>
             <Canvas
-                Canvas.Left="1489.13"
-                Canvas.Top="2667.314"
-                Width="16.919"
-                Height="24.302">
+                Width="35.561"
+                Height="24.302"
+                Background="Transparent">
                 <Path
                     Width="16.919"
                     Height="24.302"
@@ -86,10 +81,9 @@
     <VisualBrush x:Key="Day5" Stretch="Uniform">
         <VisualBrush.Visual>
             <Canvas
-                Canvas.Left="1004.7"
-                Canvas.Top="2745.534"
-                Width="15.542"
-                Height="22.983">
+                Width="35.561"
+                Height="24.302"
+                Background="Transparent">
                 <Path
                     Width="15.542"
                     Height="22.983"
@@ -102,10 +96,9 @@
     <VisualBrush x:Key="Day6" Stretch="Uniform">
         <VisualBrush.Visual>
             <Canvas
-                Canvas.Left="1086.571"
-                Canvas.Top="2744.743"
-                Width="15.205"
-                Height="23.774">
+                Width="35.561"
+                Height="24.302"
+                Background="Transparent">
                 <Path
                     Width="15.205"
                     Height="23.774"
@@ -118,10 +111,9 @@
     <VisualBrush x:Key="Day7" Stretch="Uniform">
         <VisualBrush.Visual>
             <Canvas
-                Canvas.Left="1167.139"
-                Canvas.Top="2745.534"
-                Width="16.978"
-                Height="23.394">
+                Width="35.561"
+                Height="24.302"
+                Background="Transparent">
                 <Path
                     Width="16.978"
                     Height="23.394"
@@ -134,10 +126,9 @@
     <VisualBrush x:Key="Day8" Stretch="Uniform">
         <VisualBrush.Visual>
             <Canvas
-                Canvas.Left="1248.644"
-                Canvas.Top="2745.153"
-                Width="14.224"
-                Height="23.364">
+                Width="35.561"
+                Height="24.302"
+                Background="Transparent">
                 <Path
                     Width="14.224"
                     Height="23.364"
@@ -150,10 +141,9 @@
     <VisualBrush x:Key="Day9" Stretch="Uniform">
         <VisualBrush.Visual>
             <Canvas
-                Canvas.Left="1328.933"
-                Canvas.Top="2745.153"
-                Width="15.205"
-                Height="23.774">
+                Width="35.561"
+                Height="24.302"
+                Background="Transparent">
                 <Path
                     Width="15.205"
                     Height="23.774"
@@ -166,10 +156,9 @@
     <VisualBrush x:Key="Day10" Stretch="Uniform">
         <VisualBrush.Visual>
             <Canvas
-                Canvas.Left="1403.98"
-                Canvas.Top="2745.153"
-                Width="29.628"
-                Height="23.364">
+                Width="35.561"
+                Height="24.302"
+                Background="Transparent">
                 <Path
                     Canvas.Top="0.381"
                     Width="7.324"
@@ -189,10 +178,9 @@
     <VisualBrush x:Key="Day11" Stretch="Uniform">
         <VisualBrush.Visual>
             <Canvas
-                Canvas.Left="1485.977"
-                Canvas.Top="2745.534"
-                Width="21.51"
-                Height="22.617">
+                Width="35.561"
+                Height="24.302"
+                Background="Transparent">
                 <Path
                     Width="7.324"
                     Height="22.617"
@@ -211,10 +199,9 @@
     <VisualBrush x:Key="Day12" Stretch="Uniform">
         <VisualBrush.Visual>
             <Canvas
-                Canvas.Left="1000.358"
-                Canvas.Top="2821.688"
-                Width="27.696"
-                Height="22.998">
+                Width="35.561"
+                Height="24.302"
+                Background="Transparent">
                 <Path
                     Canvas.Top="0.381"
                     Width="7.324"
@@ -234,10 +221,9 @@
     <VisualBrush x:Key="Day13" Stretch="Uniform">
         <VisualBrush.Visual>
             <Canvas
-                Canvas.Left="1081.042"
-                Canvas.Top="2821.674"
-                Width="27.669"
-                Height="23.379">
+                Width="35.561"
+                Height="24.302"
+                Background="Transparent">
                 <Path
                     Canvas.Top="0.395"
                     Width="7.324"
@@ -257,10 +243,9 @@
     <VisualBrush x:Key="Day14" Stretch="Uniform">
         <VisualBrush.Visual>
             <Canvas
-                Canvas.Left="1161.817"
-                Canvas.Top="2820.385"
-                Width="29.188"
-                Height="24.302">
+                Width="35.561"
+                Height="24.302"
+                Background="Transparent">
                 <Path
                     Canvas.Top="1.684"
                     Width="7.324"
@@ -280,10 +265,9 @@
     <VisualBrush x:Key="Day15" Stretch="Uniform">
         <VisualBrush.Visual>
             <Canvas
-                Canvas.Left="1242.682"
-                Canvas.Top="2822.069"
-                Width="27.95"
-                Height="22.983">
+                Width="35.561"
+                Height="24.302"
+                Background="Transparent">
                 <Path
                     Width="7.324"
                     Height="22.617"
@@ -302,10 +286,9 @@
     <VisualBrush x:Key="Day16" Stretch="Uniform">
         <VisualBrush.Visual>
             <Canvas
-                Canvas.Left="1323.579"
-                Canvas.Top="2821.278"
-                Width="28.476"
-                Height="23.774">
+                Width="35.561"
+                Height="24.302"
+                Background="Transparent">
                 <Path
                     Canvas.Top="0.791"
                     Width="7.324"
@@ -325,10 +308,9 @@
     <VisualBrush x:Key="Day17" Stretch="Uniform">
         <VisualBrush.Visual>
             <Canvas
-                Canvas.Left="1404.472"
-                Canvas.Top="2822.069"
-                Width="29.818"
-                Height="23.394">
+                Width="35.561"
+                Height="24.302"
+                Background="Transparent">
                 <Path
                     Width="7.324"
                     Height="22.617"
@@ -347,10 +329,9 @@
     <VisualBrush x:Key="Day18" Stretch="Uniform">
         <VisualBrush.Visual>
             <Canvas
-                Canvas.Left="1484.993"
-                Canvas.Top="2821.688"
-                Width="28.313"
-                Height="23.364">
+                Width="35.561"
+                Height="24.302"
+                Background="Transparent">
                 <Path
                     Canvas.Top="0.381"
                     Width="7.324"
@@ -370,10 +351,9 @@
     <VisualBrush x:Key="Day19" Stretch="Uniform">
         <VisualBrush.Visual>
             <Canvas
-                Canvas.Left="1000.355"
-                Canvas.Top="2898.224"
-                Width="28.625"
-                Height="23.774">
+                Width="35.561"
+                Height="24.302"
+                Background="Transparent">
                 <Path
                     Canvas.Top="0.38"
                     Width="7.324"
@@ -393,10 +373,9 @@
     <VisualBrush x:Key="Day20" Stretch="Uniform">
         <VisualBrush.Visual>
             <Canvas
-                Canvas.Left="1076.633"
-                Canvas.Top="2898.224"
-                Width="34.554"
-                Height="23.364">
+                Width="35.561"
+                Height="24.302"
+                Background="Transparent">
                 <Path
                     Width="15.19"
                     Height="22.998"
@@ -415,10 +394,9 @@
     <VisualBrush x:Key="Day21" Stretch="Uniform">
         <VisualBrush.Visual>
             <Canvas
-                Canvas.Left="1158.376"
-                Canvas.Top="2898.224"
-                Width="26.944"
-                Height="22.998">
+                Width="35.561"
+                Height="24.302"
+                Background="Transparent">
                 <Path
                     Width="15.19"
                     Height="22.998"
@@ -438,10 +416,9 @@
     <VisualBrush x:Key="Day22" Stretch="Uniform">
         <VisualBrush.Visual>
             <Canvas
-                Canvas.Left="1238.113"
-                Canvas.Top="2898.224"
-                Width="33.439"
-                Height="22.998">
+                Width="35.561"
+                Height="24.302"
+                Background="Transparent">
                 <Path
                     Width="15.19"
                     Height="22.998"
@@ -460,10 +437,9 @@
     <VisualBrush x:Key="Day23" Stretch="Uniform">
         <VisualBrush.Visual>
             <Canvas
-                Canvas.Left="1319.178"
-                Canvas.Top="2898.209"
-                Width="32.649"
-                Height="23.379">
+                Width="35.561"
+                Height="24.302"
+                Background="Transparent">
                 <Path
                     Canvas.Top="0.015"
                     Width="15.19"
@@ -483,10 +459,9 @@
     <VisualBrush x:Key="Day24" Stretch="Uniform">
         <VisualBrush.Visual>
             <Canvas
-                Canvas.Left="1399.57"
-                Canvas.Top="2896.92"
-                Width="34.933"
-                Height="24.302">
+                Width="35.561"
+                Height="24.302"
+                Background="Transparent">
                 <Path
                     Canvas.Top="1.304"
                     Width="15.19"
@@ -506,10 +481,9 @@
     <VisualBrush x:Key="Day25" Stretch="Uniform">
         <VisualBrush.Visual>
             <Canvas
-                Canvas.Left="1480.475"
-                Canvas.Top="2898.224"
-                Width="33.615"
-                Height="23.363">
+                Width="35.561"
+                Height="24.302"
+                Background="Transparent">
                 <Path
                     Width="15.19"
                     Height="22.998"
@@ -529,10 +503,9 @@
     <VisualBrush x:Key="Day26" Stretch="Uniform">
         <VisualBrush.Visual>
             <Canvas
-                Canvas.Left="996.213"
-                Canvas.Top="2974.349"
-                Width="33.438"
-                Height="23.774">
+                Width="35.561"
+                Height="24.302"
+                Background="Transparent">
                 <Path
                     Canvas.Top="0.41"
                     Width="15.19"
@@ -552,10 +525,9 @@
     <VisualBrush x:Key="Day27" Stretch="Uniform">
         <VisualBrush.Visual>
             <Canvas
-                Canvas.Left="1076.715"
-                Canvas.Top="2974.759"
                 Width="35.561"
-                Height="23.775">
+                Height="24.302"
+                Background="Transparent">
                 <Path
                     Width="15.19"
                     Height="22.998"
@@ -575,10 +547,9 @@
     <VisualBrush x:Key="Day28" Stretch="Uniform">
         <VisualBrush.Visual>
             <Canvas
-                Canvas.Left="1157.602"
-                Canvas.Top="2974.759"
-                Width="33.326"
-                Height="23.364">
+                Width="35.561"
+                Height="24.302"
+                Background="Transparent">
                 <Path
                     Width="15.19"
                     Height="22.998"
@@ -597,10 +568,9 @@
     <VisualBrush x:Key="Day29" Stretch="Uniform">
         <VisualBrush.Visual>
             <Canvas
-                Canvas.Left="1238.366"
-                Canvas.Top="2974.759"
-                Width="33.855"
-                Height="23.774">
+                Width="35.561"
+                Height="24.302"
+                Background="Transparent">
                 <Path
                     Width="15.19"
                     Height="22.998"
@@ -619,10 +589,9 @@
     <VisualBrush x:Key="Day30" Stretch="Uniform">
         <VisualBrush.Visual>
             <Canvas
-                Canvas.Left="1319.425"
-                Canvas.Top="2974.744"
-                Width="34.222"
-                Height="23.379">
+                Width="35.561"
+                Height="24.302"
+                Background="Transparent">
                 <Path
                     Width="14.429"
                     Height="23.379"
@@ -642,10 +611,9 @@
     <VisualBrush x:Key="Day31" Stretch="Uniform">
         <VisualBrush.Visual>
             <Canvas
-                Canvas.Left="1401.349"
-                Canvas.Top="2974.744"
-                Width="26.248"
-                Height="23.379">
+                Width="35.561"
+                Height="24.302"
+                Background="Transparent">
                 <Path
                     Width="14.429"
                     Height="23.379"
@@ -665,10 +633,9 @@
     <VisualBrush x:Key="WeekTitleSun" Stretch="Uniform">
         <VisualBrush.Visual>
             <Canvas
-                Canvas.Left="995.801"
-                Canvas.Top="2642.723"
                 Width="31.142"
-                Height="13.922">
+                Height="13.922"
+                Background="Transparent">
                 <Path
                     Width="8.162"
                     Height="13.922"
@@ -695,10 +662,9 @@
     <VisualBrush x:Key="WeekTitleMon" Stretch="Uniform">
         <VisualBrush.Visual>
             <Canvas
-                Canvas.Left="1076.908"
-                Canvas.Top="2642.943"
                 Width="35.361"
-                Height="13.701">
+                Height="13.701"
+                Background="Transparent">
                 <Path
                     Width="13.763"
                     Height="13.482"
@@ -725,10 +691,9 @@
     <VisualBrush x:Key="WeekTitleTue" Stretch="Uniform">
         <VisualBrush.Visual>
             <Canvas
-                Canvas.Left="1156.516"
-                Canvas.Top="2642.943"
                 Width="30.56"
-                Height="13.701">
+                Height="13.701"
+                Background="Transparent">
                 <Path
                     Width="9.981"
                     Height="13.482"
@@ -755,10 +720,9 @@
     <VisualBrush x:Key="WeekTitleWen" Stretch="Uniform">
         <VisualBrush.Visual>
             <Canvas
-                Canvas.Left="1237.623"
-                Canvas.Top="2642.223"
                 Width="35.862"
-                Height="14.422">
+                Height="14.422"
+                Background="Transparent">
                 <Path
                     Canvas.Top="0.72"
                     Width="16.463"
@@ -785,10 +749,9 @@
     <VisualBrush x:Key="WeekTitleThu" Stretch="Uniform">
         <VisualBrush.Visual>
             <Canvas
-                Canvas.Left="1318.09"
-                Canvas.Top="2642.223"
                 Width="32.341"
-                Height="14.421">
+                Height="14.421"
+                Background="Transparent">
                 <Path
                     Canvas.Top="0.72"
                     Width="9.982"
@@ -815,8 +778,7 @@
     <VisualBrush x:Key="WeekTitleFri" Stretch="Uniform">
         <VisualBrush.Visual>
             <Canvas
-                Canvas.Left="1400.418"
-                Canvas.Top="2642.922"
+                Background="Transparent"
                 Width="22.021"
                 Height="13.504">
                 <Path
@@ -845,8 +807,7 @@
     <VisualBrush x:Key="WeekTitleSat" Stretch="Uniform">
         <VisualBrush.Visual>
             <Canvas
-                Canvas.Left="1480.525"
-                Canvas.Top="2642.723"
+                Background="Transparent"
                 Width="26.301"
                 Height="13.922">
                 <Path
@@ -875,8 +836,7 @@
     <VisualBrush x:Key="MonthTitle1" Stretch="Uniform">
         <VisualBrush.Visual>
             <Canvas
-                Canvas.Left="875.599"
-                Canvas.Top="2710.816"
+                Background="Transparent"
                 Width="63.215"
                 Height="17.002">
                 <Path
@@ -933,8 +893,7 @@
     <VisualBrush x:Key="MonthTitle2" Stretch="Uniform">
         <VisualBrush.Visual>
             <Canvas
-                Canvas.Left="872.617"
-                Canvas.Top="2710.132"
+                Background="Transparent"
                 Width="70.51"
                 Height="17.686">
                 <Path
@@ -998,8 +957,7 @@
     <VisualBrush x:Key="MonthTitle3" Stretch="Uniform">
         <VisualBrush.Visual>
             <Canvas
-                Canvas.Left="883.217"
-                Canvas.Top="2710.132"
+                Background="Transparent"
                 Width="47.845"
                 Height="13.697">
                 <Path
@@ -1043,8 +1001,7 @@
     <VisualBrush x:Key="MonthTitle4" Stretch="Uniform">
         <VisualBrush.Visual>
             <Canvas
-                Canvas.Left="888.544"
-                Canvas.Top="2710.132"
+                Background="Transparent"
                 Width="36.527"
                 Height="17.25">
                 <Path
@@ -1088,8 +1045,7 @@
     <VisualBrush x:Key="MonthTitle5" Stretch="Uniform">
         <VisualBrush.Visual>
             <Canvas
-                Canvas.Left="891.324"
-                Canvas.Top="2710.816"
+                Background="Transparent"
                 Width="32.773"
                 Height="17.002">
                 <Path
@@ -1119,8 +1075,7 @@
     <VisualBrush x:Key="MonthTitle6" Stretch="Uniform">
         <VisualBrush.Visual>
             <Canvas
-                Canvas.Left="888.328"
-                Canvas.Top="2710.816"
+                Background="Transparent"
                 Width="37.226"
                 Height="13.013">
                 <Path
@@ -1156,8 +1111,7 @@
     <VisualBrush x:Key="MonthTitle7" Stretch="Uniform">
         <VisualBrush.Visual>
             <Canvas
-                Canvas.Left="891.457"
-                Canvas.Top="2710.132"
+                Background="Transparent"
                 Width="31.5"
                 Height="17.686">
                 <Path
@@ -1193,8 +1147,7 @@
     <VisualBrush x:Key="MonthTitle8" Stretch="Uniform">
         <VisualBrush.Visual>
             <Canvas
-                Canvas.Left="879.04"
-                Canvas.Top="2710.816"
+                Background="Transparent"
                 Width="56.295"
                 Height="16.775">
                 <Path
@@ -1244,8 +1197,7 @@
     <VisualBrush x:Key="MonthTitle9" Stretch="Uniform">
         <VisualBrush.Visual>
             <Canvas
-                Canvas.Left="863.814"
-                Canvas.Top="2710.132"
+                Background="Transparent"
                 Width="87.317"
                 Height="17.25">
                 <Path
@@ -1316,8 +1268,7 @@
     <VisualBrush x:Key="MonthTitle10" Stretch="Uniform">
         <VisualBrush.Visual>
             <Canvas
-                Canvas.Left="875.234"
-                Canvas.Top="2710.132"
+                Background="Transparent"
                 Width="64.383"
                 Height="13.697">
                 <Path
@@ -1374,8 +1325,7 @@
     <VisualBrush x:Key="MonthTitle11" Stretch="Uniform">
         <VisualBrush.Visual>
             <Canvas
-                Canvas.Left="866.544"
-                Canvas.Top="2710.132"
+                Background="Transparent"
                 Width="82.427"
                 Height="13.697">
                 <Path
@@ -1439,8 +1389,7 @@
     <VisualBrush x:Key="MonthTitle12" Stretch="Uniform">
         <VisualBrush.Visual>
             <Canvas
-                Canvas.Left="867.262"
-                Canvas.Top="2710.132"
+                Background="Transparent"
                 Width="80.991"
                 Height="13.697">
                 <Path
@@ -1505,8 +1454,7 @@
     <VisualBrush x:Key="Month1" Stretch="Uniform">
         <VisualBrush.Visual>
             <Canvas
-                Canvas.Left="894.816"
-                Canvas.Top="2641.706"
+                Background="Transparent"
                 Width="18.066"
                 Height="55.789">
                 <Path
@@ -1522,8 +1470,7 @@
     <VisualBrush x:Key="Month2" Stretch="Uniform">
         <VisualBrush.Visual>
             <Canvas
-                Canvas.Left="886.252"
-                Canvas.Top="2640.767"
+                Background="Transparent"
                 Width="37.47"
                 Height="56.729">
                 <Path
@@ -1538,8 +1485,7 @@
     <VisualBrush x:Key="Month3" Stretch="Uniform">
         <VisualBrush.Visual>
             <Canvas
-                Canvas.Left="887.553"
-                Canvas.Top="2640.73"
+                Background="Transparent"
                 Width="35.591"
                 Height="57.668">
                 <Path
@@ -1554,8 +1500,7 @@
     <VisualBrush x:Key="Month4" Stretch="Uniform">
         <VisualBrush.Visual>
             <Canvas
-                Canvas.Left="885.096"
-                Canvas.Top="2637.551"
+                Background="Transparent"
                 Width="41.733"
                 Height="59.944">
                 <Path
@@ -1570,8 +1515,7 @@
     <VisualBrush x:Key="Month5" Stretch="Uniform">
         <VisualBrush.Visual>
             <Canvas
-                Canvas.Left="885.819"
-                Canvas.Top="2641.706"
+                Background="Transparent"
                 Width="38.337"
                 Height="56.692">
                 <Path
@@ -1586,8 +1530,7 @@
     <VisualBrush x:Key="Month6" Stretch="Uniform">
         <VisualBrush.Visual>
             <Canvas
-                Canvas.Left="888.493"
-                Canvas.Top="2639.755"
+                Background="Transparent"
                 Width="37.506"
                 Height="58.644">
                 <Path
@@ -1602,8 +1545,7 @@
     <VisualBrush x:Key="Month7" Stretch="Uniform">
         <VisualBrush.Visual>
             <Canvas
-                Canvas.Left="887.951"
-                Canvas.Top="2641.706"
+                Background="Transparent"
                 Width="41.878"
                 Height="57.704">
                 <Path
@@ -1618,8 +1560,7 @@
     <VisualBrush x:Key="Month8" Stretch="Uniform">
         <VisualBrush.Visual>
             <Canvas
-                Canvas.Left="889.721"
-                Canvas.Top="2640.767"
+                Background="Transparent"
                 Width="35.085"
                 Height="57.632">
                 <Path
@@ -1634,8 +1575,7 @@
     <VisualBrush x:Key="Month9" Stretch="Uniform">
         <VisualBrush.Visual>
             <Canvas
-                Canvas.Left="888.493"
-                Canvas.Top="2640.767"
+                Background="Transparent"
                 Width="37.506"
                 Height="58.644">
                 <Path
@@ -1650,8 +1590,7 @@
     <VisualBrush x:Key="Month10" Stretch="Uniform">
         <VisualBrush.Visual>
             <Canvas
-                Canvas.Left="875.006"
-                Canvas.Top="2640.767"
+                Background="Transparent"
                 Width="71.741"
                 Height="57.632">
                 <Path
@@ -1673,8 +1612,7 @@
     <VisualBrush x:Key="Month11" Stretch="Uniform">
         <VisualBrush.Visual>
             <Canvas
-                Canvas.Left="878.192"
-                Canvas.Top="2641.706"
+                Background="Transparent"
                 Width="51.314"
                 Height="55.789">
                 <Path
@@ -1695,8 +1633,7 @@
     <VisualBrush x:Key="Month12" Stretch="Uniform">
         <VisualBrush.Visual>
             <Canvas
-                Canvas.Left="875.831"
-                Canvas.Top="2640.767"
+                Background="Transparent"
                 Width="66.875"
                 Height="56.729">
                 <Path
