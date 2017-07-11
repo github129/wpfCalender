@@ -91,56 +91,40 @@
         </Style>
         <DataTemplate DataType="{x:Type WeekItem:WeekTitleSun}">
             <Rectangle
-                Grid.Column="0"
-                DataContext="{Binding Entity}"
                 Fill="{StaticResource WeekTitleSun}" />
         </DataTemplate>
         <DataTemplate DataType="{x:Type WeekItem:WeekTitleMon}">
             <Rectangle
-                Grid.Column="0"
-                DataContext="{Binding Entity}"
                 Fill="{StaticResource WeekTitleMon}" />
         </DataTemplate>
         <DataTemplate DataType="{x:Type WeekItem:WeekTitleTue}">
             <Rectangle
-                Grid.Column="0"
-                DataContext="{Binding Entity}"
                 Fill="{StaticResource WeekTitleTue}" />
         </DataTemplate>
         <DataTemplate DataType="{x:Type WeekItem:WeekTitleWen}">
             <Rectangle
-                Grid.Column="0"
-                DataContext="{Binding Entity}"
+                Grid.Column="1"
                 Fill="{StaticResource WeekTitleWen}" />
         </DataTemplate>
         <DataTemplate DataType="{x:Type WeekItem:WeekTitleThu}">
-            <Rectangle
-                Grid.Column="0"
-                DataContext="{Binding Entity}"
-                Fill="{StaticResource WeekTitleThu}" />
+            <Rectangle  Fill="{StaticResource WeekTitleThu}" />
         </DataTemplate>
         <DataTemplate DataType="{x:Type WeekItem:WeekTitleFri}">
-            <Rectangle
-                Grid.Column="0"
-                DataContext="{Binding Entity}"
-                Fill="{StaticResource WeekTitleFri}" />
+            <Rectangle Fill="{StaticResource WeekTitleFri}" />
         </DataTemplate>
         <DataTemplate DataType="{x:Type WeekItem:WeekTitleSat}">
-            <Rectangle
-                Grid.Column="0"
-                DataContext="{Binding Entity}"
-                Fill="{StaticResource WeekTitleSat}" />
+            <Rectangle Fill="{StaticResource WeekTitleSat}" />
         </DataTemplate>
 
 
     </Window.Resources>
-    <Grid Margin="40">
+    <Grid Margin="40,40,40,130">
         <Grid.RowDefinitions>
             <RowDefinition Height="5*" />
             <RowDefinition Height="4*" />
         </Grid.RowDefinitions>
 
-        <Image>
+        <Image Margin="0,0,0,84">
             <Image.Source>
                 <BitmapImage UriSource="https://dummyimage.com/600x400/000/fff" />
             </Image.Source>
@@ -155,7 +139,6 @@
                 <Grid.RowDefinitions>
                     <RowDefinition Height="2*" />
                     <RowDefinition Height="0.5*" />
-                    <RowDefinition Height="0.5*" />
                     <RowDefinition Height="6*" />
                 </Grid.RowDefinitions>
                 <Rectangle
@@ -165,33 +148,23 @@
                     VerticalAlignment="Stretch"
                     DataContext="{Binding Entity}">
                     <i:Interaction.Behaviors>
-                        <local:CalenderPrintBehavior Key="Month" Number="{Binding StringMonth}" />
-                    </i:Interaction.Behaviors>
-                </Rectangle>
-                <Rectangle
-                    Grid.Row="1"
-                    Grid.Column="0"
-                    HorizontalAlignment="Stretch"
-                    VerticalAlignment="Stretch"
-                    DataContext="{Binding Entity}">
-                    <i:Interaction.Behaviors>
                         <local:CalenderPrintBehavior Key="MonthTitle" Number="{Binding StringMonth}" />
                     </i:Interaction.Behaviors>
                 </Rectangle>
-                <Grid Grid.Row="2">
+                <Grid Grid.Row="1">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*" />
                         <ColumnDefinition Width="*" />
                         <ColumnDefinition Width="*" />
                         <ColumnDefinition Width="*" />
                     </Grid.ColumnDefinitions>
-                    <!--<Rectangle
+                    <Rectangle
                         Grid.Column="0"
                         HorizontalAlignment="Stretch"
                         VerticalAlignment="Stretch"
                         DataContext="{Binding Entity}">
                         <i:Interaction.Behaviors>
-                            <local:CalenderPrintBehavior Key="Day" Number="{Binding StringYear[0]}" />
+                            <local:CalenderPrintBehavior Key="YearNumber" Number="{Binding StringYear[0]}" />
                         </i:Interaction.Behaviors>
                     </Rectangle>
                     <Rectangle
@@ -200,7 +173,7 @@
                         VerticalAlignment="Stretch"
                         DataContext="{Binding Entity}">
                         <i:Interaction.Behaviors>
-                            <local:CalenderPrintBehavior Key="Day" Number="{Binding StringYear[1]}" />
+                            <local:CalenderPrintBehavior Key="YearNumber" Number="{Binding StringYear[1]}" />
                         </i:Interaction.Behaviors>
                     </Rectangle>
                     <Rectangle
@@ -209,7 +182,7 @@
                         VerticalAlignment="Stretch"
                         DataContext="{Binding Entity}">
                         <i:Interaction.Behaviors>
-                            <local:CalenderPrintBehavior Key="Day" Number="{Binding StringYear[2]}" />
+                            <local:CalenderPrintBehavior Key="YearNumber" Number="{Binding StringYear[2]}" />
                         </i:Interaction.Behaviors>
                     </Rectangle>
                     <Rectangle
@@ -218,9 +191,9 @@
                         VerticalAlignment="Stretch"
                         DataContext="{Binding Entity}">
                         <i:Interaction.Behaviors>
-                            <local:CalenderPrintBehavior Key="Day" Number="{Binding StringYear[3]}" />
+                            <local:CalenderPrintBehavior Key="YearNumber" Number="{Binding StringYear[3]}" />
                         </i:Interaction.Behaviors>
-                    </Rectangle>-->
+                    </Rectangle>
                 </Grid>
             </Grid>
             <Grid Grid.Row="1" Grid.Column="1">
@@ -230,8 +203,8 @@
                 </Grid.RowDefinitions>
                 <ListBox
                     Grid.Row="0"
-                    HorizontalContentAlignment="Left"
-                    VerticalContentAlignment="Top"
+                    HorizontalContentAlignment="Stretch"
+                    VerticalContentAlignment="Stretch"
                     BorderThickness="0"
                     ItemsSource="{Binding Path=Entity.CalenderWeekItems}"
                     Style="{StaticResource calenderDateStyle}" />
@@ -245,5 +218,28 @@
                     Style="{StaticResource calenderStyle}" />
             </Grid>
         </Grid>
+        <Canvas
+            Width="100"
+            Height="100"
+            Margin="219,136,243,41"
+            Background="Red"
+            OpacityMask="{StaticResource Day1}">
+            <!--<Canvas.OpacityMask>
+                <VisualBrush>
+                    <VisualBrush.Visual>
+                        <Canvas
+                            Width="35.561"
+                            Height="24.302"
+                            Background="#00FFFFFF">
+                            <Path
+                                Width="7.324"
+                                Height="22.617"
+                                Data="F1M3.911,3.208L0,3.208 1.875,0 7.324,0 7.324,22.617 3.911,22.617z"
+                                Fill="#FF000000" />
+                        </Canvas>
+                    </VisualBrush.Visual>
+                </VisualBrush>
+            </Canvas.OpacityMask>-->
+        </Canvas>
     </Grid>
 </Window>

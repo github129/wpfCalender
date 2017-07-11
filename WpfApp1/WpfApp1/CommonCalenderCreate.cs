@@ -14,6 +14,7 @@ namespace WpfApp1
     using System.Windows.Media;
     using Calender.Entitey;
     using CustomEventArgs;
+    using WpfApp1.Entity.WeekNumber;
 
     /// <summary>
     /// DayのPath用enum
@@ -344,14 +345,40 @@ namespace WpfApp1
                 week = DateListM;
             }
 
-            foreach (string s in week)
-            {
-                var weekItem = new WeekItem();
-                weekItem.Title = s;
-                weekItem.Col = dateCol;
-                dateCol++;
-                this.entity.CalenderWeekItems.Add(weekItem);
-            }
+            var sun = new WeekTitleSun();
+            sun.Title = week[0];
+            sun.Col = dateCol;
+            this.entity.CalenderWeekItems.Add(sun);
+
+            var mon = new WeekTitleMon();
+            mon.Title = week[1];
+            mon.Col = dateCol;
+            this.entity.CalenderWeekItems.Add(mon);
+
+            var tue = new WeekTitleTue();
+            tue.Title = week[2];
+            tue.Col = dateCol;
+            this.entity.CalenderWeekItems.Add(tue);
+
+            var wen = new WeekTitleWen();
+            wen.Title = week[3];
+            wen.Col = dateCol;
+            this.entity.CalenderWeekItems.Add(wen);
+
+            var thu = new WeekTitleThu();
+            thu.Title = week[4];
+            thu.Col = dateCol;
+            this.entity.CalenderWeekItems.Add(thu);
+
+            var fri = new WeekTitleFri();
+            fri.Title = week[0];
+            fri.Col = dateCol;
+            this.entity.CalenderWeekItems.Add(fri);
+
+            var sat = new WeekTitleSat();
+            sat.Title = week[0];
+            sat.Col = dateCol;
+            this.entity.CalenderWeekItems.Add(sat);
 
             return this.entity;
         }
