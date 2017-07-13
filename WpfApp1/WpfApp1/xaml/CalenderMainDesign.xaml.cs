@@ -57,8 +57,9 @@ namespace WpfApp1
             vm.SetOneCalender(this.Data, this.Op);
             var imgApi = new ImgAPI();
             UriTypeConverter con = new UriTypeConverter();
-            this.CalenderImg.UriSource = (Uri)con.ConvertFromString(imgApi.GetImg());
-            vm.Entity.ImgUrl = imgApi.GetImg();
+
+            // this.CalenderImg.UriSource = (Uri)con.ConvertFromString(imgApi.GetImg());
+            // vm.Entity.ImgUrl = imgApi.GetImg();
             this.DataContext = vm;
         }
 
