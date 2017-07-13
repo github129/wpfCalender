@@ -205,6 +205,11 @@ namespace WpfApp1
 
             for (int i = 0; i < this.CalenderDays.Count; i++)
             {
+                if (this.CalenderDays[i].Day == null)
+                {
+                    break;
+                }
+
                 this.CalenderDays[i].Col = col;
                 this.CalenderDays[i].Row = row;
                 col++;

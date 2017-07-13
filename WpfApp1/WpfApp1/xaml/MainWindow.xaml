@@ -16,62 +16,67 @@
     <Window.Resources />
     <Grid>
         <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
             <RowDefinition Height="7*" />
+            <RowDefinition Height="4*" />
         </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*" />
-            <ColumnDefinition Width="5*" />
-        </Grid.ColumnDefinitions>
-        <Grid
-            Grid.Column="0"
-            Background="Black"
-            OpacityMask="Black" />
-        <TextBox
-            Grid.Column="1"
-            Margin="54,70,418,137"
+        <Grid Grid.Row="1">
+            <TextBox
+            Margin="100.333,22.847,122.743,20.72"
             Padding="2"
             BorderThickness="4"
             FontSize="25"
-            Text="{Binding InputYear, Mode=TwoWay}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-        <Label
-            Grid.Column="1"
+            Text="{Binding InputYear, Mode=TwoWay}" HorizontalAlignment="Center" VerticalAlignment="Center" Height="113.35" Width="468.924"/>
+            <Label
             Height="48"
-            Margin="153,76,381,145"
+            Margin="212.506,42,432.827,119.221"
             Content="年"
             FontSize="25"
             RenderTransformOrigin="0.692,0.537" />
-        <ComboBox
+            <ComboBox
             Name="monthComboBox"
-            Grid.Column="1"
             Height="Auto"
-            Margin="233,76,271,145"
-            FontSize="25" />
-        <Label
-            Grid.Column="1"
+            Margin="275.666,44.666,329.667,119.888"
+            FontSize="25" RenderTransformOrigin="0.5,0.5" >
+                <ComboBox.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform ScaleY="-1"/>
+                        <SkewTransform/>
+                        <RotateTransform/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </ComboBox.RenderTransform>
+            </ComboBox>
+            <Label
             Width="36.988"
-            Margin="318,76,222,146"
+            Margin="370.506,42,284.506,127.222"
             Content="月"
-            FontSize="25" />
-        <TextBox
-            Grid.Column="1"
+            FontSize="25" RenderTransformOrigin="0.5,0.5" >
+            </Label>
+            <TextBox
             Width="50"
-            Margin="397,76,121,149"
+            Margin="429.667,52.111,212.333,130.444"
             HorizontalAlignment="Center"
             VerticalAlignment="Center"
             FontSize="25"
-            Text="{Binding MakeCalenderCount, Mode=TwoWay}" />
-        <Label
-            Grid.Column="1"
-            Width="38.514"
-            Height="44.35"
-            Margin="466,76,72,149"
+            Text="{Binding MakeCalenderCount, Mode=TwoWay}" Height="26.667" RenderTransformOrigin="0.5,0.5" >
+                <TextBox.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform ScaleY="-1"/>
+                        <SkewTransform/>
+                        <RotateTransform/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </TextBox.RenderTransform>
+            </TextBox>
+            <Label
+            Margin="480.41,42.001,141.743,101.538"
             Content="件"
             FontSize="25"
             RenderTransformOrigin="3.318,0.5" />
-        <Button
-            Grid.Column="1"
+            <Button
             Height="48"
-            Margin="43,103,69,10"
+            Margin="183,170,217,-61.083"
             Background="#FFA4B7F7"
             BorderBrush="Black"
             Click="Button_Click"
@@ -79,5 +84,6 @@
             FontFamily="Yu Gothic"
             FontSize="25"
             Foreground="White" />
+        </Grid>
     </Grid>
 </Window>

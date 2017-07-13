@@ -253,6 +253,7 @@ namespace WpfApp1
         /// <param name="day">Dayクラス</param>
         public void DateColorChange(int col, CalenderDay day)
         {
+            // 日曜日か土曜日かの判断
             if (col == this.sunColorNumber)
             {
                 day.ForeColor = (DateColor)3;
@@ -298,21 +299,26 @@ namespace WpfApp1
                 }
             }
 
-            var spaceCol = 0;
-            for (var i = 0; i < startPoint; i++)
+            // デザイン用にスペースを作る処理　必ず6*7で作る
+            for (var x = 0; x < 7; x++)
             {
                 this.calenderDay = new CalenderDay();
-                this.calenderDay.Col = i;
+                this.calenderDay.Col = x;
                 this.calenderDay.Row = 0;
                 entity.CalenderDays.Add(this.calenderDay);
             }
 
-            for (int i = col; i < 7; i++)
+            for (int y = row; y < 6; y++)
             {
-                this.calenderDay = new CalenderDay();
-                this.calenderDay.Col = i;
-                this.calenderDay.Row = row;
-                entity.CalenderDays.Add(this.calenderDay);
+                for (int x = col - 1; x < 7; x++)
+                {
+                    this.calenderDay = new CalenderDay();
+                    this.calenderDay.Col = x;
+                    this.calenderDay.Row = y;
+                    entity.CalenderDays.Add(this.calenderDay);
+                }
+
+                col = 0;
             }
         }
 
@@ -381,13 +387,13 @@ namespace WpfApp1
             dateCol++;
 
             var fri = new WeekTitleFri();
-            fri.Title = week[0];
+            fri.Title = week[5];
             fri.Col = dateCol;
             this.entity.CalenderWeekItems.Add(fri);
             dateCol++;
 
             var sat = new WeekTitleSat();
-            sat.Title = week[0];
+            sat.Title = week[6];
             sat.Col = dateCol;
             this.entity.CalenderWeekItems.Add(sat);
 

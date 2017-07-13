@@ -149,31 +149,33 @@ namespace WpfApp1
                 this.InputYear = DateTime.Now.Year.ToString();
             }
 
-            // 作成個数の確認
-            if (this.MakeCalenderCount.Length == 0 && this.InputYear.Length == 0)
-            {
-                inputCreateountFlg = false;
-                op.CalenderCreateCount = 1;
-            }
-            else if (this.MakeCalenderCount.Length == 0 && this.InputYear.Length > 0 && this.InputMonth == 0)
-            {
-                inputCreateountFlg = false;
-                op.CalenderCreateCount = 12;
-            }
-            else if (this.MakeCalenderCount.Length > 0)
-            {
-                op.CalenderCreateCount = int.Parse(this.MakeCalenderCount);
-            }
+            this.inputMonth = 1;
+            op.CalenderCreateCount = 1;
+            //// 作成個数の確認
+            // if (this.MakeCalenderCount.Length == 0 && this.InputYear.Length == 0)
+            // {
+            //    inputCreateountFlg = false;
+            //    op.CalenderCreateCount = 1;
+            // }
+            // else if (this.MakeCalenderCount.Length == 0 && this.InputYear.Length > 0 && this.InputMonth == 0)
+            // {
+            //    inputCreateountFlg = false;
+            //    op.CalenderCreateCount = 12;
+            // }
+            // else if (this.MakeCalenderCount.Length > 0)
+            // {
+            //    op.CalenderCreateCount = int.Parse(this.MakeCalenderCount);
+            // }
 
-            // 月の確認
-            if (this.InputMonth == 0 && this.InputYear.Length == 0)
-            {
-                this.InputMonth = DateTime.Now.Month;
-            }
-            else if (this.InputMonth == 0 && this.InputYear.Length != 0 && this.MakeCalenderCount.Length == 0)
-            {
-                this.InputMonth = 1;
-            }
+            //// 月の確認
+            // if (this.InputMonth == 0 && this.InputYear.Length == 0)
+            // {
+            //    this.InputMonth = DateTime.Now.Month;
+            // }
+            // else if (this.InputMonth == 0 && this.InputYear.Length != 0 && this.MakeCalenderCount.Length == 0)
+            // {
+            //    this.InputMonth = 1;
+            // }
 
             this.Date = new DateTime(int.Parse(this.InputYear), this.InputMonth , 1);
 

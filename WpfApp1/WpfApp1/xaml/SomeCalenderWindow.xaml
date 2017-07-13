@@ -26,7 +26,6 @@
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
-            <RowDefinition Height="100" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
         <Menu Grid.Row="0">
@@ -44,56 +43,10 @@
                     IsCheckable="True" />
             </MenuItem>
         </Menu>
-        <Grid Grid.Row="1">
-
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*" />
-                <ColumnDefinition Width="5*" />
-                <ColumnDefinition Width="*" />
-            </Grid.ColumnDefinitions>
-            <TextBlock
-                Grid.Row="0"
-                Grid.Column="1"
-                HorizontalAlignment="Center"
-                VerticalAlignment="Center"
-                FontSize="25">
-                <Run Text="{Binding TopDateText.Year, Mode=OneWay}" />
-                年</TextBlock>
-            <Button
-                Grid.Column="0"
-                Background="#FF9CA8F7"
-                Click="Button_Click"
-                Content="◀"
-                FontSize="30"
-                Foreground="White">
-                <Button.Visibility>
-                    <Binding Path="GoBackYearIcon">
-                        <Binding.Converter>
-                            <converter:CalenderConverter />
-                        </Binding.Converter>
-                    </Binding>
-                </Button.Visibility>
-            </Button>
-            <Button
-                Grid.Column="2"
-                Background="#FF8D9BF9"
-                Click="Button_Click_1"
-                Content="▶"
-                FontSize="30"
-                Foreground="White">
-                <Button.Visibility>
-                    <Binding Path="GoNextYearIcon">
-                        <Binding.Converter>
-                            <converter:CalenderConverter />
-                        </Binding.Converter>
-                    </Binding>
-                </Button.Visibility>
-            </Button>
-        </Grid>
         <ListBox
-            Grid.Row="2"
+            Grid.Row="1"
             ItemsSource="{Binding CalenderEntitys}"
-            Style="{StaticResource someCalendersStyle}">
+            Style="{StaticResource someCalendersStyle}" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch">
             <ListBox.ItemsPanel>
                 <ItemsPanelTemplate>
                     <UniformGrid Columns="3" />

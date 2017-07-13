@@ -112,7 +112,7 @@
                     <ColumnDefinition Width="*" />
                     <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
-                <Rectangle Grid.Column="0" Fill="{StaticResource WeekTitleSun}" />
+                <Rectangle Fill="{StaticResource WeekTitleSun}" />
             </Grid>
         </DataTemplate>
         <DataTemplate DataType="{x:Type WeekItem:WeekTitleMon}">
@@ -121,7 +121,7 @@
                     <ColumnDefinition Width="*" />
                     <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
-                <Rectangle Grid.Column="0" Fill="{StaticResource WeekTitleMon}" />
+                <Rectangle Fill="{StaticResource WeekTitleMon}" />
             </Grid>
         </DataTemplate>
         <DataTemplate DataType="{x:Type WeekItem:WeekTitleTue}">
@@ -130,7 +130,7 @@
                     <ColumnDefinition Width="*" />
                     <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
-                <Rectangle Grid.Column="0" Fill="{StaticResource WeekTitleTue}" />
+                <Rectangle Fill="{StaticResource WeekTitleTue}" />
             </Grid>
         </DataTemplate>
         <DataTemplate DataType="{x:Type WeekItem:WeekTitleWen}">
@@ -139,7 +139,7 @@
                     <ColumnDefinition Width="*" />
                     <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
-                <Rectangle Grid.Column="0" Fill="{StaticResource WeekTitleWen}" />
+                <Rectangle Fill="{StaticResource WeekTitleWen}" />
             </Grid>
         </DataTemplate>
         <DataTemplate DataType="{x:Type WeekItem:WeekTitleThu}">
@@ -148,7 +148,7 @@
                     <ColumnDefinition Width="*" />
                     <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
-                <Rectangle Grid.Column="0" Fill="{StaticResource WeekTitleThu}" />
+                <Rectangle Fill="{StaticResource WeekTitleThu}" />
             </Grid>
         </DataTemplate>
         <DataTemplate DataType="{x:Type WeekItem:WeekTitleFri}">
@@ -157,7 +157,7 @@
                     <ColumnDefinition Width="*" />
                     <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
-                <Rectangle Grid.Column="0" Fill="{StaticResource WeekTitleFri}" />
+                <Rectangle Fill="{StaticResource WeekTitleFri}" />
             </Grid>
         </DataTemplate>
         <DataTemplate DataType="{x:Type WeekItem:WeekTitleSat}">
@@ -166,7 +166,7 @@
                     <ColumnDefinition Width="*" />
                     <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
-                <Rectangle Grid.Column="0" Fill="{StaticResource WeekTitleSat}" />
+                <Rectangle Fill="{StaticResource WeekTitleSat}" />
             </Grid>
         </DataTemplate>
 
