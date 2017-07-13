@@ -42,10 +42,6 @@ namespace WpfApp1
         /// <param name="e">イベントデータ情報</param>
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            for (var i = 0; i < 12; i++)
-            {
-                this.monthComboBox.Items.Add(i + 1);
-            }
 
             this.UserContorol();
         }
@@ -57,10 +53,6 @@ namespace WpfApp1
         /// <param name="e">イベントデータの情報</param>
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            if (monthComboBox.SelectedItem != null)
-            {
-                this.vm.InputMonth = (int)this.monthComboBox.SelectedItem;
-            }
             CalenderData data = new CalenderData();
             this.vm.SearchButtonPushEvent(data);
         }
