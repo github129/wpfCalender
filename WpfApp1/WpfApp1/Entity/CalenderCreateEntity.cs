@@ -33,12 +33,20 @@ namespace WpfApp1
         /// </summary>
         private DateTime date;
 
+        /// <summary>
+        /// string型の月
+        /// </summary>
         private string stringMonth;
 
         /// <summary>
         /// string型の年
         /// </summary>
         private string stringYear;
+
+        /// <summary>
+        /// 上部の画像URL
+        /// </summary>
+        private string imgUrl = "https://farm5.staticflickr.com/4322/35759552981_f840e8cd59_c.jpg";
 
         /// <summary>
         /// 曜日の入った配列 sFlgがtureの場合
@@ -143,6 +151,26 @@ namespace WpfApp1
                 {
                     this.stringYear = value;
                     this.RaisePropertyChanged("StringYear");
+                }
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets カレンダーの日付リストを扱うプロパティ
+        /// </summary>
+        public string ImgUrl
+        {
+            get
+            {
+                return this.imgUrl;
+            }
+
+            set
+            {
+                if (this.imgUrl != value)
+                {
+                    this.imgUrl = value;
+                    this.RaisePropertyChanged("ImgUrl");
                 }
             }
         }

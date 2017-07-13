@@ -28,8 +28,6 @@
                     <Ellipse
                         x:Name="TodayBGColor"
                         Stretch="Uniform" />
-                    <!--<Rectangle Stretch="Uniform"  x:Name="TodayBGColor"                         MaxWidth="20"
-                        MaxHeight="25"/>-->
                     <Rectangle Stretch="Uniform">
                         <i:Interaction.Behaviors>
                             <local:CalenderDayBehavior DayColor="{Binding ForeColor}" Number="{Binding Day}" />
@@ -207,9 +205,9 @@
                 <RowDefinition Height="4*" />
             </Grid.RowDefinitions>
 
-            <Image>
+            <Image Stretch="UniformToFill" Grid.Row="0">
                 <Image.Source>
-                    <BitmapImage UriSource="https://dummyimage.com/600x400/000/fff" />
+                    <BitmapImage UriSource="https://farm5.staticflickr.com/4240/35648344091_d0b16f86e3_c.jpg" x:Name="CalenderImg"/>
                 </Image.Source>
             </Image>
 

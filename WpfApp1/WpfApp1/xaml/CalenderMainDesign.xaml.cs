@@ -1,8 +1,13 @@
-﻿namespace WpfApp1
+﻿// <copyright file="CalenderMainDesign.xaml.cs" company="PlaceholderCompany">
+// Copyright (c) PlaceholderCompany. All rights reserved.
+// </copyright>
+
+namespace WpfApp1
 {
     using System;
     using System.Windows;
     using Calender.Entitey;
+    using FlickrAPI;
 
     /// <summary>
     /// CalenderMainDesign.xaml の相互作用ロジック
@@ -12,18 +17,6 @@
         private CalenderData data = new CalenderData();
 
         private Option op = new Option();
-
-        public CalenderData Data
-        {
-            get { return this.data; }
-            set { this.data = value; }
-        }
-
-        public Option Op
-        {
-            get { return this.op; }
-            set { this.op = value; }
-        }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="CalenderMainDesign"/> class.
@@ -35,15 +28,37 @@
         }
 
         /// <summary>
+        /// Gets or sets カレンダーデータクラス
+        /// </summary>
+        public CalenderData Data
+        {
+            get { return this.data; }
+            set { this.data = value; }
+        }
+
+        /// <summary>
+        /// Gets or sets オプションクラス
+        /// </summary>
+        public Option Op
+        {
+            get { return this.op; }
+            set { this.op = value; }
+        }
+
+        /// <summary>
         /// 実行メソッド
         /// </summary>
         /// <param name="date">DaateTime　入力された年月日</param>
         public void UserContorol(DateTime date)
         {
             this.Data.Date = date;
-            this.op = new Option();
+            this.Op = new Option();
             var vm = new CalenderWindowViewModel();
-            vm.SetOneCalender(this.Data, op);
+            vm.SetOneCalender(this.Data, this.Op);
+            var imgApi = new ImgAPI();
+            UriTypeConverter con = new UriTypeConverter();
+            this.CalenderImg.UriSource = (Uri)con.ConvertFromString(imgApi.GetImg());
+            vm.Entity.ImgUrl = imgApi.GetImg();
             this.DataContext = vm;
         }
 

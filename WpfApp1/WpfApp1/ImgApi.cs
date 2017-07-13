@@ -1,4 +1,8 @@
-﻿namespace FlickrAPI
+﻿// <copyright file="ImgApi.cs" company="PlaceholderCompany">
+// Copyright (c) PlaceholderCompany. All rights reserved.
+// </copyright>
+
+namespace FlickrAPI
 {
     using System;
     using System.Collections.Generic;
@@ -10,20 +14,41 @@
     using System.Net;
     using System.Text;
     using System.Threading.Tasks;
-    using System.Windows;
     using FlickrNet;
 
-    public class ImgApi
+    /// <summary>
+    /// イメージAPIを扱うクラス
+    /// </summary>
+    public class ImgAPI
     {
         private Flickr flickr;
-        private string flickrApiKey = "0383912f104ae322052b87aae3ac9d2b ";
+        private string flickrApiKey = "0383912f104ae322052b87aae3ac9d2b";
+        private PhotoCollection photos;
 
-        private int index;
-
-        public ImgApi()
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ImgAPI"/> class.
+        /// </summary>
+        public ImgAPI()
         {
-            index = 0;
-            flickr = new Flickr(flickrApiKey);
+            this.flickr = new Flickr(this.flickrApiKey);
+            this.photos = new PhotoCollection();
+        }
+
+        /// <summary>
+        /// 写真のURLを取得するメソッド
+        /// タグの中からランダムに取得してくる
+        /// </summary>
+        /// <returns>ingUrl 画像URL</returns>
+        public string GetImg()
+        {
+            Random random = new Random();
+            PhotoSearchOptions opt = new PhotoSearchOptions();
+            opt.Tags = "Mountain Background orange";
+            opt.TagMode = TagMode.AllTags;
+            this.photos = this.flickr.PhotosSearch(opt);
+            var imgNumber = random.Next(this.photos.Count);
+            var imgUrl = this.photos[imgNumber].LargeSquareThumbnailUrl;
+            return imgUrl;
         }
 
     }
