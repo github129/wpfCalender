@@ -284,9 +284,9 @@ namespace WpfApp1
                 this.DateColorChange(col, this.calenderDay);
 
                 // 当日かどうかの判断
-                if (option.IsTodayColorChange && i == DateTime.Now.Day && data.Date.Year == DateTime.Now.Year && data.Date.Month == DateTime.Now.Month)
+                if (option.IsTodayColorChange && int.Parse(this.calenderDay.Day) == DateTime.Now.Day && data.Date.Year == DateTime.Now.Year && data.Date.Month == DateTime.Now.Month)
                 {
-                    this.calenderDay.BgColor = (DateColor)4;
+                    this.calenderDay.IsToday = true;
                 }
 
                 entity.CalenderDays.Add(this.calenderDay);

@@ -11,10 +11,18 @@
     {
         private CalenderData data = new CalenderData();
 
+        private Option op = new Option();
+
         public CalenderData Data
         {
             get { return this.data; }
             set { this.data = value; }
+        }
+
+        public Option Op
+        {
+            get { return this.op; }
+            set { this.op = value; }
         }
 
         /// <summary>
@@ -33,10 +41,48 @@
         public void UserContorol(DateTime date)
         {
             this.Data.Date = date;
-            var option = new Option();
+            this.op = new Option();
             var vm = new CalenderWindowViewModel();
-            vm.SetOneCalender(this.Data, option);
+            vm.SetOneCalender(this.Data, op);
             this.DataContext = vm;
+        }
+
+        /// <summary>
+        /// 曜日の始まり選択クリック時の処理
+        /// </summary>
+        /// <param name="sender">sender</param>
+        /// <param name="e">イベントデータ</param>
+        private void CheckBox_Checked(object sender, RoutedEventArgs e)
+        {
+            if ((bool)this.weekChangeCheck.IsChecked)
+            {
+                this.Op.IsDatePrintChange = false;
+            }
+            else
+            {
+                this.Op.IsDatePrintChange = true;
+            }
+
+            ((CalenderWindowViewModel)this.DataContext).UpdataCalender(this.op);
+        }
+
+        /// <summary>
+        /// 当日の背景色選択時の処理
+        /// </summary>
+        /// <param name="sender">sender</param>
+        /// <param name="e">イベントデータ</param>
+        private void TodayColorChange_Click(object sender, RoutedEventArgs e)
+        {
+            if ((bool)this.TodayColorChange.IsChecked)
+            {
+                this.Op.IsTodayColorChange = false;
+            }
+            else
+            {
+                this.Op.IsTodayColorChange = true;
+            }
+
+            ((CalenderWindowViewModel)this.DataContext).ColorChangeEvent(this.op);
         }
     }
 }

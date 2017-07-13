@@ -1630,11 +1630,11 @@
         </VisualBrush.Visual>
     </VisualBrush>
 
-    <!--  祝日用のカラー  -->
-    <SolidColorBrush x:Key="DayColor2" Color="#FFEC1C24" />
-
     <!--  土曜日のカラー  -->
-    <SolidColorBrush x:Key="DayColor3" Color="#FF176FC0" />
+    <SolidColorBrush x:Key="DayColor2" Color="#FF176FC0" />
+
+    <!--  祝日のカラー  -->
+    <SolidColorBrush x:Key="DayColor3" Color="#FFEC1C24" /> 
 
     <!--  平日のカラー  -->
     <SolidColorBrush x:Key="DayColor1" Color="Black" />
