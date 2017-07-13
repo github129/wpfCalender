@@ -138,6 +138,9 @@
     <Compile Include="Entity\WeekNumber\WeekTitleWen.cs" />
     <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="ImgAPI.cs" />
+    <Compile Include="xaml\MainFrame.xaml.cs">
+      <DependentUpon>MainFrame.xaml</DependentUpon>
+    </Compile>
     <Compile Include="xaml\CalenderMainDesign.xaml.cs">
       <DependentUpon>CalenderMainDesign.xaml</DependentUpon>
     </Compile>
@@ -158,6 +161,10 @@
     </Compile>
     <Compile Include="VM\SomeCalenderWindowViewModel.cs" />
     <Compile Include="Entity\WeekItem.cs" />
+    <Page Include="xaml\MainFrame.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="xaml\CalenderMainDesign.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
