@@ -225,11 +225,11 @@ namespace WpfApp1
             {
                 if (e.Option.IsTodayColorChange && i == DateTime.Now.Day && this.date.Year == DateTime.Now.Year && this.date.Month == DateTime.Now.Month)
                 {
-                    this.dayList[i].BgColor = new SolidColorBrush(Colors.Khaki);
+                    this.dayList[i].IsToday = true;
                 }
                 else if (!e.Option.IsTodayColorChange && i == DateTime.Now.Day && this.date.Year == DateTime.Now.Year && this.date.Month == DateTime.Now.Month)
                 {
-                    this.dayList[i].BgColor = new SolidColorBrush(Colors.White);
+                    this.dayList[i].IsToday = false;
                 }
             }
         }

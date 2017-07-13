@@ -10,5 +10,9 @@ namespace WpfApp1.Entity.WeekNumber
 {
     public class WeekTitleThu : WeekItem
     {
+        public int Col
+        {
+            get; set;
+        }
     }
 }

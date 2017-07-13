@@ -13,6 +13,14 @@ namespace WpfApp1
     using System.Windows.Media;
 
     /// <summary>
+    /// 曜日のの色の判断用enum
+    /// </summary>
+    public enum DateColor
+    {
+        None, Weekday, Saturday, Holiday,
+    }
+
+    /// <summary>
     /// カレンダーの日付を使うクラス
     /// </summary>
     public class CalenderDay : INotifyPropertyChanged
@@ -20,12 +28,14 @@ namespace WpfApp1
         /// <summary>
         /// 日付の色
         /// </summary>
-        private Brush foreColor = new SolidColorBrush(Colors.Black);
+        private DateColor foreColor = (DateColor)1;
 
         /// <summary>
         /// 日付ごとの背景色
         /// </summary>
-        private Brush bgColor = new SolidColorBrush(Colors.White);
+        private DateColor bgColor = (DateColor)1;
+
+        private bool isToday = false;
 
         /// <summary>
         /// カラム
@@ -41,11 +51,6 @@ namespace WpfApp1
         /// 日付
         /// </summary>
         private string day;
-
-        /// <summary>
-        /// ビヘイビア用のキー
-        /// </summary>
-        private string dayKeyName = "Day";
 
         /// <summary>
         /// インターフェースの実装
@@ -68,6 +73,26 @@ namespace WpfApp1
                 {
                     this.col = value;
                     this.RaisePropertyChanged("Col");
+                }
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets grid coulm
+        /// </summary>
+        public bool IsToday
+        {
+            get
+            {
+                return this.isToday;
+            }
+
+            set
+            {
+                if (this.isToday != value)
+                {
+                    this.isToday = value;
+                    this.RaisePropertyChanged("IsToday");
                 }
             }
         }
@@ -115,7 +140,7 @@ namespace WpfApp1
         /// <summary>
         /// Gets or sets 背景色用のプロパティ
         /// </summary>
-        public Brush BgColor
+        public DateColor BgColor
         {
             get
             {
@@ -135,7 +160,7 @@ namespace WpfApp1
         /// <summary>
         /// Gets or sets 日付色用のプロパティ
         /// </summary>
-        public Brush ForeColor
+        public DateColor ForeColor
         {
             get
             {
@@ -150,15 +175,6 @@ namespace WpfApp1
                     this.RaisePropertyChanged("ForeColor");
                 }
             }
-        }
-
-        /// <summary>
-        /// Gets or sets keyNameを扱うプロパティ
-        /// </summary>
-        public string DayKeyName
-        {
-            get { return this.dayKeyName; }
-            set { this.dayKeyName = value; }
         }
 
         /// <summary>

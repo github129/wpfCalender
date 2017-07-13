@@ -17,16 +17,6 @@ namespace WpfApp1
     using WpfApp1.Entity.WeekNumber;
 
     /// <summary>
-    /// DayのPath用enum
-    /// </summary>
-    internal enum DayPath
-    {
-        Day1, Day2, Day3, Day4, Day5, Day6, Day7, Day8, Day9, Day10,
-        Day11, Day12, Day13, Day14, Day15, Day16, Day17, Day18, Day19, Day20,
-        Day21, Day22, Day23, Day24, Day25, Day26, Day27, Day28, Day29, Day30, Day31
-    }
-
-    /// <summary>
     /// イベントハンドラーの設定
     /// </summary>
     /// <param name="sender">クラス情報</param>
@@ -184,11 +174,6 @@ namespace WpfApp1
             set { this.entity = value; }
         }
 
-        //public int DayPathProp
-        //{
-        //   // get { return DayPath.; }
-        //}
-
         /// <summary>
         /// 曜日のチェックラベルの変更用メソッド
         /// </summary>
@@ -230,6 +215,7 @@ namespace WpfApp1
         public int DateSwitch(bool flg, int col)
         {
             int startDate = col;
+
             if (!flg && col > 0)
             {
                 startDate--;
@@ -267,14 +253,14 @@ namespace WpfApp1
         /// <param name="day">Dayクラス</param>
         public void DateColorChange(int col, CalenderDay day)
         {
-                if (col == this.sunColorNumber)
-                {
-                    day.ForeColor = new SolidColorBrush(Colors.Red);
-                }
+            if (col == this.sunColorNumber)
+            {
+                day.ForeColor = (DateColor)3;
+            }
                 else if (col == this.satColorNumber)
-                {
-                    day.ForeColor = new SolidColorBrush(Colors.SlateBlue);
-                }
+            {
+                day.ForeColor = (DateColor)2;
+            }
         }
 
         /// <summary>
@@ -287,6 +273,8 @@ namespace WpfApp1
         /// <param name="option">Optionクラス</param>
         public void DaysCreate(CalenderCreateEntity entity, CalenderData data, int col, int row, Option option)
         {
+            var startPoint = col;
+
             for (var i = 0; i < data.CalenderLastDay; i++)
             {
                 this.calenderDay = new CalenderDay();
@@ -298,7 +286,7 @@ namespace WpfApp1
                 // 当日かどうかの判断
                 if (option.IsTodayColorChange && i == DateTime.Now.Day && data.Date.Year == DateTime.Now.Year && data.Date.Month == DateTime.Now.Month)
                 {
-                    this.calenderDay.BgColor = new SolidColorBrush(Colors.Khaki);
+                    this.calenderDay.BgColor = (DateColor)4;
                 }
 
                 entity.CalenderDays.Add(this.calenderDay);
@@ -308,6 +296,23 @@ namespace WpfApp1
                     row++;
                     col = 0;
                 }
+            }
+
+            var spaceCol = 0;
+            for (var i = 0; i < startPoint; i++)
+            {
+                this.calenderDay = new CalenderDay();
+                this.calenderDay.Col = i;
+                this.calenderDay.Row = 0;
+                entity.CalenderDays.Add(this.calenderDay);
+            }
+
+            for (int i = col; i < 7; i++)
+            {
+                this.calenderDay = new CalenderDay();
+                this.calenderDay.Col = i;
+                this.calenderDay.Row = row;
+                entity.CalenderDays.Add(this.calenderDay);
             }
         }
 
@@ -349,31 +354,37 @@ namespace WpfApp1
             sun.Title = week[0];
             sun.Col = dateCol;
             this.entity.CalenderWeekItems.Add(sun);
+            dateCol++;
 
             var mon = new WeekTitleMon();
             mon.Title = week[1];
             mon.Col = dateCol;
             this.entity.CalenderWeekItems.Add(mon);
+            dateCol++;
 
             var tue = new WeekTitleTue();
             tue.Title = week[2];
             tue.Col = dateCol;
             this.entity.CalenderWeekItems.Add(tue);
+            dateCol++;
 
             var wen = new WeekTitleWen();
             wen.Title = week[3];
             wen.Col = dateCol;
             this.entity.CalenderWeekItems.Add(wen);
+            dateCol++;
 
             var thu = new WeekTitleThu();
             thu.Title = week[4];
             thu.Col = dateCol;
             this.entity.CalenderWeekItems.Add(thu);
+            dateCol++;
 
             var fri = new WeekTitleFri();
             fri.Title = week[0];
             fri.Col = dateCol;
             this.entity.CalenderWeekItems.Add(fri);
+            dateCol++;
 
             var sat = new WeekTitleSat();
             sat.Title = week[0];

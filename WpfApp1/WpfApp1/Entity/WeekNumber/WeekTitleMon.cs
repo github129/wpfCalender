@@ -11,5 +11,6 @@ namespace WpfApp1.Entity.WeekNumber
 {
     public class WeekTitleMon : WeekItem
     {
+
     }
 }
