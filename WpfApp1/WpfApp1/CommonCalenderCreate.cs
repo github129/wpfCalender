@@ -178,7 +178,7 @@ namespace WpfApp1
         /// 曜日のチェックラベルの変更用メソッド
         /// </summary>
         /// <param name="week">オプションクラスの曜日の判断</param>
-        public void ChangeWeekText(bool week)
+        protected void ChangeWeekText(bool week)
         {
             if (!week)
             {
@@ -194,7 +194,7 @@ namespace WpfApp1
         /// 当日のBG色を変えるメソッド
         /// </summary>
         /// <param name="color">オプションクラスのvgcolorの判断</param>
-        public void ChangeColorTextColor(bool color)
+        protected void ChangeColorTextColor(bool color)
         {
             if (!color)
             {
@@ -212,7 +212,7 @@ namespace WpfApp1
         /// <param name="flg">日曜始まりか月曜始まりか</param>
         /// <param name="col">横の位置</param>
         /// <returns>startDate 開始位置</returns>
-        public int DateSwitch(bool flg, int col)
+        private int DateSwitch(bool flg, int col)
         {
             int startDate = col;
 
@@ -239,7 +239,7 @@ namespace WpfApp1
         /// <param name="today">日付</param>
         /// <param name="col">横の位置</param>
         /// <param name="row">縦の位置</param>
-        public void DayCreate(CalenderDay day, int today, int col, int row)
+        private void DayCreate(CalenderDay day, int today, int col, int row)
         {
                 day.Day = (today + 1).ToString();
                 day.Row = row;
@@ -251,7 +251,7 @@ namespace WpfApp1
         /// </summary>
         /// <param name="col">横の位置</param>
         /// <param name="day">Dayクラス</param>
-        public void DateColorChange(int col, CalenderDay day)
+        private void DateColorChange(int col, CalenderDay day)
         {
             // 日曜日か土曜日かの判断
             if (col == this.sunColorNumber)
@@ -272,7 +272,7 @@ namespace WpfApp1
         /// <param name="col">横の位置</param>
         /// <param name="row">縦の位置</param>
         /// <param name="option">Optionクラス</param>
-        public void DaysCreate(CalenderCreateEntity entity, CalenderData data, int col, int row, Option option)
+        private void DaysCreate(CalenderCreateEntity entity, CalenderData data, int col, int row, Option option)
         {
             var startPoint = col;
 
@@ -328,7 +328,7 @@ namespace WpfApp1
         /// <param name="calData">カレンダーデータクラス</param>
         /// <param name="paramOption">オプションクラス</param>
         /// <returns>CalenderEntity カレンダーの情報</returns>
-        public CalenderCreateEntity SetCalender(CalenderData calData, Option paramOption)
+        protected CalenderCreateEntity SetCalender(CalenderData calData, Option paramOption)
         {
             // 日付データの作成
             this.entity = new CalenderCreateEntity();

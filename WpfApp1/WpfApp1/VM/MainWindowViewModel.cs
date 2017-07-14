@@ -41,8 +41,6 @@ namespace WpfApp1
         /// <inheritdoc/>
         public event PropertyChangedEventHandler PropertyChanged;
 
-        private IList<MainWindowData> mainDataList = new ObservableCollection<MainWindowData>();
-
         /// <summary>
         /// Gets or sets 年月日を扱うプロパティ
         /// </summary>
@@ -124,15 +122,6 @@ namespace WpfApp1
         }
 
         /// <summary>
-        /// メインデータクラスを扱うプロパティ
-        /// </summary>
-        public IList<MainWindowData> MainDataList
-        {
-            get { return this.mainDataList; }
-            set { this.mainDataList = value; }
-        }
-
-        /// <summary>
         /// 検索ボタンが押されたときのイベント処理メソッド
         /// </summary>
         /// <param name="data">カレンダーデータクラス</param>
@@ -188,19 +177,6 @@ namespace WpfApp1
             {
                 window.UserContorol(this.Date);
                 window.Show();
-            }
-        }
-
-        /// <summary>
-        /// 月のcombobox作成用
-        /// </summary>
-        public void MonthListCreate()
-        {
-            for (var i = 0; i < 12; i++)
-            {
-                var mainData = new MainWindowData();
-                mainData.Month = i + 1;
-                this.MainDataList.Add(mainData);
             }
         }
 

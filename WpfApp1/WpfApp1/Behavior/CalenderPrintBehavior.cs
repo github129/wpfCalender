@@ -34,10 +34,10 @@ namespace WpfApp1
         /// </summary>
         private static readonly DependencyProperty DateMonthProperty =
             DependencyProperty.Register(
-                "Key", // プロパティ名を指定
-                typeof(string), // プロパティの型を指定
-                typeof(CalenderPrintBehavior), // プロパティを所有する型を指定
-                new PropertyMetadata(string.Empty, KeyCheck)); // メタデータを指定。ここではデフォルト値を設定してる
+                "Key",
+                typeof(string),
+                typeof(CalenderPrintBehavior),
+                new PropertyMetadata(string.Empty, KeyCheck));
 
         private string number = string.Empty;
 

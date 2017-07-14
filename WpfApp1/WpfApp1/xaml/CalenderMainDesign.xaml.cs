@@ -8,6 +8,11 @@ namespace WpfApp1
     using System.Windows;
     using Calender.Entitey;
     using FlickrAPI;
+    using System.Windows.Media.Imaging;
+    using System.Threading.Tasks;
+    using System.Net.Http;
+    using System.IO;
+    using System.Collections.Generic;
 
     /// <summary>
     /// CalenderMainDesign.xaml の相互作用ロジック
@@ -15,6 +20,8 @@ namespace WpfApp1
     public partial class CalenderMainDesign : Window
     {
         private CalenderData data = new CalenderData();
+
+        private CalenderWindowViewModel vm;
 
         private Option op = new Option();
 
@@ -53,14 +60,19 @@ namespace WpfApp1
         {
             this.Data.Date = date;
             this.Op = new Option();
-            var vm = new CalenderWindowViewModel();
-            vm.SetOneCalender(this.Data, this.Op);
-            var imgApi = new ImgAPI();
-            UriTypeConverter con = new UriTypeConverter();
+            var vmList = new List<CalenderWindowViewModel>();
+            for (var i = 0; i < 12; i++)
+            {
+                this.vm = new CalenderWindowViewModel();
+                this.vm.SetOneCalender(this.Data, this.Op);
+                var imgApi = new ImgAPI();
+                UriTypeConverter con = new UriTypeConverter();
+                this.vm.Entity.ImgUrl = imgApi.GetImg();
+                vmList.Add(this.vm);
+            }
 
-            // this.CalenderImg.UriSource = (Uri)con.ConvertFromString(imgApi.GetImg());
-            // vm.Entity.ImgUrl = imgApi.GetImg();
-            this.DataContext = vm;
+            this.vm.Vms = vmList;
+            this.DataContext = this.vm;
         }
 
         /// <summary>
@@ -79,7 +91,10 @@ namespace WpfApp1
                 this.Op.IsDatePrintChange = true;
             }
 
-            ((CalenderWindowViewModel)this.DataContext).UpdataCalender(this.op);
+            for (int i = 0; i < 12; i++)
+            {
+                ((CalenderWindowViewModel)this.DataContext).Vms[i].UpdataCalender(this.op);
+            }
         }
 
         /// <summary>
@@ -98,7 +113,7 @@ namespace WpfApp1
                 this.Op.IsTodayColorChange = true;
             }
 
-            ((CalenderWindowViewModel)this.DataContext).ColorChangeEvent(this.op);
+            ((CalenderWindowViewModel)this.DataContext).Vms[DateTime.Now.Month - 1].ColorChangeEvent(this.op);
         }
     }
 }

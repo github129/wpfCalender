@@ -23,6 +23,22 @@ namespace WpfApp1
         /// </summary>
         private CalenderCreateEntity entity;
 
+        private IList<CalenderWindowViewModel> vms = new ObservableCollection<CalenderWindowViewModel>();
+
+        //private CalenderWindowViewModel january;
+        //private CalenderWindowViewModel february;
+        //private CalenderWindowViewModel march;
+        //private CalenderWindowViewModel april;
+        //private CalenderWindowViewModel may;
+        //private CalenderWindowViewModel june;
+        //private CalenderWindowViewModel july;
+        //private CalenderWindowViewModel august;
+        //private CalenderWindowViewModel september;
+        //private CalenderWindowViewModel october;
+        //private CalenderWindowViewModel nbovember;
+        //private CalenderWindowViewModel december;
+
+
         /// <summary>
         /// Gets or sets カレンダー情報プロパティ
         /// </summary>
@@ -44,6 +60,26 @@ namespace WpfApp1
         }
 
         /// <summary>
+        /// Gets or sets カレンダー情報プロパティ
+        /// </summary>
+        public IList<CalenderWindowViewModel> Vms
+        {
+            get
+            {
+                return this.vms;
+            }
+
+            set
+            {
+                if (this.vms != value)
+                {
+                    this.vms = value;
+                    this.RaisePropertyChanged("Vms");
+                }
+            }
+        }
+
+        /// <summary>
         /// カレンダーを作成するメソッド
         /// </summary>
         /// <param name="calData">カレンダーデータクラス</param>
@@ -56,6 +92,12 @@ namespace WpfApp1
             this.CalenderUpdate += new SomeCalenderEventHandler(this.Entity.DayListUpdate);
             this.CalenderUpdate += new SomeCalenderEventHandler(this.Entity.WeekChange);
             this.TodayColorChenge += new SomeCalenderColorChangeEventHandler(this.Entity.TodayColorChange);
+            calData.Date = calData.Date.AddMonths(1);
+        }
+
+        public void FarstCreate()
+        {
+            this.Vms = new ObservableCollection<CalenderWindowViewModel>();
         }
 
         /// <summary>

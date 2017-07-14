@@ -49,7 +49,7 @@
                 <TabItem Header="12月">
                     <TextBlock Text="TabItem3 Content" />
                 </TabItem>
-                <TabItem Header="全月表示">
+                <TabItem Header="">
                     <TextBlock Text="TabItem3 Content" />
                 </TabItem>
             </TabControl>

@@ -126,8 +126,8 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="CalenderDayBehavior.cs" />
-    <Compile Include="CalenderPrintBehavior.cs" />
+    <Compile Include="Behavior\CalenderDayBehavior.cs" />
+    <Compile Include="Behavior\CalenderPrintBehavior.cs" />
     <Compile Include="CalenderEventArgs.cs" />
     <Compile Include="Entity\WeekNumber\WeekTitleFri.cs" />
     <Compile Include="Entity\WeekNumber\WeekTitleMon.cs" />
@@ -137,7 +137,10 @@
     <Compile Include="Entity\WeekNumber\WeekTitleTue.cs" />
     <Compile Include="Entity\WeekNumber\WeekTitleWen.cs" />
     <Compile Include="GlobalSuppressions.cs" />
-    <Compile Include="ImgAPI.cs" />
+    <Compile Include="OneCalenderControl.xaml.cs">
+      <DependentUpon>OneCalenderControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Utility\ImgAPI.cs" />
     <Compile Include="xaml\MainFrame.xaml.cs">
       <DependentUpon>MainFrame.xaml</DependentUpon>
     </Compile>
@@ -161,6 +164,10 @@
     </Compile>
     <Compile Include="VM\SomeCalenderWindowViewModel.cs" />
     <Compile Include="Entity\WeekItem.cs" />
+    <Page Include="OneCalenderControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="xaml\MainFrame.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

@@ -31,7 +31,6 @@ namespace WpfApp1
         /// </summary>
         private void UserContorol()
         {
-            this.vm.MonthListCreate();
             this.DataContext = this.vm;
         }
 

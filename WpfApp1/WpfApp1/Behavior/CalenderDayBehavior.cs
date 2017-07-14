@@ -1,7 +1,12 @@
-﻿namespace WpfApp1
+﻿// <copyright file="CalenderDayBehavior.cs" company="PlaceholderCompany">
+// Copyright (c) PlaceholderCompany. All rights reserved.
+// </copyright>
+
+namespace WpfApp1
 {
     using System;
     using System.Collections.Generic;
+    using System.Drawing;
     using System.Linq;
     using System.Text;
     using System.Threading.Tasks;
@@ -9,8 +14,10 @@
     using System.Windows.Interactivity;
     using System.Windows.Media;
     using System.Windows.Shapes;
-    using System.Drawing;
 
+    /// <summary>
+    /// 日付用ビヘイビアクラス
+    /// </summary>
     public class CalenderDayBehavior : Behavior<System.Windows.Shapes.Rectangle>
     {
         /// <summary>
@@ -28,10 +35,10 @@
         /// </summary>
         private static readonly DependencyProperty DayColorProperty =
             DependencyProperty.Register(
-                "DayColor", // プロパティ名を指定
-                typeof(DateColor), // プロパティの型を指定
-                typeof(CalenderDayBehavior), // プロパティを所有する型を指定
-                new PropertyMetadata((DateColor)0, KeyCheck)); // メタデータを指定。ここではデフォルト値を設定してる
+                "DayColor",
+                typeof(DateColor),
+                typeof(CalenderDayBehavior),
+                new PropertyMetadata((DateColor)0, KeyCheck));
 
         private string number = string.Empty;
 

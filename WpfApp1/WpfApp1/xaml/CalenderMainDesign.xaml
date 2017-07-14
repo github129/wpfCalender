@@ -13,280 +13,82 @@
     Height="800"
     mc:Ignorable="d">
     <Window.Resources>
-        <DataTemplate x:Key="CalenderDay" DataType="{x:Type local:CalenderDay}">
-            <Grid>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="0.2*" />
-                    <RowDefinition Height="0.6*" />
-                    <RowDefinition Height="*" />
-                </Grid.RowDefinitions>
-                <Rectangle
-                    Grid.Row="0"
-                    Height="1"
-                    Fill="Black" />
-                <Grid Grid.Row="1" >
-                    <Ellipse
-                        x:Name="TodayBGColor"
-                        Stretch="Uniform" />
-                    <Rectangle Stretch="Uniform">
-                        <i:Interaction.Behaviors>
-                            <local:CalenderDayBehavior DayColor="{Binding ForeColor}" Number="{Binding Day}" />
-                        </i:Interaction.Behaviors>
-                    </Rectangle>
-                </Grid>
-            </Grid>
-            <DataTemplate.Triggers>
-                <DataTrigger Binding="{Binding IsToday}" Value="true">
-                    <Setter TargetName="TodayBGColor" Property="Ellipse.Fill" Value="Khaki" />
-                </DataTrigger>
-            </DataTemplate.Triggers>
-        </DataTemplate>
-        <Style x:Key="calenderStyle" TargetType="{x:Type ListBox}">
-            <Setter Property="ItemTemplate" Value="{StaticResource CalenderDay}" />
-            <Setter Property="ItemContainerStyle">
-                <Setter.Value>
-                    <Style TargetType="{x:Type ListBoxItem}">
-                        <Setter Property="Grid.Row" Value="{Binding Row}" />
-                        <Setter Property="Grid.Column" Value="{Binding Col}" />
-                        <Setter Property="Background" Value="{Binding BgColor}" />
-                    </Style>
-                </Setter.Value>
-            </Setter>
-            <Setter Property="ItemsPanel">
-                <Setter.Value>
-                    <ItemsPanelTemplate>
-                        <Grid>
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="*" />
-                                <RowDefinition Height="*" />
-                                <RowDefinition Height="*" />
-                                <RowDefinition Height="*" />
-                                <RowDefinition Height="*" />
-                                <RowDefinition Height="*" />
-                            </Grid.RowDefinitions>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="*" />
-                                <ColumnDefinition Width="*" />
-                                <ColumnDefinition Width="*" />
-                                <ColumnDefinition Width="*" />
-                                <ColumnDefinition Width="*" />
-                                <ColumnDefinition Width="*" />
-                                <ColumnDefinition Width="*" />
-                            </Grid.ColumnDefinitions>
-                        </Grid>
-                    </ItemsPanelTemplate>
-                </Setter.Value>
-            </Setter>
-        </Style>
-
-        <Style x:Key="calenderDateStyle" TargetType="{x:Type ListBox}">
-            <Setter Property="ItemContainerStyle">
-                <Setter.Value>
-                    <Style TargetType="{x:Type ListBoxItem}">
-                        <Setter Property="Grid.Column" Value="{Binding Col}" />
-                    </Style>
-                </Setter.Value>
-            </Setter>
-
-            <Setter Property="ItemsPanel">
-                <Setter.Value>
-                    <ItemsPanelTemplate>
-                        <Grid>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="*" />
-                                <ColumnDefinition Width="*" />
-                                <ColumnDefinition Width="*" />
-                                <ColumnDefinition Width="*" />
-                                <ColumnDefinition Width="*" />
-                                <ColumnDefinition Width="*" />
-                                <ColumnDefinition Width="*" />
-                            </Grid.ColumnDefinitions>
-                        </Grid>
-                    </ItemsPanelTemplate>
-                </Setter.Value>
-            </Setter>
-        </Style>
-        <DataTemplate DataType="{x:Type WeekItem:WeekTitleSun}">
-            <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="*" />
-                </Grid.ColumnDefinitions>
-                <Rectangle Fill="{StaticResource WeekTitleSun}" />
-            </Grid>
-        </DataTemplate>
-        <DataTemplate DataType="{x:Type WeekItem:WeekTitleMon}">
-            <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="*" />
-                </Grid.ColumnDefinitions>
-                <Rectangle Fill="{StaticResource WeekTitleMon}" />
-            </Grid>
-        </DataTemplate>
-        <DataTemplate DataType="{x:Type WeekItem:WeekTitleTue}">
-            <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="*" />
-                </Grid.ColumnDefinitions>
-                <Rectangle Fill="{StaticResource WeekTitleTue}" />
-            </Grid>
-        </DataTemplate>
-        <DataTemplate DataType="{x:Type WeekItem:WeekTitleWen}">
-            <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="*" />
-                </Grid.ColumnDefinitions>
-                <Rectangle Fill="{StaticResource WeekTitleWen}" />
-            </Grid>
-        </DataTemplate>
-        <DataTemplate DataType="{x:Type WeekItem:WeekTitleThu}">
-            <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="*" />
-                </Grid.ColumnDefinitions>
-                <Rectangle Fill="{StaticResource WeekTitleThu}" />
-            </Grid>
-        </DataTemplate>
-        <DataTemplate DataType="{x:Type WeekItem:WeekTitleFri}">
-            <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="*" />
-                </Grid.ColumnDefinitions>
-                <Rectangle Fill="{StaticResource WeekTitleFri}" />
-            </Grid>
-        </DataTemplate>
-        <DataTemplate DataType="{x:Type WeekItem:WeekTitleSat}">
-            <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="*" />
-                </Grid.ColumnDefinitions>
-                <Rectangle Fill="{StaticResource WeekTitleSat}" />
-            </Grid>
-        </DataTemplate>
-
-
     </Window.Resources>
     <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="0.5*"/>
-            <RowDefinition Height="22*" />
-            <RowDefinition Height="*" />
-        </Grid.RowDefinitions>
+        <Grid.RowDefinitions />
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="0.8*" />
+            <ColumnDefinition Width="*" />
             <ColumnDefinition Width="9*" />
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
-        <Menu Grid.Row="0" Grid.Column="1">
-            <MenuItem VerticalContentAlignment="Center" Header="オプション">
-                <MenuItem
+        <Grid Grid.Column="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="0.5*" />
+                <RowDefinition Height="22*" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Menu Grid.Row="0">
+                <MenuItem VerticalContentAlignment="Center" Header="オプション">
+                    <MenuItem
                         Name="weekChangeCheck"
                         Click="CheckBox_Checked"
                         Header="{Binding StartText}"
                         IsCheckable="True" />
-                <MenuItem
+                    <MenuItem
                         Name="TodayColorChange"
                         Click="TodayColorChange_Click"
                         Foreground="{Binding TodayTextColor}"
                         Header="当日の色"
                         IsCheckable="True" />
-            </MenuItem>
-        </Menu>
-        <Grid Grid.Row="1" Grid.Column="1">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="5*" />
-                <RowDefinition Height="0.3*" />
-                <RowDefinition Height="4*" />
-            </Grid.RowDefinitions>
-
-            <Image Stretch="Fill" Grid.Row="0">
-                <Image.Source>
-                    <BitmapImage UriSource="https://farm5.staticflickr.com/4240/35648344091_d0b16f86e3_c.jpg" x:Name="CalenderImg"/>
-                </Image.Source>
-            </Image>
-
-            <Grid Grid.Row="2">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="3*" />
-                </Grid.ColumnDefinitions>
-                <Grid Grid.Column="0">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="2*" />
-                        <RowDefinition Height="0.3*" />
-                        <RowDefinition Height="6*" />
-                    </Grid.RowDefinitions>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="2*" />
-                        <ColumnDefinition Width="*" />
-                    </Grid.ColumnDefinitions>
-                    <Rectangle
-                        Grid.Row="0"
-                        Grid.Column="1"
-                        HorizontalAlignment="Stretch"
-                        VerticalAlignment="Stretch"
-                        DataContext="{Binding Entity}">
-                        <i:Interaction.Behaviors>
-                            <local:CalenderPrintBehavior Key="MonthTitle" Number="{Binding StringMonth}" />
-                        </i:Interaction.Behaviors>
-                    </Rectangle>
-                    <Grid
-                        Grid.Row="1"
-                        Grid.Column="1"
-                        HorizontalAlignment="Center">
-                        <StackPanel Orientation="Horizontal">
-                            <Rectangle MinWidth="15" DataContext="{Binding Entity}">
-                                <i:Interaction.Behaviors>
-                                    <local:CalenderPrintBehavior Key="YearNumber" Number="{Binding StringYear[0]}" />
-                                </i:Interaction.Behaviors>
-                            </Rectangle>
-                            <Rectangle MinWidth="15" DataContext="{Binding Entity}">
-                                <i:Interaction.Behaviors>
-                                    <local:CalenderPrintBehavior Key="YearNumber" Number="{Binding StringYear[1]}" />
-                                </i:Interaction.Behaviors>
-                            </Rectangle>
-                            <Rectangle MinWidth="15" DataContext="{Binding Entity}">
-                                <i:Interaction.Behaviors>
-                                    <local:CalenderPrintBehavior Key="YearNumber" Number="{Binding StringYear[2]}" />
-                                </i:Interaction.Behaviors>
-                            </Rectangle>
-                            <Rectangle MinWidth="15" DataContext="{Binding Entity}">
-                                <i:Interaction.Behaviors>
-                                    <local:CalenderPrintBehavior Key="YearNumber" Number="{Binding StringYear[3]}" />
-                                </i:Interaction.Behaviors>
-                            </Rectangle>
-                        </StackPanel>
-                    </Grid>
-                </Grid>
-                <Grid Grid.Row="1" Grid.Column="1">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="*" />
-                        <RowDefinition Height="10*" />
-                    </Grid.RowDefinitions>
-                    <ListBox
-                        Grid.Row="0"
-                        HorizontalContentAlignment="Stretch"
-                        VerticalContentAlignment="Stretch"
-                        BorderThickness="0"
-                        ItemsSource="{Binding Path=Entity.CalenderWeekItems}"
-                        Style="{StaticResource calenderDateStyle}" />
-                    <ListBox
-                        Grid.Row="1"
-                        HorizontalContentAlignment="Stretch"
-                        VerticalContentAlignment="Stretch"
-                        BorderThickness="0"
-                        ItemsSource="{Binding Entity.CalenderDays}"
-                        ScrollViewer.HorizontalScrollBarVisibility="Disabled"
-                        Style="{StaticResource calenderStyle}" />
-                </Grid>
-            </Grid>
+                </MenuItem>
+            </Menu>
         </Grid>
+        <Grid Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="22.5*" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <TabControl Grid.Row="0">
+                <TabItem Header="1月">
+                    <local:OneCalenderControl DataContext="{Binding Vms[0]}"/>
+                </TabItem>
+                <TabItem Header="2月">
+                    <local:OneCalenderControl DataContext="{Binding Vms[1]}"/>
+                </TabItem>
+                <TabItem Header="3月">
+                    <local:OneCalenderControl DataContext="{Binding Vms[2]}"/>                
+                </TabItem>
+                <TabItem Header="4月">
+                    <local:OneCalenderControl DataContext="{Binding Vms[3]}"/>                
+                </TabItem>
+                <TabItem Header="5月">
+                    <local:OneCalenderControl DataContext="{Binding Vms[4]}"/>                
+                    </TabItem>
+                <TabItem Header="6月">
+                    <local:OneCalenderControl DataContext="{Binding Vms[5]}"/>                
+                </TabItem>
+                <TabItem Header="7月">
+                    <local:OneCalenderControl DataContext="{Binding Vms[6]}"/>                
+                </TabItem>
+                <TabItem Header="8月">
+                    <local:OneCalenderControl DataContext="{Binding Vms[7]}"/>                
+                </TabItem>
+                <TabItem Header="9月">
+                    <local:OneCalenderControl DataContext="{Binding Vms[8]}"/>                
+                </TabItem>
+                <TabItem Header="10月">
+                    <local:OneCalenderControl DataContext="{Binding Vms[9]}"/>                
+                </TabItem>
+                <TabItem Header="11月">
+                    <local:OneCalenderControl DataContext="{Binding Vms[10]}"/>                
+                </TabItem>
+                <TabItem Header="12月">
+                    <local:OneCalenderControl DataContext="{Binding Vms[11]}"/>                
+                </TabItem>
+            </TabControl>
+
+        </Grid>
+
+
     </Grid>
 </Window>

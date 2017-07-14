@@ -176,6 +176,15 @@ namespace WpfApp1
         }
 
         /// <summary>
+        /// imgurlをuri型で返すgettermethod
+        /// </summary>
+        /// <returns>imgurl uri型</returns>
+        public Uri GetImgUrl()
+        {
+            return new Uri(this.imgUrl);
+        }
+
+        /// <summary>
         /// カレンダーの日付を書き換えるメソッド
         /// </summary>
         /// <param name="sender">呼び出し元のクラス</param>

@@ -23,7 +23,7 @@ namespace FlickrAPI
     {
         private Flickr flickr;
         private string flickrApiKey = "0383912f104ae322052b87aae3ac9d2b";
-        private PhotoCollection photos;
+        private PhotoCollection photos = new PhotoCollection();
 
         /// <summary>
         /// Initializes a new instance of the <see cref="ImgAPI"/> class.
@@ -41,15 +41,14 @@ namespace FlickrAPI
         /// <returns>ingUrl 画像URL</returns>
         public string GetImg()
         {
-            Random random = new Random();
             PhotoSearchOptions opt = new PhotoSearchOptions();
-            opt.Tags = "Mountain Background orange";
+            opt.Tags = "Mountain  Background";
             opt.TagMode = TagMode.AllTags;
             this.photos = this.flickr.PhotosSearch(opt);
+            Random random = new Random();
             var imgNumber = random.Next(this.photos.Count);
             var imgUrl = this.photos[imgNumber].LargeSquareThumbnailUrl;
             return imgUrl;
         }
-
     }
 }
