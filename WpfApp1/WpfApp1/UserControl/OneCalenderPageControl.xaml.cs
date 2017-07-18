@@ -1,4 +1,4 @@
-﻿// <copyright file="CalenderWindow.xaml.cs" company="PlaceholderCompany">
+﻿// <copyright file="OneCalenderPageControl.xaml.cs" company="PlaceholderCompany">
 // Copyright (c) PlaceholderCompany. All rights reserved.
 // </copyright>
 
@@ -16,62 +16,42 @@ namespace WpfApp1
     using System.Windows.Input;
     using System.Windows.Media;
     using System.Windows.Media.Imaging;
+    using System.Windows.Navigation;
     using System.Windows.Shapes;
     using Calender.Entitey;
 
     /// <summary>
-    /// CalenderWindow.xaml の相互作用ロジック
-    /// 使用しない
+    /// OneCalenderPageControl.xaml の相互作用ロジック
     /// </summary>
-    public partial class CalenderWindow : Window
+    public partial class OneCalenderPageControl : UserControl
     {
-        /// <summary>
-        /// Initializes a new instance of the <see cref="CalenderWindow"/> class.
-        /// </summary>
-        public CalenderWindow()
-        {
-            this.InitializeComponent();
-        }
-
-        /// <summary>
-        /// カレンダーデータクラス
-        /// </summary>
         private CalenderData data = new CalenderData();
 
-        /// <summary>
-        /// オプションクラス
-        /// </summary>
+        private CalenderWindowViewModel vm;
+
         private Option op = new Option();
 
         /// <summary>
-        /// Gets データクラス用のプロパティ
+        /// Gets or sets カレンダーデータクラス
         /// </summary>
         public CalenderData Data
         {
             get { return this.data; }
-            private set { this.data = value; }
+            set { this.data = value; }
         }
 
         /// <summary>
-        /// Gets オプションクラス用のプロパティ
+        /// Gets or sets オプションクラス
         /// </summary>
         public Option Op
         {
             get { return this.op; }
-            private set { this.op = value; }
+            set { this.op = value; }
         }
 
-        /// <summary>
-        /// 実行メソッド
-        /// </summary>
-        /// <param name="date">日付</param>
-        public void UserContorol(DateTime date)
+        public OneCalenderPageControl()
         {
-            this.Data.Date = date;
-            var option = new Option();
-            var calVm = new CalenderWindowViewModel();
-            calVm.SetOneCalender(this.Data, option);
-            this.DataContext = calVm;
+            InitializeComponent();
         }
 
         /// <summary>
@@ -90,11 +70,14 @@ namespace WpfApp1
                 this.Op.IsDatePrintChange = true;
             }
 
-            ((CalenderWindowViewModel)this.DataContext).UpdataCalender(this.op);
+            for (int i = 0; i < 12; i++)
+            {
+                ((CalenderWindowViewModel)this.DataContext).Vms[i].UpdataCalender(this.op);
+            }
         }
 
         /// <summary>
-        /// 当日の背景色洗濯時の処理
+        /// 当日の背景色選択時の処理
         /// </summary>
         /// <param name="sender">sender</param>
         /// <param name="e">イベントデータ</param>
@@ -109,7 +92,7 @@ namespace WpfApp1
                 this.Op.IsTodayColorChange = true;
             }
 
-            ((CalenderWindowViewModel)this.DataContext).ColorChangeEvent(this.op);
+            ((CalenderWindowViewModel)this.DataContext).Vms[DateTime.Now.Month - 1].ColorChangeEvent(this.op);
         }
     }
 }

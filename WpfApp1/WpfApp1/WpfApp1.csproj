@@ -152,7 +152,13 @@
     <Compile Include="Entity\WeekNumber\WeekTitleTue.cs" />
     <Compile Include="Entity\WeekNumber\WeekTitleWen.cs" />
     <Compile Include="GlobalSuppressions.cs" />
-    <Compile Include="MainFrameViewModel.cs" />
+    <Compile Include="UserControl\OneCalenderPageControl.xaml.cs">
+      <DependentUpon>OneCalenderPageControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControl\SomeCalenderPageControl.xaml.cs">
+      <DependentUpon>SomeCalenderPageControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="VM\MainFrameViewModel.cs" />
     <Compile Include="OneCalenderControl.xaml.cs">
       <DependentUpon>OneCalenderControl.xaml</DependentUpon>
     </Compile>
@@ -180,6 +186,14 @@
     <Compile Include="VM\SomeCalenderWindowViewModel.cs" />
     <Compile Include="Entity\WeekItem.cs" />
     <Page Include="OneCalenderControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControl\OneCalenderPageControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControl\SomeCalenderPageControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

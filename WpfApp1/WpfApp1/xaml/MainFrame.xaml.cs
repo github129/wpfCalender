@@ -54,8 +54,7 @@ namespace WpfApp1
             this.data.Date = this.data.InputDate;
             this.calVm.Vms = vmList;
             this.somVm.SetSomeCalender(this.data, this.op);
-            this.mainFrame.CreatePage(calVm);
-            this.DataContext = this.calVm;
+            this.mainFrame.CreatePage(this.calVm);
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

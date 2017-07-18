@@ -16,6 +16,7 @@ namespace WpfApp1
 
     /// <summary>
     /// CalenderMainDesign.xaml の相互作用ロジック
+    /// 使用しない？
     /// </summary>
     public partial class CalenderMainDesign : Window
     {
