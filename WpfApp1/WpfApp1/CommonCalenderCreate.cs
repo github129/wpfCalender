@@ -15,6 +15,7 @@ namespace WpfApp1
     using Calender.Entitey;
     using CustomEventArgs;
     using WpfApp1.Entity.WeekNumber;
+    using GalaSoft.MvvmLight;
 
     /// <summary>
     /// イベントハンドラーの設定
@@ -33,7 +34,7 @@ namespace WpfApp1
     /// <summary>
     /// カレンダーを１つ作成するクラス
     /// </summary>
-    public class CommonCalenderCreate : INotifyPropertyChanged
+    public class CommonCalenderCreate : ViewModelBase, INotifyPropertyChanged
     {
         /// <summary>
         /// EventArgsクラス

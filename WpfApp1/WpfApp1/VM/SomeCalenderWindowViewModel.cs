@@ -177,9 +177,6 @@ namespace WpfApp1
                 this.calenderEntitys.Add(calEntity);
                 data.Date = data.Date.AddMonths(1);
                 calEntity.UpdateEvent();
-                //this.CalenderUpdate += new SomeCalenderEventHandler(calEntity.DayListUpdate);
-                //this.CalenderUpdate += new SomeCalenderEventHandler(calEntity.WeekChange);
-                //this.TodayColorChenge += new SomeCalenderColorChangeEventHandler(calEntity.TodayColorChange);
             }
 
             this.ChangeWeekText(op.IsDatePrintChange);

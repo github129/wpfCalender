@@ -139,7 +139,7 @@ namespace WpfApp1
             }
 
             this.inputMonth = 1;
-            op.CalenderCreateCount = 1;
+            op.CalenderCreateCount = 12;
             //// 作成個数の確認
             // if (this.MakeCalenderCount.Length == 0 && this.InputYear.Length == 0)
             // {
@@ -167,17 +167,22 @@ namespace WpfApp1
             // }
 
             this.Date = new DateTime(int.Parse(this.InputYear), this.InputMonth , 1);
+            data.Date = this.Date;
+            data.InputDate = this.Date;
+            var frame = new MainFrame();
+            frame.UserContorol(data, op);
+            frame.Show();
 
-            if (op.CalenderCreateCount > 1)
-            {
-                someWindow.SomeCalenderControl(this.Date, op.CalenderCreateCount, inputCreateountFlg);
-                someWindow.Show();
-            }
-            else
-            {
-                window.UserContorol(this.Date);
-                window.Show();
-            }
+            //if (op.CalenderCreateCount > 1)
+            //{
+            //    someWindow.SomeCalenderControl(this.Date, op.CalenderCreateCount, inputCreateountFlg);
+            //    someWindow.Show();
+            //}
+            //else
+            //{
+            //    window.UserContorol(this.Date);
+            //    window.Show();
+            //}
         }
 
         /// <summary>
