@@ -175,6 +175,7 @@
                         </Grid.RowDefinitions>
 
                         <Image
+                            Source="{Binding Entity.ImgUrl}"
                             x:Name="CalenderImg"
                             Grid.Row="0"
                             Stretch="Fill" />

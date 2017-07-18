@@ -25,20 +25,6 @@ namespace WpfApp1
 
         private IList<CalenderWindowViewModel> vms = new ObservableCollection<CalenderWindowViewModel>();
 
-        //private CalenderWindowViewModel january;
-        //private CalenderWindowViewModel february;
-        //private CalenderWindowViewModel march;
-        //private CalenderWindowViewModel april;
-        //private CalenderWindowViewModel may;
-        //private CalenderWindowViewModel june;
-        //private CalenderWindowViewModel july;
-        //private CalenderWindowViewModel august;
-        //private CalenderWindowViewModel september;
-        //private CalenderWindowViewModel october;
-        //private CalenderWindowViewModel nbovember;
-        //private CalenderWindowViewModel december;
-
-
         /// <summary>
         /// Gets or sets カレンダー情報プロパティ
         /// </summary>
@@ -89,9 +75,7 @@ namespace WpfApp1
             this.Entity = this.SetCalender(calData, option);
             this.ChangeWeekText(option.IsDatePrintChange);
             this.ChangeColorTextColor(option.IsTodayColorChange);
-            this.CalenderUpdate += new SomeCalenderEventHandler(this.Entity.DayListUpdate);
-            this.CalenderUpdate += new SomeCalenderEventHandler(this.Entity.WeekChange);
-            this.TodayColorChenge += new SomeCalenderColorChangeEventHandler(this.Entity.TodayColorChange);
+            this.Entity.UpdateEvent();
             calData.Date = calData.Date.AddMonths(1);
         }
 
@@ -107,7 +91,7 @@ namespace WpfApp1
         public void UpdataCalender(Option op)
         {
             this.Args.Option = op;
-            this.OnCalenderUpDate(this.Args);
+            this.Entity.OnCalenderUpDate(this.Args);
         }
 
         /// <summary>
@@ -117,7 +101,7 @@ namespace WpfApp1
         public void ColorChangeEvent(Option op)
         {
             this.Args.Option = op;
-            this.OnTodayColorChange(this.Args);
+            this.Entity.OnTodayColorChange(this.Args);
         }
     }
 }

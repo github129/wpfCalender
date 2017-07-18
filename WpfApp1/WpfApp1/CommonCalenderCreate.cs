@@ -41,40 +41,6 @@ namespace WpfApp1
         private CalenderEventArgs args = new CalenderEventArgs();
 
         /// <summary>
-        /// 日付更新イベント
-        /// </summary>
-        public event SomeCalenderEventHandler CalenderUpdate;
-
-        /// <summary>
-        /// 当日の色更新イベント
-        /// </summary>
-        public event SomeCalenderColorChangeEventHandler TodayColorChenge;
-
-        /// <summary>
-        /// 日付更新イベント起動
-        /// </summary>
-        /// <param name="e">イベント情報</param>
-        protected virtual void OnCalenderUpDate(CalenderEventArgs e)
-        {
-            if (this.CalenderUpdate != null)
-            {
-                this.CalenderUpdate(this, e);
-            }
-        }
-
-        /// <summary>
-        /// 当日の背景色更新イベント起動
-        /// </summary>
-        /// <param name="e">イベント情報</param>
-        protected virtual void OnTodayColorChange(CalenderEventArgs e)
-        {
-            if (this.TodayColorChenge != null)
-            {
-                this.TodayColorChenge(this, e);
-            }
-        }
-
-        /// <summary>
         /// カレンダーDayクラス
         /// </summary>
         private CalenderDay calenderDay;

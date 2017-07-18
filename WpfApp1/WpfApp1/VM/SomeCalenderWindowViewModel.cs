@@ -176,9 +176,10 @@ namespace WpfApp1
                 var calEntity = this.SetCalender(data, op);
                 this.calenderEntitys.Add(calEntity);
                 data.Date = data.Date.AddMonths(1);
-                this.CalenderUpdate += new SomeCalenderEventHandler(calEntity.DayListUpdate);
-                this.CalenderUpdate += new SomeCalenderEventHandler(calEntity.WeekChange);
-                this.TodayColorChenge += new SomeCalenderColorChangeEventHandler(calEntity.TodayColorChange);
+                calEntity.UpdateEvent();
+                //this.CalenderUpdate += new SomeCalenderEventHandler(calEntity.DayListUpdate);
+                //this.CalenderUpdate += new SomeCalenderEventHandler(calEntity.WeekChange);
+                //this.TodayColorChenge += new SomeCalenderColorChangeEventHandler(calEntity.TodayColorChange);
             }
 
             this.ChangeWeekText(op.IsDatePrintChange);
@@ -216,7 +217,7 @@ namespace WpfApp1
         public void UpdataCalender(Option op)
         {
             this.Args.Option = op;
-            this.OnCalenderUpDate(this.Args);
+            this.Entity.OnCalenderUpDate(this.Args);
         }
 
         /// <summary>
@@ -226,7 +227,7 @@ namespace WpfApp1
         public void ColorChangeEvent(Option op)
         {
             this.Args.Option = op;
-            this.OnTodayColorChange(this.Args);
+            this.Entity.OnTodayColorChange(this.Args);
         }
 
         /// <summary>

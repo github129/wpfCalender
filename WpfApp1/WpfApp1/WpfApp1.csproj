@@ -147,7 +147,6 @@
     <Compile Include="xaml\CalenderMainDesign.xaml.cs">
       <DependentUpon>CalenderMainDesign.xaml</DependentUpon>
     </Compile>
-    <Compile Include="MainWindowData.cs" />
     <Compile Include="xaml\CalenderControl.xaml.cs">
       <DependentUpon>CalenderControl.xaml</DependentUpon>
     </Compile>

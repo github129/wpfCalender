@@ -19,6 +19,45 @@ namespace WpfApp1
     public class CalenderCreateEntity : INotifyPropertyChanged
     {
         /// <summary>
+        /// EventArgsクラス
+        /// </summary>
+        private CalenderEventArgs args = new CalenderEventArgs();
+
+        /// <summary>
+        /// 日付更新イベント
+        /// </summary>
+        public event SomeCalenderEventHandler CalenderUpdate;
+
+        /// <summary>
+        /// 当日の色更新イベント
+        /// </summary>
+        public event SomeCalenderColorChangeEventHandler TodayColorChenge;
+
+        /// <summary>
+        /// 日付更新イベント起動
+        /// </summary>
+        /// <param name="e">イベント情報</param>
+        public virtual void OnCalenderUpDate(CalenderEventArgs e)
+        {
+            if (this.CalenderUpdate != null)
+            {
+                this.CalenderUpdate(this, e);
+            }
+        }
+
+        /// <summary>
+        /// 当日の背景色更新イベント起動
+        /// </summary>
+        /// <param name="e">イベント情報</param>
+        public virtual void OnTodayColorChange(CalenderEventArgs e)
+        {
+            if (this.TodayColorChenge != null)
+            {
+                this.TodayColorChenge(this, e);
+            }
+        }
+
+        /// <summary>
         /// 日付クラスの情報が入ったリスト
         /// </summary>
         private IList<CalenderDay> dayList = new ObservableCollection<CalenderDay>();
@@ -175,13 +214,11 @@ namespace WpfApp1
             }
         }
 
-        /// <summary>
-        /// imgurlをuri型で返すgettermethod
-        /// </summary>
-        /// <returns>imgurl uri型</returns>
-        public Uri GetImgUrl()
+        public void UpdateEvent()
         {
-            return new Uri(this.imgUrl);
+            this.CalenderUpdate += new SomeCalenderEventHandler(this.DayListUpdate);
+            this.CalenderUpdate += new SomeCalenderEventHandler(this.WeekChange);
+            this.TodayColorChenge += new SomeCalenderColorChangeEventHandler(this.TodayColorChange);
         }
 
         /// <summary>
@@ -189,7 +226,7 @@ namespace WpfApp1
         /// </summary>
         /// <param name="sender">呼び出し元のクラス</param>
         /// <param name="e">イベント情報</param>
-        public void DayListUpdate(object sender, CalenderEventArgs e)
+        private void DayListUpdate(object sender, CalenderEventArgs e)
         {
             var col = 0;
             var row = 0;
@@ -235,7 +272,7 @@ namespace WpfApp1
         /// </summary>
         /// <param name="sender">呼び出し元のクラス</param>
         /// <param name="e">イベント情報</param>
-        public void WeekChange(object sender, CalenderEventArgs e)
+        private void WeekChange(object sender, CalenderEventArgs e)
         {
             // 曜日タイトルの作成
             var week = DateListS;
@@ -291,7 +328,6 @@ namespace WpfApp1
             sat.Title = week[0];
             sat.Col = dateCol;
             this.CalenderWeekItems[6] = sat;
-
         }
 
         /// <summary>
@@ -299,7 +335,7 @@ namespace WpfApp1
         /// </summary>
         /// <param name="sender">呼び出し元のクラス情報</param>
         /// <param name="e">イベント情報</param>
-        public void TodayColorChange(object sender, CalenderEventArgs e)
+        private void TodayColorChange(object sender, CalenderEventArgs e)
         {
             for (int i = 0; i < this.CalenderDays.Count; i++)
             {
