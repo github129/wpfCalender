@@ -17,12 +17,15 @@
         </Grid.ColumnDefinitions>
         <Grid Grid.Column="0">
             <Grid.RowDefinitions>
-                <RowDefinition Height="0.5*" />
+                <RowDefinition Height="0.6*" />
                 <RowDefinition Height="22*" />
                 <RowDefinition Height="*" />
             </Grid.RowDefinitions>
             <Menu Grid.Row="0">
-                <MenuItem VerticalContentAlignment="Center" Header="オプション">
+                <MenuItem
+                    Height="Auto"
+                    VerticalContentAlignment="Center"
+                    Header="オプション">
                     <MenuItem
                         Name="weekChangeCheck"
                         Click="CheckBox_Checked"
@@ -44,7 +47,10 @@
                 <RowDefinition Height="22.5*" />
                 <RowDefinition Height="*" />
             </Grid.RowDefinitions>
-            <TabControl Grid.Row="0">
+            <TabControl
+                Grid.Row="0"
+                Margin="0"
+                BorderBrush="Transparent">
                 <TabItem Header="1月">
                     <local:OneCalenderControl DataContext="{Binding Vms[0]}" />
                 </TabItem>
