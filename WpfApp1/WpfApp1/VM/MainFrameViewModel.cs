@@ -138,11 +138,13 @@ namespace WpfApp1
                 this.calVm = new OneCalenderPageControlViewModel();
                 this.calVm.SetOneCalender(this.data, this.op);
 
+                // FlicrApi 今回は使用しない（処理に時間がかかる、画像の大きさが指定できない為）
                 // var imgApi = new ImgAPI();
                 // this.calVm.Entity.ImgUrl = imgApi.GetImg();
                 vmList.Add(this.calVm);
             }
 
+            // 画像のパスを入れる処理
             vmList[0].Img = "Resources/January.jpg";
             vmList[1].Img = "Resources/February.jpg";
             vmList[2].Img = "Resources/March.jpg";

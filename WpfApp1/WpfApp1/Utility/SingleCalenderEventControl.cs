@@ -113,10 +113,7 @@ namespace WpfApp1
         /// <param name="e">イベント情報</param>
         public virtual void OnCalenderUpDate(CalenderEventArgs e)
         {
-            if (this.CalenderUpdate != null)
-            {
-                this.CalenderUpdate(this, e);
-            }
+            this.CalenderUpdate?.Invoke(this, e);
         }
 
         /// <summary>
@@ -125,10 +122,7 @@ namespace WpfApp1
         /// <param name="e">イベント情報</param>
         public virtual void OnTodayColorChange(CalenderEventArgs e)
         {
-            if (this.TodayColorChenge != null)
-            {
-                this.TodayColorChenge(this, e);
-            }
+            this.TodayColorChenge?.Invoke(this, e);
         }
 
         /// <summary>

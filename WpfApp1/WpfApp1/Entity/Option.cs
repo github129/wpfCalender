@@ -15,16 +15,6 @@ namespace Calender.Entitey
     public class Option
     {
         /// <summary>
-        /// nに入力されたカレンダーを増やすための値
-        /// </summary>
-        private int calenderCreateCount = 1;
-
-        /// <summary>
-        /// nが入力されたかどうか判断するフラグ
-        /// </summary>
-        private bool isInputCreateCount = true;
-
-        /// <summary>
         /// 曜日の始まり判断用
         /// </summary>
         private bool isDatePrintChange = true;
@@ -38,15 +28,6 @@ namespace Calender.Entitey
         /// 入力年月
         /// </summary>
         private DateTime inputDate = new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1);
-
-        /// <summary>
-        /// Gets or sets カレンダーを作る量　-nの後の値
-        /// </summary>
-        public int CalenderCreateCount
-        {
-            get { return this.calenderCreateCount; }
-            set { this.calenderCreateCount = value; }
-        }
 
         /// <summary>
         /// Gets or sets 入力された年月日
@@ -73,15 +54,6 @@ namespace Calender.Entitey
         {
             get { return this.isTodayColorChange; }
             set { this.isTodayColorChange = value; }
-        }
-
-        /// <summary>
-        /// Gets or sets a value indicating whether nに入力があったかどうかを判断するフラグ用のプロパティ
-        /// </summary>
-        public bool IsInputCreateount
-        {
-            get { return this.isInputCreateCount; }
-            set { this.isInputCreateCount = value; }
         }
     }
 }

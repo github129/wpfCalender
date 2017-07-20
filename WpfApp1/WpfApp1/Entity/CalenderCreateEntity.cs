@@ -232,9 +232,11 @@ namespace WpfApp1
                 dateCol = 6;
             }
 
-            var sun = new WeekTitleSun();
-            sun.Title = week[0];
-            sun.Col = dateCol;
+            var sun = new WeekTitleSun()
+            {
+                Title = week[0],
+                Col = dateCol,
+            };
             this.CalenderWeekItems[0] = sun;
             dateCol++;
 
@@ -243,39 +245,45 @@ namespace WpfApp1
                 dateCol = 0;
             }
 
-            var mon = new WeekTitleMon();
-            mon.Title = week[1];
-            mon.Col = dateCol;
+            var mon = new WeekTitleMon()
+            {
+                Col = dateCol,
+            };
             this.CalenderWeekItems[1] = mon;
             dateCol++;
 
-            var tue = new WeekTitleTue();
-            tue.Title = week[2];
-            tue.Col = dateCol;
+            var tue = new WeekTitleTue()
+            {
+                Col = dateCol,
+            };
             this.CalenderWeekItems[2] = tue;
             dateCol++;
 
-            var wen = new WeekTitleWen();
-            wen.Title = week[3];
-            wen.Col = dateCol;
+            var wen = new WeekTitleWen()
+            {
+                Col = dateCol,
+            };
             this.CalenderWeekItems[3] = wen;
             dateCol++;
 
-            var thu = new WeekTitleThu();
-            thu.Title = week[4];
-            thu.Col = dateCol;
+            var thu = new WeekTitleThu()
+            {
+                Col = dateCol,
+            };
             this.CalenderWeekItems[4] = thu;
             dateCol++;
 
-            var fri = new WeekTitleFri();
-            fri.Title = week[0];
-            fri.Col = dateCol;
+            var fri = new WeekTitleFri()
+            {
+                Col = dateCol,
+            };
             this.CalenderWeekItems[5] = fri;
             dateCol++;
 
-            var sat = new WeekTitleSat();
-            sat.Title = week[0];
-            sat.Col = dateCol;
+            var sat = new WeekTitleSat()
+            {
+                Col = dateCol,
+            };
             this.CalenderWeekItems[6] = sat;
         }
 
@@ -288,10 +296,13 @@ namespace WpfApp1
         {
             for (int i = 0; i < this.CalenderDays.Count; i++)
             {
+                // 当日色変更フラグがtrueでかつ当日だった時
                 if (e.Option.IsTodayColorChange && this.dayList[i].Day != null && int.Parse(this.dayList[i].Day) == DateTime.Now.Day && this.date.Year == DateTime.Now.Year && this.date.Month == DateTime.Now.Month)
                 {
                     this.dayList[i].IsToday = true;
                 }
+
+                // 当日変更フラグがfalseで当日だった時
                 else if (!e.Option.IsTodayColorChange && this.dayList[i].Day != null && int.Parse(this.dayList[i].Day) == DateTime.Now.Day && this.date.Year == DateTime.Now.Year && this.date.Month == DateTime.Now.Month)
                 {
                     this.dayList[i].IsToday = false;

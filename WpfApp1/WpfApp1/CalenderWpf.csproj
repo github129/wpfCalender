@@ -170,7 +170,6 @@
     <Compile Include="xaml\MainFrame.xaml.cs">
       <DependentUpon>MainFrame.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Utility\CalenderConverter.cs" />
     <Compile Include="Entity\CalenderCreateEntity.cs" />
     <Compile Include="VM\OneCalenderPageControlViewModel.cs" />
     <Compile Include="Utility\CommonCalenderCreate.cs" />

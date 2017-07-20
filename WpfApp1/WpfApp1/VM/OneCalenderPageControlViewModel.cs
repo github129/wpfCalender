@@ -24,12 +24,24 @@ namespace WpfApp1
         /// </summary>
         private CalenderCreateEntity entity;
 
+        /// <summary>
+        /// 画像のpath
+        /// </summary>
         private string img;
 
+        /// <summary>
+        /// 当日色変更の判断
+        /// </summary>
         private bool isTodayColor = true;
 
+        /// <summary>
+        /// 週開始の曜日変更の判断
+        /// </summary>
         private bool isWeekChange = true;
 
+        /// <summary>
+        /// OneCalenderPageControlViewModelのリスト
+        /// </summary>
         private IList<OneCalenderPageControlViewModel> vms = new ObservableCollection<OneCalenderPageControlViewModel>();
 
         /// <summary>

@@ -20,8 +20,14 @@ namespace WpfApp1
     /// </summary>
     public class SomeCalenderWindowViewModel : CommonCalenderCreate
     {
+        /// <summary>
+        /// 当日色変更の判断
+        /// </summary>
         private bool isTodayColor = true;
 
+        /// <summary>
+        /// 週開始の曜日変更の判断
+        /// </summary>
         private bool isWeekChange = true;
 
         /// <summary>
@@ -124,7 +130,7 @@ namespace WpfApp1
         public void SetSomeCalender(CalenderData data, Option op)
         {
             this.Op = op;
-            for (int i = 0; i < op.CalenderCreateCount; i++)
+            for (int i = 0; i < 12; i++)
             {
                 var calEntity = this.SetCalender(data, op);
                 this.calenderEntitys.Add(calEntity);

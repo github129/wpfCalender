@@ -157,40 +157,54 @@ namespace WpfApp1
             var row = 0;
             this.DaysCreate(this.entity, calData, col, row, this.option);
 
+            // 曜日の作成
             var dateCol = 0;
-
-            var sun = new WeekTitleSun();
-            sun.Col = dateCol;
+            var sun = new WeekTitleSun()
+            {
+                Col = dateCol,
+            };
             this.entity.CalenderWeekItems.Add(sun);
             dateCol++;
 
-            var mon = new WeekTitleMon();
-            mon.Col = dateCol;
+            var mon = new WeekTitleMon()
+            {
+                Col = dateCol,
+            };
             this.entity.CalenderWeekItems.Add(mon);
             dateCol++;
 
-            var tue = new WeekTitleTue();
-            tue.Col = dateCol;
+            var tue = new WeekTitleTue()
+            {
+                Col = dateCol,
+            };
             this.entity.CalenderWeekItems.Add(tue);
             dateCol++;
 
-            var wen = new WeekTitleWen();
-            wen.Col = dateCol;
+            var wen = new WeekTitleWen()
+            {
+                Col = dateCol,
+            };
             this.entity.CalenderWeekItems.Add(wen);
             dateCol++;
 
-            var thu = new WeekTitleThu();
-            thu.Col = dateCol;
+            var thu = new WeekTitleThu()
+            {
+                Col = dateCol,
+            };
             this.entity.CalenderWeekItems.Add(thu);
             dateCol++;
 
-            var fri = new WeekTitleFri();
-            fri.Col = dateCol;
+            var fri = new WeekTitleFri()
+            {
+                Col = dateCol,
+            };
             this.entity.CalenderWeekItems.Add(fri);
             dateCol++;
 
-            var sat = new WeekTitleSat();
-            sat.Col = dateCol;
+            var sat = new WeekTitleSat()
+            {
+                Col = dateCol,
+            };
             this.entity.CalenderWeekItems.Add(sat);
 
             return this.entity;
@@ -206,6 +220,7 @@ namespace WpfApp1
         {
             int startDate = col;
 
+            // 月曜日スタートでcolmunが0より大きかった場合
             if (!flg && col > 0)
             {
                 startDate--;
@@ -282,6 +297,8 @@ namespace WpfApp1
 
                 entity.CalenderDays.Add(this.calenderDay);
                 col++;
+
+                // Gridが6*7の為
                 if (col > 6)
                 {
                     row++;
@@ -292,9 +309,11 @@ namespace WpfApp1
             // デザイン用にスペースを作る処理　必ず6*7で作る
             for (var x = 0; x < 7; x++)
             {
-                this.calenderDay = new CalenderDay();
-                this.calenderDay.Col = x;
-                this.calenderDay.Row = 0;
+                this.calenderDay = new CalenderDay()
+                {
+                    Col = x,
+                    Row = 0,
+                };
                 entity.CalenderDays.Add(this.calenderDay);
             }
 
@@ -302,9 +321,11 @@ namespace WpfApp1
             {
                 for (int x = col - 1; x < 7; x++)
                 {
-                    this.calenderDay = new CalenderDay();
-                    this.calenderDay.Col = x;
-                    this.calenderDay.Row = y;
+                    this.calenderDay = new CalenderDay()
+                    {
+                        Col = x,
+                        Row = y,
+                    };
                     entity.CalenderDays.Add(this.calenderDay);
                 }
 

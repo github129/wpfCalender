@@ -41,9 +41,11 @@ namespace FlickrAPI
         /// <returns>ingUrl 画像URL</returns>
         public string GetImg()
         {
-            PhotoSearchOptions opt = new PhotoSearchOptions();
-            opt.Tags = "Mountain  Background";
-            opt.TagMode = TagMode.AllTags;
+            PhotoSearchOptions opt = new PhotoSearchOptions()
+            {
+                Tags = "Mountain  Background",
+                TagMode = TagMode.AllTags,
+            };
             this.photos = this.flickr.PhotosSearch(opt);
             Random random = new Random();
             var imgNumber = random.Next(this.photos.Count);
