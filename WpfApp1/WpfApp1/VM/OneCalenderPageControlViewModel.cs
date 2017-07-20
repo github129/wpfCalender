@@ -1,4 +1,4 @@
-﻿// <copyright file="CalenderWindowViewModel.cs" company="PlaceholderCompany">
+﻿// <copyright file="OneCalenderPageControlViewModel.cs" company="PlaceholderCompany">
 // Copyright (c) PlaceholderCompany. All rights reserved.
 // </copyright>
 
@@ -17,7 +17,7 @@ namespace WpfApp1
     /// <summary>
     /// カレンダーの処理をするVMクラス
     /// </summary>
-    public class CalenderWindowViewModel : CommonCalenderCreate
+    public class OneCalenderPageControlViewModel : CommonCalenderCreate
     {
         /// <summary>
         /// カレンダーの情報クラス
@@ -30,12 +30,12 @@ namespace WpfApp1
 
         private bool isWeekChange = true;
 
-        private IList<CalenderWindowViewModel> vms = new ObservableCollection<CalenderWindowViewModel>();
+        private IList<OneCalenderPageControlViewModel> vms = new ObservableCollection<OneCalenderPageControlViewModel>();
 
         /// <summary>
         /// Gets or sets カレンダー情報プロパティ
         /// </summary>
-        public CalenderCreateEntity Entity
+        public new CalenderCreateEntity Entity
         {
             get
             {
@@ -55,7 +55,7 @@ namespace WpfApp1
         /// <summary>
         /// Gets or sets カレンダー情報プロパティ
         /// </summary>
-        public IList<CalenderWindowViewModel> Vms
+        public IList<OneCalenderPageControlViewModel> Vms
         {
             get
             {
@@ -138,7 +138,6 @@ namespace WpfApp1
             this.Entity = this.SetCalender(calData, option);
             this.ChangeWeekText(option.IsDatePrintChange);
             this.ChangeColorTextColor(option.IsTodayColorChange);
-            this.Entity.UpdateEvent();
             calData.Date = calData.Date.AddMonths(1);
         }
 
@@ -147,7 +146,7 @@ namespace WpfApp1
         /// </summary>
         public void FarstCreate()
         {
-            this.Vms = new ObservableCollection<CalenderWindowViewModel>();
+            this.Vms = new ObservableCollection<OneCalenderPageControlViewModel>();
         }
     }
 }

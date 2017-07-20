@@ -30,6 +30,14 @@ namespace WpfApp1
         private Option op = new Option();
 
         /// <summary>
+        /// Initializes a new instance of the <see cref="OneCalenderPageControl"/> class.
+        /// </summary>
+        public OneCalenderPageControl()
+        {
+            this.InitializeComponent();
+        }
+
+        /// <summary>
         /// Gets or sets カレンダーデータクラス
         /// </summary>
         public CalenderData Data
@@ -47,11 +55,6 @@ namespace WpfApp1
             set { this.op = value; }
         }
 
-        public OneCalenderPageControl()
-        {
-            InitializeComponent();
-        }
-
         /// <summary>
         /// 曜日の始まり選択クリック時の処理
         /// </summary>
@@ -67,6 +70,7 @@ namespace WpfApp1
             {
                 this.Op.IsDatePrintChange = false;
             }
+
             SingleCalenderEventControl.Instance.IsWeekChange = this.Op.IsDatePrintChange;
             SingleCalenderEventControl.Instance.UpdataCalender(this.Op);
         }
@@ -86,6 +90,7 @@ namespace WpfApp1
             {
                 this.Op.IsTodayColorChange = false;
             }
+
             SingleCalenderEventControl.Instance.IsTodayColor = this.Op.IsTodayColorChange;
             SingleCalenderEventControl.Instance.ColorChangeEvent(this.Op);
         }

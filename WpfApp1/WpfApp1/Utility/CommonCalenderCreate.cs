@@ -38,16 +38,6 @@ namespace WpfApp1
         private Option option;
 
         /// <summary>
-        /// 曜日の入った配列 sFlgがtureの場合
-        /// </summary>
-        private static readonly string[] DateListS = { "日", "月", "火", "水", "木", "金", "土" };
-
-        /// <summary>
-        /// 曜日の入った配列　sFlgがfalseの場合
-        /// </summary>
-        private static readonly string[] DateListM = { "月", "火", "水", "木", "金", "土", "日" };
-
-        /// <summary>
         /// 曜日始まりのラベル
         /// </summary>
         private string startText = "日曜始まり";
@@ -60,9 +50,6 @@ namespace WpfApp1
         private int sunColorNumber = 0;
 
         private int satColorNumber = 6;
-
-        /// <inheritdoc/>
-        public event PropertyChangedEventHandler PropertyChanged;
 
         /// <summary>
         /// Gets or sets ラベルを扱うプロパティ
@@ -146,6 +133,70 @@ namespace WpfApp1
         }
 
         /// <summary>
+        /// カレンダーを１つ作成するメソッド
+        /// </summary>
+        /// <param name="calData">カレンダーデータクラス</param>
+        /// <param name="paramOption">オプションクラス</param>
+        /// <returns>CalenderEntity カレンダーの情報</returns>
+        protected CalenderCreateEntity SetCalender(CalenderData calData, Option paramOption)
+        {
+            // 日付データの作成
+            this.entity = new CalenderCreateEntity();
+            this.sunColorNumber = 0;
+            this.satColorNumber = 6;
+
+            calData.LastDay();
+            calData.FastDateCreate();
+            this.entity.Date = calData.Date;
+            this.entity.StringMonth = calData.Date.Month.ToString();
+            this.entity.StringYear = calData.Date.Year.ToString();
+            this.option = paramOption;
+
+            var col = this.DateSwitch(this.option.IsDatePrintChange,  calData.FastDate);
+
+            var row = 0;
+            this.DaysCreate(this.entity, calData, col, row, this.option);
+
+            var dateCol = 0;
+
+            var sun = new WeekTitleSun();
+            sun.Col = dateCol;
+            this.entity.CalenderWeekItems.Add(sun);
+            dateCol++;
+
+            var mon = new WeekTitleMon();
+            mon.Col = dateCol;
+            this.entity.CalenderWeekItems.Add(mon);
+            dateCol++;
+
+            var tue = new WeekTitleTue();
+            tue.Col = dateCol;
+            this.entity.CalenderWeekItems.Add(tue);
+            dateCol++;
+
+            var wen = new WeekTitleWen();
+            wen.Col = dateCol;
+            this.entity.CalenderWeekItems.Add(wen);
+            dateCol++;
+
+            var thu = new WeekTitleThu();
+            thu.Col = dateCol;
+            this.entity.CalenderWeekItems.Add(thu);
+            dateCol++;
+
+            var fri = new WeekTitleFri();
+            fri.Col = dateCol;
+            this.entity.CalenderWeekItems.Add(fri);
+            dateCol++;
+
+            var sat = new WeekTitleSat();
+            sat.Col = dateCol;
+            this.entity.CalenderWeekItems.Add(sat);
+
+            return this.entity;
+        }
+
+        /// <summary>
         /// 開始位置を変更するメソッド
         /// </summary>
         /// <param name="flg">日曜始まりか月曜始まりか</param>
@@ -180,9 +231,9 @@ namespace WpfApp1
         /// <param name="row">縦の位置</param>
         private void DayCreate(CalenderDay day, int today, int col, int row)
         {
-                day.Day = (today + 1).ToString();
-                day.Row = row;
-                day.Col = col;
+            day.Day = (today + 1).ToString();
+            day.Row = row;
+            day.Col = col;
         }
 
         /// <summary>
@@ -197,7 +248,7 @@ namespace WpfApp1
             {
                 day.ForeColor = (DateColor)3;
             }
-                else if (col == this.satColorNumber)
+            else if (col == this.satColorNumber)
             {
                 day.ForeColor = (DateColor)2;
             }
@@ -259,93 +310,6 @@ namespace WpfApp1
 
                 col = 0;
             }
-        }
-
-        /// <summary>
-        /// カレンダーを１つ作成するメソッド
-        /// </summary>
-        /// <param name="calData">カレンダーデータクラス</param>
-        /// <param name="paramOption">オプションクラス</param>
-        /// <returns>CalenderEntity カレンダーの情報</returns>
-        protected CalenderCreateEntity SetCalender(CalenderData calData, Option paramOption)
-        {
-            // 日付データの作成
-            this.entity = new CalenderCreateEntity();
-            this.sunColorNumber = 0;
-            this.satColorNumber = 6;
-
-            calData.LastDay();
-            calData.FastDateCreate();
-            this.entity.Date = calData.Date;
-            this.entity.StringMonth = calData.Date.Month.ToString();
-            this.entity.StringYear = calData.Date.Year.ToString();
-            this.option = paramOption;
-
-            var col = this.DateSwitch(this.option.IsDatePrintChange,  calData.FastDate);
-
-            var row = 0;
-            this.DaysCreate(this.entity, calData, col, row, this.option);
-
-            var dateCol = 0;
-
-            // 曜日タイトルの作成
-            var week = DateListS;
-            if (!this.option.IsDatePrintChange)
-            {
-                week = DateListM;
-            }
-
-            var sun = new WeekTitleSun();
-            sun.Title = week[0];
-            sun.Col = dateCol;
-            this.entity.CalenderWeekItems.Add(sun);
-            dateCol++;
-
-            var mon = new WeekTitleMon();
-            mon.Title = week[1];
-            mon.Col = dateCol;
-            this.entity.CalenderWeekItems.Add(mon);
-            dateCol++;
-
-            var tue = new WeekTitleTue();
-            tue.Title = week[2];
-            tue.Col = dateCol;
-            this.entity.CalenderWeekItems.Add(tue);
-            dateCol++;
-
-            var wen = new WeekTitleWen();
-            wen.Title = week[3];
-            wen.Col = dateCol;
-            this.entity.CalenderWeekItems.Add(wen);
-            dateCol++;
-
-            var thu = new WeekTitleThu();
-            thu.Title = week[4];
-            thu.Col = dateCol;
-            this.entity.CalenderWeekItems.Add(thu);
-            dateCol++;
-
-            var fri = new WeekTitleFri();
-            fri.Title = week[5];
-            fri.Col = dateCol;
-            this.entity.CalenderWeekItems.Add(fri);
-            dateCol++;
-
-            var sat = new WeekTitleSat();
-            sat.Title = week[6];
-            sat.Col = dateCol;
-            this.entity.CalenderWeekItems.Add(sat);
-
-            return this.entity;
-        }
-
-        /// <summary>
-        /// 情報切り替え用のインターフェース
-        /// </summary>
-        /// <param name="propertyName">プロパティ名</param>
-        protected void RaisePropertyChanged(string propertyName)
-        {
-            this.PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
     }
 }

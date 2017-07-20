@@ -60,21 +60,6 @@ namespace WpfApp1
         }
 
         /// <summary>
-        /// 文字列DayをCalenderDictionaryに登録したKeyに変更するメソッド
-        /// </summary>
-        /// <param name="d">クラス情報</param>
-        /// <param name="e">変更情報</param>
-        private static void NumberChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
-        {
-            ((CalenderPrintBehavior)d).number = (string)e.NewValue;
-        }
-
-        private static void KeyCheck(DependencyObject d, DependencyPropertyChangedEventArgs e)
-        {
-            ((CalenderPrintBehavior)d).key = (string)e.NewValue;
-        }
-
-        /// <summary>
         /// 要素がアタッチ(加えられた)されたときの処理
         /// </summary>
         protected override void OnAttached()
@@ -97,6 +82,21 @@ namespace WpfApp1
         protected override void OnDetaching()
         {
             base.OnDetaching();
+        }
+
+        /// <summary>
+        /// 文字列DayをCalenderDictionaryに登録したKeyに変更するメソッド
+        /// </summary>
+        /// <param name="d">クラス情報</param>
+        /// <param name="e">変更情報</param>
+        private static void NumberChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+            ((CalenderPrintBehavior)d).number = (string)e.NewValue;
+        }
+
+        private static void KeyCheck(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+            ((CalenderPrintBehavior)d).key = (string)e.NewValue;
         }
     }
 }

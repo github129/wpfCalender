@@ -9,8 +9,8 @@ namespace WpfApp1
     using System.Linq;
     using System.Text;
     using System.Threading.Tasks;
-    using CustomEventArgs;
     using Calender.Entitey;
+    using CustomEventArgs;
 
     /// <summary>
     /// イベントハンドラーの設定
@@ -32,14 +32,24 @@ namespace WpfApp1
     public class SingleCalenderEventControl
     {
         /// <summary>
+        /// このクラスのインスタンス
+        /// </summary>
+        private static SingleCalenderEventControl instance = new SingleCalenderEventControl();
+
+        /// <summary>
         /// EventArgsクラス
         /// </summary>
         private CalenderEventArgs args = new CalenderEventArgs();
 
         /// <summary>
-        /// このクラスのインスタンス
+        /// 当日色変更がチェック済みかの判断
         /// </summary>
-        private static SingleCalenderEventControl instance = new SingleCalenderEventControl();
+        private bool isTodayColor = true;
+
+        /// <summary>
+        /// 開始曜日が変更済みかの判断
+        /// </summary>
+        private bool isWeekChange = true;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="SingleCalenderEventControl"/> class.
@@ -59,12 +69,8 @@ namespace WpfApp1
         /// </summary>
         public event SomeCalenderColorChangeEventHandler TodayColorChenge;
 
-        private bool isTodayColor = true;
-
-        private bool isWeekChange = true;
-
         /// <summary>
-        /// インスタンスを扱うプロパティ
+        /// Gets インスタンスを扱うプロパティ
         /// </summary>
         public static SingleCalenderEventControl Instance
         {
@@ -83,12 +89,18 @@ namespace WpfApp1
             set { this.args = value; }
         }
 
+        /// <summary>
+        /// Gets or sets a value indicating whether 当日色判断用のプロパティ
+        /// </summary>
         public bool IsTodayColor
         {
             get { return this.isTodayColor; }
             set { this.isTodayColor = value; }
         }
 
+        /// <summary>
+        /// Gets or sets a value indicating whether 開始曜日判断用のプロパティ
+        /// </summary>
         public bool IsWeekChange
         {
             get { return this.isWeekChange; }

@@ -89,11 +89,17 @@ namespace WpfApp1
             }
         }
 
+        /// <summary>
+        /// Gets or sets オプションクラスを扱うプロパティ
+        /// </summary>
         public Option Op
         {
             get; set;
         }
 
+        /// <summary>
+        /// Gets or sets オプションクラスを扱うプロパティ
+        /// </summary>
         public CalenderData Data
         {
             get; set;
@@ -121,7 +127,6 @@ namespace WpfApp1
             for (int i = 0; i < op.CalenderCreateCount; i++)
             {
                 var calEntity = this.SetCalender(data, op);
-                calEntity.UpdateEvent();
                 this.calenderEntitys.Add(calEntity);
                 data.Date = data.Date.AddMonths(1);
             }
@@ -129,6 +134,5 @@ namespace WpfApp1
             this.ChangeWeekText(op.IsDatePrintChange);
             this.ChangeColorTextColor(op.IsTodayColorChange);
         }
-
     }
 }

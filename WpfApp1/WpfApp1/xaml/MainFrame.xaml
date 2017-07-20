@@ -10,7 +10,7 @@
         <DataTemplate DataType="{x:Type local:SomeCalenderWindowViewModel}">
             <local:SomeCalenderPageControl/>
         </DataTemplate>
-        <DataTemplate DataType="{x:Type local:CalenderWindowViewModel}">
+        <DataTemplate DataType="{x:Type local:OneCalenderPageControlViewModel}">
             <local:OneCalenderPageControl/>
         </DataTemplate>
     </Window.Resources>

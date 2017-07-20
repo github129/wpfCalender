@@ -1,5 +1,5 @@
 ﻿<UserControl
-    x:Class="WpfApp1.OneCalenderControl"
+    x:Class="WpfApp1.CalenderDesginControl"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:WeekItem="clr-namespace:WpfApp1.Entity.WeekNumber"
@@ -7,8 +7,8 @@
     xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
     xmlns:local="clr-namespace:WpfApp1"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    d:DesignHeight="300"
-    d:DesignWidth="300"
+    d:DesignHeight="350"
+    d:DesignWidth="600"
     mc:Ignorable="d">
     <UserControl.Resources>
         <DataTemplate x:Key="CalenderDay" DataType="{x:Type local:CalenderDay}">
@@ -168,21 +168,8 @@
         </DataTemplate>
 
     </UserControl.Resources>
-
     <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="5*" />
-            <RowDefinition Height="0.3*" />
-            <RowDefinition Height="4*" />
-        </Grid.RowDefinitions>
-
-        <Rectangle>
-            <Rectangle.Fill>
-                <ImageBrush ImageSource="{Binding Img, Mode=Default}" />
-            </Rectangle.Fill>
-        </Rectangle>
-
-        <Grid Grid.Row="2">
+        <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="3*" />
@@ -201,10 +188,9 @@
                 <Rectangle
                     Grid.Row="0"
                     Grid.Column="1"
-                    HorizontalAlignment="Stretch"
-                    VerticalAlignment="Top"
                     Height="50"
-                    DataContext="{Binding Entity}">
+                    HorizontalAlignment="Stretch"
+                    VerticalAlignment="Top">
                     <i:Interaction.Behaviors>
                         <local:CalenderPrintBehavior Key="MonthTitle" Number="{Binding StringMonth}" />
                     </i:Interaction.Behaviors>
@@ -214,22 +200,22 @@
                     Grid.Column="1"
                     HorizontalAlignment="Center">
                     <StackPanel Orientation="Horizontal">
-                        <Rectangle MinWidth="15" DataContext="{Binding Entity}">
+                        <Rectangle MinWidth="15">
                             <i:Interaction.Behaviors>
                                 <local:CalenderPrintBehavior Key="YearNumber" Number="{Binding StringYear[0]}" />
                             </i:Interaction.Behaviors>
                         </Rectangle>
-                        <Rectangle MinWidth="15" DataContext="{Binding Entity}">
+                        <Rectangle MinWidth="15">
                             <i:Interaction.Behaviors>
                                 <local:CalenderPrintBehavior Key="YearNumber" Number="{Binding StringYear[1]}" />
                             </i:Interaction.Behaviors>
                         </Rectangle>
-                        <Rectangle MinWidth="15" DataContext="{Binding Entity}">
+                        <Rectangle MinWidth="15">
                             <i:Interaction.Behaviors>
                                 <local:CalenderPrintBehavior Key="YearNumber" Number="{Binding StringYear[2]}" />
                             </i:Interaction.Behaviors>
                         </Rectangle>
-                        <Rectangle MinWidth="15" DataContext="{Binding Entity}">
+                        <Rectangle MinWidth="15">
                             <i:Interaction.Behaviors>
                                 <local:CalenderPrintBehavior Key="YearNumber" Number="{Binding StringYear[3]}" />
                             </i:Interaction.Behaviors>
@@ -247,14 +233,14 @@
                     HorizontalContentAlignment="Stretch"
                     VerticalContentAlignment="Stretch"
                     BorderThickness="0"
-                    ItemsSource="{Binding Path=Entity.CalenderWeekItems}"
+                    ItemsSource="{Binding Path=CalenderWeekItems}"
                     Style="{StaticResource calenderDateStyle}" />
                 <ListBox
                     Grid.Row="1"
                     HorizontalContentAlignment="Stretch"
                     VerticalContentAlignment="Stretch"
                     BorderThickness="0"
-                    ItemsSource="{Binding Entity.CalenderDays}"
+                    ItemsSource="{Binding CalenderDays}"
                     ScrollViewer.HorizontalScrollBarVisibility="Disabled"
                     Style="{StaticResource calenderStyle}" />
             </Grid>

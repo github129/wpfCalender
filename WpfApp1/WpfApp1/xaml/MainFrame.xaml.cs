@@ -25,19 +25,29 @@ namespace WpfApp1
     /// </summary>
     public partial class MainFrame : Window
     {
+        /// <summary>
+        /// カレンダーデータクラス
+        /// </summary>
         private CalenderData data;
 
+        /// <summary>
+        /// オプションクラス
+        /// </summary>
         private Option op;
 
-        private CalenderWindowViewModel calVm;
-
-        private SomeCalenderWindowViewModel somVm;
-
+        /// <summary>
+        /// Initializes a new instance of the <see cref="MainFrame"/> class.
+        /// </summary>
         public MainFrame()
         {
-            InitializeComponent();
+            this.InitializeComponent();
         }
 
+        /// <summary>
+        /// VMを動かすメソッド
+        /// </summary>
+        /// <param name="data">カレンダーデータクラス</param>
+        /// <param name="op">オプションクラス</param>
         public void UserContorol(CalenderData data, Option op)
         {
             this.data = data;
@@ -45,6 +55,11 @@ namespace WpfApp1
             ((MainFrameViewModel)this.DataContext).CreateControl(data, op);
         }
 
+        /// <summary>
+        /// 表示変更ボタンが押されたときのイベント
+        /// </summary>
+        /// <param name="sender">クラス情報</param>
+        /// <param name="e">イベント情報</param>
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             ((MainFrameViewModel)this.DataContext).TogglePageEvent();

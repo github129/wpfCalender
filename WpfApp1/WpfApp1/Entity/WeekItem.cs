@@ -78,6 +78,5 @@ namespace Calender.Entitey
         {
             this.PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
-
     }
 }

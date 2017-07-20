@@ -1,6 +1,9 @@
-﻿namespace WpfApp1
+﻿// <copyright file="SomeCalenderPageControl.xaml.cs" company="PlaceholderCompany">
+// Copyright (c) PlaceholderCompany. All rights reserved.
+// </copyright>
+
+namespace WpfApp1
 {
-    using Calender.Entitey;
     using System;
     using System.Collections.Generic;
     using System.Collections.ObjectModel;
@@ -16,16 +19,35 @@
     using System.Windows.Media.Imaging;
     using System.Windows.Navigation;
     using System.Windows.Shapes;
+    using Calender.Entitey;
 
     /// <summary>
     /// SomeCalenderPageControl.xaml の相互作用ロジック
     /// </summary>
     public partial class SomeCalenderPageControl : UserControl
     {
-
+        /// <summary>
+        /// カレンダーデータクラス
+        /// </summary>
         private CalenderData data = new CalenderData();
 
+        /// <summary>
+        /// オプションクラス
+        /// </summary>
         private Option op = new Option();
+
+        /// <summary>
+        /// SomeCalenderWindowViewModelクラスが入ったリスト
+        /// </summary>
+        private IList<SomeCalenderWindowViewModel> calender = new ObservableCollection<SomeCalenderWindowViewModel>();
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="SomeCalenderPageControl"/> class.
+        /// </summary>
+        public SomeCalenderPageControl()
+        {
+            this.InitializeComponent();
+        }
 
         /// <summary>
         /// Gets or sets カレンダーデータクラス
@@ -46,16 +68,6 @@
         }
 
         /// <summary>
-        /// SomeCalenderWindowViewModelクラスが入ったリスト
-        /// </summary>
-        private IList<SomeCalenderWindowViewModel> calender = new ObservableCollection<SomeCalenderWindowViewModel>();
-
-        public SomeCalenderPageControl()
-        {
-            InitializeComponent();
-        }
-
-        /// <summary>
         /// 始まりの曜日を変えるイベント
         /// </summary>
         /// <param name="sender">sender</param>
@@ -70,6 +82,7 @@
             {
                 this.Op.IsDatePrintChange = false;
             }
+
             SingleCalenderEventControl.Instance.IsWeekChange = this.Op.IsDatePrintChange;
             SingleCalenderEventControl.Instance.UpdataCalender(this.Op);
         }
@@ -89,6 +102,7 @@
             {
                 this.Op.IsTodayColorChange = false;
             }
+
             SingleCalenderEventControl.Instance.IsTodayColor = this.Op.IsTodayColorChange;
             SingleCalenderEventControl.Instance.ColorChangeEvent(this.Op);
         }

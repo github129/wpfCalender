@@ -138,7 +138,7 @@ namespace WpfApp1
             this.inputMonth = 1;
             op.CalenderCreateCount = 12;
 
-            this.Date = new DateTime(int.Parse(this.InputYear), this.InputMonth , 1);
+            this.Date = new DateTime(int.Parse(this.InputYear), this.InputMonth, 1);
             data.Date = this.Date;
             data.InputDate = this.Date;
             var frame = new MainFrame();

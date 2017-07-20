@@ -18,51 +18,15 @@ namespace WpfApp1
     /// </summary>
     public class CalenderCreateEntity : INotifyPropertyChanged
     {
-        ///// <summary>
-        ///// EventArgsクラス
-        ///// </summary>
-        //private CalenderEventArgs args = new CalenderEventArgs();
+        /// <summary>
+        /// 曜日の入った配列 sFlgがtureの場合
+        /// </summary>
+        private static readonly string[] DateListS = { "日", "月", "火", "水", "木", "金", "土" };
 
-        ///// <summary>
-        ///// 日付更新イベント
-        ///// </summary>
-        //public event SomeCalenderEventHandler CalenderUpdate;
-
-        ///// <summary>
-        ///// 当日の色更新イベント
-        ///// </summary>
-        //public event SomeCalenderColorChangeEventHandler TodayColorChenge;
-
-        ///// <summary>
-        ///// 日付更新イベント起動
-        ///// </summary>
-        ///// <param name="e">イベント情報</param>
-        //public virtual void OnCalenderUpDate(CalenderEventArgs e)
-        //{
-        //    if (this.CalenderUpdate != null)
-        //    {
-        //        this.CalenderUpdate(this, e);
-        //    }
-        //}
-
-        ///// <summary>
-        ///// 当日の背景色更新イベント起動
-        ///// </summary>
-        ///// <param name="e">イベント情報</param>
-        //public virtual void OnTodayColorChange(CalenderEventArgs e)
-        //{
-        //    if (this.TodayColorChenge != null)
-        //    {
-        //        this.TodayColorChenge(this, e);
-        //    }
-        //}
-
-        public CalenderCreateEntity()
-        {
-            SingleCalenderEventControl.Instance.CalenderUpdate += new SomeCalenderEventHandler(this.DayListUpdate);
-            SingleCalenderEventControl.Instance.CalenderUpdate += new SomeCalenderEventHandler(this.WeekChange);
-            SingleCalenderEventControl.Instance.TodayColorChenge += new SomeCalenderColorChangeEventHandler(this.TodayColorChange);
-        }
+        /// <summary>
+        /// 曜日の入った配列　sFlgがfalseの場合
+        /// </summary>
+        private static readonly string[] DateListM = { "月", "火", "水", "木", "金", "土", "日" };
 
         /// <summary>
         /// 日付クラスの情報が入ったリスト
@@ -90,14 +54,15 @@ namespace WpfApp1
         private string stringYear;
 
         /// <summary>
-        /// 曜日の入った配列 sFlgがtureの場合
+        /// Initializes a new instance of the <see cref="CalenderCreateEntity"/> class.
+        /// コンストラクター　イベントを張る処理
         /// </summary>
-        private static readonly string[] DateListS = { "日", "月", "火", "水", "木", "金", "土" };
-
-        /// <summary>
-        /// 曜日の入った配列　sFlgがfalseの場合
-        /// </summary>
-        private static readonly string[] DateListM = { "月", "火", "水", "木", "金", "土", "日" };
+        public CalenderCreateEntity()
+        {
+            SingleCalenderEventControl.Instance.CalenderUpdate += new SomeCalenderEventHandler(this.DayListUpdate);
+            SingleCalenderEventControl.Instance.CalenderUpdate += new SomeCalenderEventHandler(this.WeekChange);
+            SingleCalenderEventControl.Instance.TodayColorChenge += new SomeCalenderColorChangeEventHandler(this.TodayColorChange);
+        }
 
         /// <summary>
         /// インターフェース
@@ -196,9 +161,13 @@ namespace WpfApp1
             }
         }
 
-        public void UpdateEvent()
+        /// <summary>
+        /// 情報切り替え用のインターフェース
+        /// </summary>
+        /// <param name="propertyName">プロパティ名</param>
+        protected void RaisePropertyChanged(string propertyName)
         {
-
+            this.PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
         /// <summary>
@@ -328,15 +297,6 @@ namespace WpfApp1
                     this.dayList[i].IsToday = false;
                 }
             }
-        }
-
-        /// <summary>
-        /// 情報切り替え用のインターフェース
-        /// </summary>
-        /// <param name="propertyName">プロパティ名</param>
-        protected void RaisePropertyChanged(string propertyName)
-        {
-            this.PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
     }
 }

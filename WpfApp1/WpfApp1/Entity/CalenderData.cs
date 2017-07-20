@@ -70,7 +70,7 @@ namespace WpfApp1
         /// </summary>
         public DateTime UpDataDate
         {
-            get;set;
+            get; set;
         }
 
         /// <summary>

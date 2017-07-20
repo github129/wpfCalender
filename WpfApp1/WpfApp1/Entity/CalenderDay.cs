@@ -17,7 +17,25 @@ namespace WpfApp1
     /// </summary>
     public enum DateColor
     {
-        None, Weekday, Saturday, Holiday,
+        /// <summary>
+        /// 初期値用
+        /// </summary>
+        None,
+
+        /// <summary>
+        /// 平日
+        /// </summary>
+        Weekday,
+
+        /// <summary>
+        /// 土曜日
+        /// </summary>
+        Saturday,
+
+        /// <summary>
+        /// 日曜日
+        /// </summary>
+        Holiday,
     }
 
     /// <summary>
@@ -78,7 +96,7 @@ namespace WpfApp1
         }
 
         /// <summary>
-        /// Gets or sets grid coulm
+        /// Gets or sets a value indicating whether gets or sets grid coulm
         /// </summary>
         public bool IsToday
         {

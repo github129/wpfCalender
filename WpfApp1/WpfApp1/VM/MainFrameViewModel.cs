@@ -21,7 +21,7 @@ namespace WpfApp1
         /// <summary>
         /// CalenderWindowViewModel情報
         /// </summary>
-        private CalenderWindowViewModel calVm;
+        private OneCalenderPageControlViewModel calVm;
 
         /// <summary>
         /// someCalenderWindowViewModel 情報
@@ -66,7 +66,7 @@ namespace WpfApp1
         /// <summary>
         /// Gets or sets calenderWindowViewModel用のプロパティ
         /// </summary>
-        public CalenderWindowViewModel CalVm
+        public OneCalenderPageControlViewModel CalVm
         {
             get
             {
@@ -103,28 +103,39 @@ namespace WpfApp1
             }
         }
 
+        /// <summary>
+        /// Gets or sets オプションクラスを扱うプロパティ
+        /// </summary>
         public Option Op
         {
             get { return this.op; }
             set { this.op = value; }
         }
 
+        /// <summary>
+        /// Gets or sets カレンダーデータクラスを扱うプロパティ
+        /// </summary>
         public CalenderData Data
         {
             get { return this.data; }
             set { this.data = value; }
         }
 
+        /// <summary>
+        /// VMを作成するmethod
+        /// </summary>
+        /// <param name="data">カレンダーデータクラス</param>
+        /// <param name="op">オプションクラス</param>
         public void CreateControl(CalenderData data, Option op)
         {
             this.data = data;
             this.op = op;
-            this.calVm = new CalenderWindowViewModel();
+            this.calVm = new OneCalenderPageControlViewModel();
             this.somVm = new SomeCalenderWindowViewModel();
-            var vmList = new List<CalenderWindowViewModel>();
+            var vmList = new List<OneCalenderPageControlViewModel>();
             for (var i = 0; i < 12; i++)
             {
-                this.calVm = new CalenderWindowViewModel();
+                this.calVm = new OneCalenderPageControlViewModel();
                 this.calVm.SetOneCalender(this.data, this.op);
 
                 // var imgApi = new ImgAPI();
@@ -154,9 +165,9 @@ namespace WpfApp1
         /// <summary>
         /// 初めに表示するページの設定
         /// </summary>
-        /// <param name="calVm">CalenderWindowViewModel</param>
+        /// <param name="calVm">OneCalenderPageControlViewModel</param>
         /// <param name="somVm">SomeCalenderWindowViewModel</param>
-        public void CreatePage(CalenderWindowViewModel calVm, SomeCalenderWindowViewModel somVm)
+        public void CreatePage(OneCalenderPageControlViewModel calVm, SomeCalenderWindowViewModel somVm)
         {
             this.SomVm = somVm;
             this.CalVm = calVm;
@@ -167,7 +178,7 @@ namespace WpfApp1
         /// VMを登録するメソッド
         /// </summary>
         /// <param name="somVm">SomeCalenderWindowViewModel 1画面に複数表示する</param>
-        /// <param name="calVm">CalenderWindowViewModel 1画面に１つ表示する</param>
+        /// <param name="calVm">OneCalenderPageControlViewModel 1画面に１つ表示する</param>
         public void TogglePageEvent()
         {
             this.TogglePage();
@@ -184,7 +195,7 @@ namespace WpfApp1
                 this.CalVm.IsTodayColor = SingleCalenderEventControl.Instance.IsTodayColor;
                 this.CurrentPage = this.CalVm;
             }
-            else if (this.CurrentPage is CalenderWindowViewModel)
+            else if (this.CurrentPage is OneCalenderPageControlViewModel)
             {
                 this.SomVm.IsWeekChange = SingleCalenderEventControl.Instance.IsWeekChange;
                 this.SomVm.IsTodayColor = SingleCalenderEventControl.Instance.IsTodayColor;

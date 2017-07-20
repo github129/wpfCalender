@@ -143,7 +143,10 @@
     </ApplicationDefinition>
     <Compile Include="Behavior\CalenderDayBehavior.cs" />
     <Compile Include="Behavior\CalenderPrintBehavior.cs" />
-    <Compile Include="CalenderEventArgs.cs" />
+    <Compile Include="UserControl\CalenderDesginControl.xaml.cs">
+      <DependentUpon>CalenderDesginControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Utility\CalenderEventArgs.cs" />
     <Compile Include="Entity\WeekNumber\WeekTitleFri.cs" />
     <Compile Include="Entity\WeekNumber\WeekTitleMon.cs" />
     <Compile Include="Entity\WeekNumber\WeekTitleSat.cs" />
@@ -152,10 +155,7 @@
     <Compile Include="Entity\WeekNumber\WeekTitleTue.cs" />
     <Compile Include="Entity\WeekNumber\WeekTitleWen.cs" />
     <Compile Include="GlobalSuppressions.cs" />
-    <Compile Include="SingleCalenderEventControl.cs" />
-    <Compile Include="UserControl1.xaml.cs">
-      <DependentUpon>UserControl1.xaml</DependentUpon>
-    </Compile>
+    <Compile Include="Utility\SingleCalenderEventControl.cs" />
     <Compile Include="UserControl\OneCalenderPageControl.xaml.cs">
       <DependentUpon>OneCalenderPageControl.xaml</DependentUpon>
     </Compile>
@@ -163,28 +163,25 @@
       <DependentUpon>SomeCalenderPageControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="VM\MainFrameViewModel.cs" />
-    <Compile Include="OneCalenderControl.xaml.cs">
+    <Compile Include="UserControl\OneCalenderControl.xaml.cs">
       <DependentUpon>OneCalenderControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="Utility\ImgAPI.cs" />
     <Compile Include="xaml\MainFrame.xaml.cs">
       <DependentUpon>MainFrame.xaml</DependentUpon>
     </Compile>
-    <Compile Include="CalenderControl.xaml.cs">
-      <DependentUpon>CalenderControl.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="CalenderConverter.cs" />
+    <Compile Include="Utility\CalenderConverter.cs" />
     <Compile Include="Entity\CalenderCreateEntity.cs" />
-    <Compile Include="VM\CalenderWindowViewModel.cs" />
-    <Compile Include="CommonCalenderCreate.cs" />
+    <Compile Include="VM\OneCalenderPageControlViewModel.cs" />
+    <Compile Include="Utility\CommonCalenderCreate.cs" />
     <Compile Include="Entity\Option.cs" />
     <Compile Include="VM\SomeCalenderWindowViewModel.cs" />
     <Compile Include="Entity\WeekItem.cs" />
-    <Page Include="OneCalenderControl.xaml">
+    <Page Include="UserControl\CalenderDesginControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="UserControl1.xaml">
+    <Page Include="UserControl\OneCalenderControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -197,10 +194,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="xaml\MainFrame.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="CalenderControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

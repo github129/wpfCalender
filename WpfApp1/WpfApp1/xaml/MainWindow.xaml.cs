@@ -41,7 +41,6 @@ namespace WpfApp1
         /// <param name="e">イベントデータ情報</param>
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-
             this.UserContorol();
         }
 
