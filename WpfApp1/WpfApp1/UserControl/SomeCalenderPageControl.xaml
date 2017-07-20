@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:WpfApp1"
              mc:Ignorable="d" 
-             d:DesignHeight="300" d:DesignWidth="300">
+              d:DesignHeight="800" d:DesignWidth="600">
     <UserControl.Resources>
         <DataTemplate x:Key="someCalenders" DataType="{x:Type local:CalenderCreateEntity}">
             <local:CalenderControl Height="400" />
@@ -27,16 +27,20 @@
         <Menu Grid.Row="0">
             <MenuItem Header="オプション">
                 <MenuItem
-                    Name="weekChangeCheck"
-                    Click="CheckBox_Checked"
-                    Header="{Binding StartText}"
-                    IsCheckable="True" />
+                        Name="weekChangeCheck"
+                        Click="CheckBox_Checked"
+                        Header="{Binding StartText}"
+                        IsChecked="{Binding IsWeekChange}"
+                        IsCheckable="True"
+                        />
                 <MenuItem
-                    Name="TodayColorChange"
-                    Click="TodayColorChange_Click"
-                    Foreground="{Binding TodayTextColor}"
-                    Header="当日の色"
-                    IsCheckable="True" />
+                        Name="TodayColorChange"
+                        Click="TodayColorChange_Click"
+                        Foreground="{Binding TodayTextColor}"
+                        Header="当日の色"
+                        IsChecked="{Binding IsTodayColor}"
+                        IsCheckable="True"
+                        />
             </MenuItem>
         </Menu>
         <ListBox

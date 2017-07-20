@@ -14,33 +14,14 @@ namespace WpfApp1
     using System.Windows.Media;
     using Calender.Entitey;
     using CustomEventArgs;
-    using WpfApp1.Entity.WeekNumber;
     using GalaSoft.MvvmLight;
-
-    /// <summary>
-    /// イベントハンドラーの設定
-    /// </summary>
-    /// <param name="sender">クラス情報</param>
-    /// <param name="e">イベント情報</param>
-    public delegate void SomeCalenderEventHandler(object sender, CalenderEventArgs e);
-
-    /// <summary>
-    /// イベントハンドラーの設定
-    /// </summary>
-    /// <param name="sender">呼び出し元のクラス</param>
-    /// <param name="e">イベント情報</param>
-    public delegate void SomeCalenderColorChangeEventHandler(object sender, CalenderEventArgs e);
+    using WpfApp1.Entity.WeekNumber;
 
     /// <summary>
     /// カレンダーを１つ作成するクラス
     /// </summary>
     public class CommonCalenderCreate : ViewModelBase, INotifyPropertyChanged
     {
-        /// <summary>
-        /// EventArgsクラス
-        /// </summary>
-        private CalenderEventArgs args = new CalenderEventArgs();
-
         /// <summary>
         /// カレンダーDayクラス
         /// </summary>
@@ -82,15 +63,6 @@ namespace WpfApp1
 
         /// <inheritdoc/>
         public event PropertyChangedEventHandler PropertyChanged;
-
-        /// <summary>
-        /// Gets or sets argsを扱うプロパティ
-        /// </summary>
-        public CalenderEventArgs Args
-        {
-            get { return this.args; }
-            set { this.args = value; }
-        }
 
         /// <summary>
         /// Gets or sets ラベルを扱うプロパティ

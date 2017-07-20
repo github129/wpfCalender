@@ -34,7 +34,11 @@
                     </Rectangle>
                 </Grid>
             </Grid>
-
+            <DataTemplate.Triggers>
+                <DataTrigger Binding="{Binding IsToday}" Value="true">
+                    <Setter TargetName="TodayBGColor" Property="Ellipse.Fill" Value="Khaki" />
+                </DataTrigger>
+            </DataTemplate.Triggers>
         </DataTemplate>
         <Style x:Key="calenderStyle" TargetType="{x:Type ListBox}">
             <Setter Property="ItemTemplate" Value="{StaticResource calenderList}" />
@@ -43,7 +47,6 @@
                     <Style TargetType="{x:Type ListBoxItem}">
                         <Setter Property="Grid.Row" Value="{Binding Row}" />
                         <Setter Property="Grid.Column" Value="{Binding Col}" />
-                        <Setter Property="Background" Value="{Binding BgColor}" />
                     </Style>
                 </Setter.Value>
             </Setter>
@@ -106,52 +109,52 @@
         <DataTemplate DataType="{x:Type WeekItem:WeekTitleSun}">
             <Grid>
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="1.5*" />
                     <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
-                <Rectangle Fill="{StaticResource WeekTitleSun}" />
+                <Rectangle Grid.Column="0" Fill="{StaticResource WeekTitleSun}" />
             </Grid>
         </DataTemplate>
         <DataTemplate DataType="{x:Type WeekItem:WeekTitleMon}">
             <Grid>
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="1.5*" />
                     <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
-                <Rectangle Fill="{StaticResource WeekTitleMon}" />
+                <Rectangle Grid.Column="0" Fill="{StaticResource WeekTitleMon}" />
             </Grid>
         </DataTemplate>
         <DataTemplate DataType="{x:Type WeekItem:WeekTitleTue}">
             <Grid>
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="1.5*" />
                     <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
-                <Rectangle Fill="{StaticResource WeekTitleTue}" />
+                <Rectangle Grid.Column="0" Fill="{StaticResource WeekTitleTue}" />
             </Grid>
         </DataTemplate>
         <DataTemplate DataType="{x:Type WeekItem:WeekTitleWen}">
             <Grid>
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="1.5*" />
                     <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
-                <Rectangle Fill="{StaticResource WeekTitleWen}" />
+                <Rectangle Grid.Column="0" Fill="{StaticResource WeekTitleWen}" />
             </Grid>
         </DataTemplate>
         <DataTemplate DataType="{x:Type WeekItem:WeekTitleThu}">
             <Grid>
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="1.5*" />
                     <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
-                <Rectangle Fill="{StaticResource WeekTitleThu}" />
+                <Rectangle Grid.Column="0" Fill="{StaticResource WeekTitleThu}" />
             </Grid>
         </DataTemplate>
         <DataTemplate DataType="{x:Type WeekItem:WeekTitleFri}">
             <Grid>
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="1.5*" />
                     <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
                 <Rectangle Grid.Column="0" Fill="{StaticResource WeekTitleFri}" />
@@ -160,10 +163,10 @@
         <DataTemplate DataType="{x:Type WeekItem:WeekTitleSat}">
             <Grid>
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="1.5*" />
                     <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
-                <Rectangle Fill="{StaticResource WeekTitleSat}" />
+                <Rectangle Grid.Column="0" Fill="{StaticResource WeekTitleSat}" />
             </Grid>
         </DataTemplate>
 
@@ -182,14 +185,9 @@
             Style="{StaticResource calenderDateStyle}" />
         <Grid x:Name="CalenderDays" Grid.Row="1">
             <ListBox
-                Width="{Binding ElementName=CalenderDays, Path=ActualWidth}"
-                Height="{Binding ElementName=CalenderDays, Path=ActualHeight}"
                 Margin="0"
-                HorizontalAlignment="Left"
-                VerticalAlignment="Top"
                 HorizontalContentAlignment="Stretch"
                 VerticalContentAlignment="Stretch"
-                Grid.IsSharedSizeScope="True"
                 ItemsSource="{Binding CalenderDays}"
                 ScrollViewer.HorizontalScrollBarVisibility="Disabled"
                 Style="{StaticResource calenderStyle}" />

@@ -29,6 +29,16 @@ namespace WpfApp1
         private SomeCalenderWindowViewModel somVm;
 
         /// <summary>
+        /// カレンダーデータクラス
+        /// </summary>
+        private CalenderData data;
+
+        /// <summary>
+        /// オプションクラス
+        /// </summary>
+        private Option op;
+
+        /// <summary>
         /// 現在のviewModel情報
         /// </summary>
         private ViewModelBase currentPage;
@@ -93,13 +103,64 @@ namespace WpfApp1
             }
         }
 
+        public Option Op
+        {
+            get { return this.op; }
+            set { this.op = value; }
+        }
+
+        public CalenderData Data
+        {
+            get { return this.data; }
+            set { this.data = value; }
+        }
+
+        public void CreateControl(CalenderData data, Option op)
+        {
+            this.data = data;
+            this.op = op;
+            this.calVm = new CalenderWindowViewModel();
+            this.somVm = new SomeCalenderWindowViewModel();
+            var vmList = new List<CalenderWindowViewModel>();
+            for (var i = 0; i < 12; i++)
+            {
+                this.calVm = new CalenderWindowViewModel();
+                this.calVm.SetOneCalender(this.data, this.op);
+
+                // var imgApi = new ImgAPI();
+                // this.calVm.Entity.ImgUrl = imgApi.GetImg();
+                vmList.Add(this.calVm);
+            }
+
+            vmList[0].Img = "Resources/January.jpg";
+            vmList[1].Img = "Resources/February.jpg";
+            vmList[2].Img = "Resources/March.jpg";
+            vmList[3].Img = "Resources/April.jpg";
+            vmList[4].Img = "Resources/May.jpg";
+            vmList[5].Img = "Resources/June.jpg";
+            vmList[6].Img = "Resources/July.jpg";
+            vmList[7].Img = "Resources/August.jpg";
+            vmList[8].Img = "Resources/September.jpg";
+            vmList[9].Img = "Resources/October.jpg";
+            vmList[10].Img = "Resources/November.jpg";
+            vmList[11].Img = "Resources/December.jpg";
+
+            this.data.Date = this.data.InputDate;
+            this.calVm.Vms = vmList;
+            this.somVm.SetSomeCalender(this.data, this.op);
+            this.CreatePage(this.calVm, this.somVm);
+        }
+
         /// <summary>
         /// 初めに表示するページの設定
         /// </summary>
         /// <param name="calVm">CalenderWindowViewModel</param>
-        public void CreatePage(CalenderWindowViewModel calVm)
+        /// <param name="somVm">SomeCalenderWindowViewModel</param>
+        public void CreatePage(CalenderWindowViewModel calVm, SomeCalenderWindowViewModel somVm)
         {
-            this.CurrentPage = calVm;
+            this.SomVm = somVm;
+            this.CalVm = calVm;
+            this.CurrentPage = this.CalVm;
         }
 
         /// <summary>
@@ -107,10 +168,8 @@ namespace WpfApp1
         /// </summary>
         /// <param name="somVm">SomeCalenderWindowViewModel 1画面に複数表示する</param>
         /// <param name="calVm">CalenderWindowViewModel 1画面に１つ表示する</param>
-        public void TogglePageEvent(SomeCalenderWindowViewModel somVm, CalenderWindowViewModel calVm)
+        public void TogglePageEvent()
         {
-            this.SomVm = somVm;
-            this.CalVm = calVm;
             this.TogglePage();
         }
 
@@ -119,12 +178,16 @@ namespace WpfApp1
         /// </summary>
         private void TogglePage()
         {
-            if (this.CurrentPage == this.SomVm)
+            if (this.CurrentPage is SomeCalenderWindowViewModel)
             {
+                this.CalVm.IsWeekChange = SingleCalenderEventControl.Instance.IsWeekChange;
+                this.CalVm.IsTodayColor = SingleCalenderEventControl.Instance.IsTodayColor;
                 this.CurrentPage = this.CalVm;
             }
-            else if (this.CurrentPage == this.CalVm)
+            else if (this.CurrentPage is CalenderWindowViewModel)
             {
+                this.SomVm.IsWeekChange = SingleCalenderEventControl.Instance.IsWeekChange;
+                this.SomVm.IsTodayColor = SingleCalenderEventControl.Instance.IsTodayColor;
                 this.CurrentPage = this.SomVm;
             }
         }

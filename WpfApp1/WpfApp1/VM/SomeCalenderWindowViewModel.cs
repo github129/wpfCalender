@@ -20,78 +20,14 @@ namespace WpfApp1
     /// </summary>
     public class SomeCalenderWindowViewModel : CommonCalenderCreate
     {
+        private bool isTodayColor = true;
 
-        /// <summary>
-        /// カレンダーを１年戻すアイコン
-        /// </summary>
-        private bool goBackYearIcon = true;
+        private bool isWeekChange = true;
 
         /// <summary>
         /// カレンダー情報を保持しているリスト
         /// </summary>
         private IList<CalenderCreateEntity> calenderEntitys = new ObservableCollection<CalenderCreateEntity>();
-
-        /// <summary>
-        /// goBackYearIconの表示用アイコン
-        /// 0なら表示させない
-        /// </summary>
-        private int backYearCount;
-
-        /// <summary>
-        /// カレンダーを１年進めるアイコン
-        /// </summary>
-        private bool goNextYearIcon = true;
-
-        /// <summary>
-        /// goNextYearIconの表示用カウント
-        /// ０なら表示させない
-        /// </summary>
-        private int nextYearCount;
-
-        /// <summary>
-        /// カレンダー上部の年テキスト
-        /// </summary>
-        private DateTime topDateText;
-
-        /// <summary>
-        /// Gets or sets a value indicating whether gets or sets カレンダー用のアイコンを扱うプロパティ
-        /// </summary>
-        public bool GoBackYearIcon
-        {
-            get
-            {
-                return this.goBackYearIcon;
-            }
-
-            set
-            {
-                if (this.goBackYearIcon != value)
-                {
-                    this.goBackYearIcon = value;
-                    this.RaisePropertyChanged("GoBackYearIcon");
-                }
-            }
-        }
-
-        /// <summary>
-        /// Gets or sets a value indicating whether gets or sets カレンダー用のアイコンを扱うプロパティ
-        /// </summary>
-        public bool GoNextYearIcon
-        {
-            get
-            {
-                return this.goNextYearIcon;
-            }
-
-            set
-            {
-                if (this.goNextYearIcon != value)
-                {
-                    this.goNextYearIcon = value;
-                    this.RaisePropertyChanged("GoNextYearIcon");
-                }
-            }
-        }
 
         /// <summary>
         /// Gets or sets カレンダー情報用のプロパティ
@@ -114,41 +50,53 @@ namespace WpfApp1
         }
 
         /// <summary>
-        /// Gets or sets カレンダー上部のテキストを扱うプロパティ
+        /// Gets or sets a value indicating whether gets or sets 当日の色を扱うプロパティ
         /// </summary>
-        public DateTime TopDateText
+        public bool IsTodayColor
         {
             get
             {
-                return this.topDateText;
+                return this.isTodayColor;
             }
 
             set
             {
-                if (this.topDateText != value)
+                if (this.isTodayColor != value)
                 {
-                    this.topDateText = value;
-                    this.RaisePropertyChanged("TopDateText");
+                    this.isTodayColor = value;
+                    this.RaisePropertyChanged("IsTodayColor");
                 }
             }
         }
 
         /// <summary>
-        /// Gets or sets 前年に移動できる回数を扱うプロパティ
+        /// Gets or sets a value indicating whether gets or sets 週始まりの曜日を扱うプロパティ
         /// </summary>
-        public int BackYearCount
+        public bool IsWeekChange
         {
-            get { return this.backYearCount; }
-            set { this.backYearCount = value; }
+            get
+            {
+                return this.isWeekChange;
+            }
+
+            set
+            {
+                if (this.isWeekChange != value)
+                {
+                    this.isWeekChange = value;
+                    this.RaisePropertyChanged("IsWeekChange");
+                }
+            }
         }
 
-        /// <summary>
-        /// Gets or sets 来年移動できる回数を扱うプロパティ
-        /// </summary>
-        public int NextYearCount
+        public Option Op
         {
-            get { return this.nextYearCount; }
-            set { this.nextYearCount = value; }
+            get; set;
+        }
+
+        public CalenderData Data
+        {
+            get; set;
         }
 
         /// <summary>
@@ -169,96 +117,18 @@ namespace WpfApp1
         /// <param name="op">オプションクラス</param>
         public void SetSomeCalender(CalenderData data, Option op)
         {
-            this.BackYearCount = 1;
-            this.NextYearCount = 0;
+            this.Op = op;
             for (int i = 0; i < op.CalenderCreateCount; i++)
             {
                 var calEntity = this.SetCalender(data, op);
+                calEntity.UpdateEvent();
                 this.calenderEntitys.Add(calEntity);
                 data.Date = data.Date.AddMonths(1);
-                calEntity.UpdateEvent();
             }
 
             this.ChangeWeekText(op.IsDatePrintChange);
             this.ChangeColorTextColor(op.IsTodayColorChange);
-
-            // カレンダーの年を移動するアイコン表示の確認
-            if (data.InputDate.Month > 1 || !op.IsInputCreateount)
-            {
-                this.GoBackYearIcon = false;
-                this.BackYearCount--;
-            }
-
-            // nextYearCountの計算
-            var nowYearCount = this.CalenderEntitys.Count - (12 - data.InputDate.AddMonths(-1).Month + 1);
-            if (data.InputDate.AddMonths(op.CalenderCreateCount - 1).Year > data.InputDate.Year)
-            {
-                for (; nowYearCount > 0; this.NextYearCount++)
-                {
-                    nowYearCount -= 12;
-                }
-            }
-
-            if (this.NextYearCount < 1)
-            {
-                this.GoNextYearIcon = false;
-            }
-
-            this.ChangeFilter(data);
         }
 
-        /// <summary>
-        /// カレンダーを上書きする処理
-        /// </summary>
-        /// <param name="op">オプションクラス</param>
-        public void UpdataCalender(Option op)
-        {
-            this.Args.Option = op;
-            this.Entity.OnCalenderUpDate(this.Args);
-        }
-
-        /// <summary>
-        /// 当日の色を変更する処理
-        /// </summary>
-        /// <param name="op">オプションクラス</param>
-        public void ColorChangeEvent(Option op)
-        {
-            this.Args.Option = op;
-            this.Entity.OnTodayColorChange(this.Args);
-        }
-
-        /// <summary>
-        /// 指定された年度のみを表示するためのフィルタ
-        /// </summary>
-        /// <param name="data">カレンダーデータクラス</param>
-        public void ChangeFilter(CalenderData data)
-        {
-            data.UpDataDate = data.UpDataDate;
-            if (this.BackYearCount > 0)
-            {
-                this.GoBackYearIcon = true;
-            }
-            else
-            {
-                this.GoBackYearIcon = false;
-            }
-
-            if (this.NextYearCount > 0)
-            {
-                this.GoNextYearIcon = true;
-            }
-            else
-            {
-                this.GoNextYearIcon = false;
-            }
-
-            this.TopDateText = data.UpDataDate;
-            var collectionView = CollectionViewSource.GetDefaultView(this.calenderEntitys);
-            collectionView.Filter = (x) =>
-            {
-                var nowYear = (CalenderCreateEntity)x;
-                return nowYear.Date.Year == data.UpDataDate.Year;
-            };
-        }
     }
 }

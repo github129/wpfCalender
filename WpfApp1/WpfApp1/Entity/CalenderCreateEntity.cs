@@ -18,43 +18,50 @@ namespace WpfApp1
     /// </summary>
     public class CalenderCreateEntity : INotifyPropertyChanged
     {
-        /// <summary>
-        /// EventArgsクラス
-        /// </summary>
-        private CalenderEventArgs args = new CalenderEventArgs();
+        ///// <summary>
+        ///// EventArgsクラス
+        ///// </summary>
+        //private CalenderEventArgs args = new CalenderEventArgs();
 
-        /// <summary>
-        /// 日付更新イベント
-        /// </summary>
-        public event SomeCalenderEventHandler CalenderUpdate;
+        ///// <summary>
+        ///// 日付更新イベント
+        ///// </summary>
+        //public event SomeCalenderEventHandler CalenderUpdate;
 
-        /// <summary>
-        /// 当日の色更新イベント
-        /// </summary>
-        public event SomeCalenderColorChangeEventHandler TodayColorChenge;
+        ///// <summary>
+        ///// 当日の色更新イベント
+        ///// </summary>
+        //public event SomeCalenderColorChangeEventHandler TodayColorChenge;
 
-        /// <summary>
-        /// 日付更新イベント起動
-        /// </summary>
-        /// <param name="e">イベント情報</param>
-        public virtual void OnCalenderUpDate(CalenderEventArgs e)
+        ///// <summary>
+        ///// 日付更新イベント起動
+        ///// </summary>
+        ///// <param name="e">イベント情報</param>
+        //public virtual void OnCalenderUpDate(CalenderEventArgs e)
+        //{
+        //    if (this.CalenderUpdate != null)
+        //    {
+        //        this.CalenderUpdate(this, e);
+        //    }
+        //}
+
+        ///// <summary>
+        ///// 当日の背景色更新イベント起動
+        ///// </summary>
+        ///// <param name="e">イベント情報</param>
+        //public virtual void OnTodayColorChange(CalenderEventArgs e)
+        //{
+        //    if (this.TodayColorChenge != null)
+        //    {
+        //        this.TodayColorChenge(this, e);
+        //    }
+        //}
+
+        public CalenderCreateEntity()
         {
-            if (this.CalenderUpdate != null)
-            {
-                this.CalenderUpdate(this, e);
-            }
-        }
-
-        /// <summary>
-        /// 当日の背景色更新イベント起動
-        /// </summary>
-        /// <param name="e">イベント情報</param>
-        public virtual void OnTodayColorChange(CalenderEventArgs e)
-        {
-            if (this.TodayColorChenge != null)
-            {
-                this.TodayColorChenge(this, e);
-            }
+            SingleCalenderEventControl.Instance.CalenderUpdate += new SomeCalenderEventHandler(this.DayListUpdate);
+            SingleCalenderEventControl.Instance.CalenderUpdate += new SomeCalenderEventHandler(this.WeekChange);
+            SingleCalenderEventControl.Instance.TodayColorChenge += new SomeCalenderColorChangeEventHandler(this.TodayColorChange);
         }
 
         /// <summary>
@@ -81,11 +88,6 @@ namespace WpfApp1
         /// string型の年
         /// </summary>
         private string stringYear;
-
-        /// <summary>
-        /// 上部の画像URL
-        /// </summary>
-        private string imgUrl = "https://farm5.staticflickr.com/4322/35759552981_f840e8cd59_c.jpg";
 
         /// <summary>
         /// 曜日の入った配列 sFlgがtureの場合
@@ -194,31 +196,9 @@ namespace WpfApp1
             }
         }
 
-        /// <summary>
-        /// Gets or sets カレンダーの日付リストを扱うプロパティ
-        /// </summary>
-        public string ImgUrl
-        {
-            get
-            {
-                return this.imgUrl;
-            }
-
-            set
-            {
-                if (this.imgUrl != value)
-                {
-                    this.imgUrl = value;
-                    this.RaisePropertyChanged("ImgUrl");
-                }
-            }
-        }
-
         public void UpdateEvent()
         {
-            this.CalenderUpdate += new SomeCalenderEventHandler(this.DayListUpdate);
-            this.CalenderUpdate += new SomeCalenderEventHandler(this.WeekChange);
-            this.TodayColorChenge += new SomeCalenderColorChangeEventHandler(this.TodayColorChange);
+
         }
 
         /// <summary>
@@ -232,13 +212,13 @@ namespace WpfApp1
             var row = 0;
             if (!e.Option.IsDatePrintChange)
             {
-                if (this.CalenderDays[0].Col > 0)
+                if (this.CalenderDays[0].Col == 0)
                 {
-                    col = this.CalenderDays[0].Col - 1;
+                    col = 6;
                 }
                 else
                 {
-                    col = 6;
+                    col = this.CalenderDays[0].Col - 1;
                 }
             }
             else

@@ -25,13 +25,17 @@
                         Name="weekChangeCheck"
                         Click="CheckBox_Checked"
                         Header="{Binding StartText}"
-                        IsCheckable="True" />
+                        IsChecked="{Binding IsWeekChange}"
+                        IsCheckable="True"
+                        />
                     <MenuItem
                         Name="TodayColorChange"
                         Click="TodayColorChange_Click"
                         Foreground="{Binding TodayTextColor}"
                         Header="当日の色"
-                        IsCheckable="True" />
+                        IsChecked="{Binding IsTodayColor}"
+                        IsCheckable="True"
+                        />
                 </MenuItem>
             </Menu>
         </Grid>

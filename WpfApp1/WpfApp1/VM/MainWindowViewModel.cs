@@ -128,9 +128,6 @@ namespace WpfApp1
         public void SearchButtonPushEvent(CalenderData data)
         {
             var op = new Option();
-            var inputCreateountFlg = true;
-            var window = new CalenderMainDesign();
-            var someWindow = new SomeCalenderWindow();
 
             // 年の確認
             if (this.InputYear.Length == 0)
@@ -140,31 +137,6 @@ namespace WpfApp1
 
             this.inputMonth = 1;
             op.CalenderCreateCount = 12;
-            //// 作成個数の確認
-            // if (this.MakeCalenderCount.Length == 0 && this.InputYear.Length == 0)
-            // {
-            //    inputCreateountFlg = false;
-            //    op.CalenderCreateCount = 1;
-            // }
-            // else if (this.MakeCalenderCount.Length == 0 && this.InputYear.Length > 0 && this.InputMonth == 0)
-            // {
-            //    inputCreateountFlg = false;
-            //    op.CalenderCreateCount = 12;
-            // }
-            // else if (this.MakeCalenderCount.Length > 0)
-            // {
-            //    op.CalenderCreateCount = int.Parse(this.MakeCalenderCount);
-            // }
-
-            //// 月の確認
-            // if (this.InputMonth == 0 && this.InputYear.Length == 0)
-            // {
-            //    this.InputMonth = DateTime.Now.Month;
-            // }
-            // else if (this.InputMonth == 0 && this.InputYear.Length != 0 && this.MakeCalenderCount.Length == 0)
-            // {
-            //    this.InputMonth = 1;
-            // }
 
             this.Date = new DateTime(int.Parse(this.InputYear), this.InputMonth , 1);
             data.Date = this.Date;
@@ -172,17 +144,6 @@ namespace WpfApp1
             var frame = new MainFrame();
             frame.UserContorol(data, op);
             frame.Show();
-
-            //if (op.CalenderCreateCount > 1)
-            //{
-            //    someWindow.SomeCalenderControl(this.Date, op.CalenderCreateCount, inputCreateountFlg);
-            //    someWindow.Show();
-            //}
-            //else
-            //{
-            //    window.UserContorol(this.Date);
-            //    window.Show();
-            //}
         }
 
         /// <summary>

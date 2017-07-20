@@ -27,8 +27,6 @@ namespace WpfApp1
     {
         private CalenderData data = new CalenderData();
 
-        private CalenderWindowViewModel vm;
-
         private Option op = new Option();
 
         /// <summary>
@@ -63,17 +61,14 @@ namespace WpfApp1
         {
             if ((bool)this.weekChangeCheck.IsChecked)
             {
-                this.Op.IsDatePrintChange = false;
+                this.Op.IsDatePrintChange = true;
             }
             else
             {
-                this.Op.IsDatePrintChange = true;
+                this.Op.IsDatePrintChange = false;
             }
-
-            for (int i = 0; i < 12; i++)
-            {
-                ((CalenderWindowViewModel)this.DataContext).Vms[i].UpdataCalender(this.op);
-            }
+            SingleCalenderEventControl.Instance.IsWeekChange = this.Op.IsDatePrintChange;
+            SingleCalenderEventControl.Instance.UpdataCalender(this.Op);
         }
 
         /// <summary>
@@ -85,14 +80,14 @@ namespace WpfApp1
         {
             if ((bool)this.TodayColorChange.IsChecked)
             {
-                this.Op.IsTodayColorChange = false;
+                this.Op.IsTodayColorChange = true;
             }
             else
             {
-                this.Op.IsTodayColorChange = true;
+                this.Op.IsTodayColorChange = false;
             }
-
-            ((CalenderWindowViewModel)this.DataContext).Vms[DateTime.Now.Month - 1].ColorChangeEvent(this.op);
+            SingleCalenderEventControl.Instance.IsTodayColor = this.Op.IsTodayColorChange;
+            SingleCalenderEventControl.Instance.ColorChangeEvent(this.Op);
         }
     }
 }

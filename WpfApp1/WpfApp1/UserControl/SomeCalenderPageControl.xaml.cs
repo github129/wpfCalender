@@ -22,20 +22,28 @@
     /// </summary>
     public partial class SomeCalenderPageControl : UserControl
     {
-        /// <summary>
-        /// SomeCalenderWindowViewModelクラス
-        /// </summary>
-        private SomeCalenderWindowViewModel vm = new SomeCalenderWindowViewModel();
 
-        /// <summary>
-        /// オプションクラス
-        /// </summary>
+        private CalenderData data = new CalenderData();
+
         private Option op = new Option();
 
         /// <summary>
-        /// カレンダーデータクラス
+        /// Gets or sets カレンダーデータクラス
         /// </summary>
-        private CalenderData data = new CalenderData();
+        public CalenderData Data
+        {
+            get { return this.data; }
+            set { this.data = value; }
+        }
+
+        /// <summary>
+        /// Gets or sets オプションクラス
+        /// </summary>
+        public Option Op
+        {
+            get { return this.op; }
+            set { this.op = value; }
+        }
 
         /// <summary>
         /// SomeCalenderWindowViewModelクラスが入ったリスト
@@ -48,32 +56,6 @@
         }
 
         /// <summary>
-        /// 前年に戻るイベント
-        /// </summary>
-        /// <param name="sender">sender</param>
-        /// <param name="e">イベント情報</param>
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            this.vm.BackYearCount--;
-            this.vm.NextYearCount++;
-            this.data.UpDataDate = this.data.UpDataDate.AddYears(-1);
-            this.vm.ChangeFilter(this.data);
-        }
-
-        /// <summary>
-        /// 来年に進むイベント
-        /// </summary>
-        /// <param name="sender">sender</param>
-        /// <param name="e">イベント情報</param>
-        private void Button_Click_1(object sender, RoutedEventArgs e)
-        {
-            this.vm.BackYearCount++;
-            this.vm.NextYearCount--;
-            this.data.UpDataDate = this.data.UpDataDate.AddYears(1);
-            this.vm.ChangeFilter(this.data);
-        }
-
-        /// <summary>
         /// 始まりの曜日を変えるイベント
         /// </summary>
         /// <param name="sender">sender</param>
@@ -82,15 +64,14 @@
         {
             if ((bool)this.weekChangeCheck.IsChecked)
             {
-                this.op.IsDatePrintChange = false;
+                this.Op.IsDatePrintChange = true;
             }
             else
             {
-                this.op.IsDatePrintChange = true;
+                this.Op.IsDatePrintChange = false;
             }
-
-            this.data.Date = this.data.InputDate.AddMonths(-1);
-            ((SomeCalenderWindowViewModel)this.DataContext).UpdataCalender(this.op);
+            SingleCalenderEventControl.Instance.IsWeekChange = this.Op.IsDatePrintChange;
+            SingleCalenderEventControl.Instance.UpdataCalender(this.Op);
         }
 
         /// <summary>
@@ -102,14 +83,14 @@
         {
             if ((bool)this.TodayColorChange.IsChecked)
             {
-                this.op.IsTodayColorChange = false;
+                this.Op.IsTodayColorChange = true;
             }
             else
             {
-                this.op.IsTodayColorChange = true;
+                this.Op.IsTodayColorChange = false;
             }
-            this.data.Date = this.data.InputDate.AddMonths(-1);
-            ((SomeCalenderWindowViewModel)this.DataContext).ColorChangeEvent(this.op);
+            SingleCalenderEventControl.Instance.IsTodayColor = this.Op.IsTodayColorChange;
+            SingleCalenderEventControl.Instance.ColorChangeEvent(this.Op);
         }
     }
 }

@@ -8,6 +8,7 @@ namespace WpfApp1
     using System.Collections.Generic;
     using System.Collections.ObjectModel;
     using System.ComponentModel;
+    using System.Drawing;
     using System.Linq;
     using System.Text;
     using System.Threading.Tasks;
@@ -22,6 +23,12 @@ namespace WpfApp1
         /// カレンダーの情報クラス
         /// </summary>
         private CalenderCreateEntity entity;
+
+        private string img;
+
+        private bool isTodayColor = true;
+
+        private bool isWeekChange = true;
 
         private IList<CalenderWindowViewModel> vms = new ObservableCollection<CalenderWindowViewModel>();
 
@@ -66,6 +73,62 @@ namespace WpfApp1
         }
 
         /// <summary>
+        /// Gets or sets a value indicating whether gets or sets 当日の色を扱うプロパティ
+        /// </summary>
+        public bool IsTodayColor
+        {
+            get
+            {
+                return this.isTodayColor;
+            }
+
+            set
+            {
+                if (this.isTodayColor != value)
+                {
+                    this.isTodayColor = value;
+                    this.RaisePropertyChanged("IsTodayColor");
+                }
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets a value indicating whether gets or sets 週始まりの曜日を扱うプロパティ
+        /// </summary>
+        public bool IsWeekChange
+        {
+            get
+            {
+                return this.isWeekChange;
+            }
+
+            set
+            {
+                if (this.isWeekChange != value)
+                {
+                    this.isWeekChange = value;
+                    this.RaisePropertyChanged("IsWeekChange");
+                }
+            }
+        }
+
+        /// <summary>
+        /// Sets imgを扱うプロパティ
+        /// </summary>
+        public string Img
+        {
+            private get
+            {
+                return this.img;
+            }
+
+            set
+            {
+                this.img = value;
+            }
+        }
+
+        /// <summary>
         /// カレンダーを作成するメソッド
         /// </summary>
         /// <param name="calData">カレンダーデータクラス</param>
@@ -79,29 +142,12 @@ namespace WpfApp1
             calData.Date = calData.Date.AddMonths(1);
         }
 
+        /// <summary>
+        /// 最初に作る時の処理
+        /// </summary>
         public void FarstCreate()
         {
             this.Vms = new ObservableCollection<CalenderWindowViewModel>();
-        }
-
-        /// <summary>
-        /// カレンダーを上書きする処理
-        /// </summary>
-        /// <param name="op">オプションクラス</param>
-        public void UpdataCalender(Option op)
-        {
-            this.Args.Option = op;
-            this.Entity.OnCalenderUpDate(this.Args);
-        }
-
-        /// <summary>
-        /// 当日の色を変更する処理
-        /// </summary>
-        /// <param name="op">オプションクラス</param>
-        public void ColorChangeEvent(Option op)
-        {
-            this.Args.Option = op;
-            this.Entity.OnTodayColorChange(this.Args);
         }
     }
 }

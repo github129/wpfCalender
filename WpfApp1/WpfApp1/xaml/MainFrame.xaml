@@ -8,21 +8,25 @@
         Title="MainFrame" Height="750" Width="600">
     <Window.Resources>
         <DataTemplate DataType="{x:Type local:SomeCalenderWindowViewModel}">
-            <local:OneCalenderPageControl/>
+            <local:SomeCalenderPageControl/>
         </DataTemplate>
         <DataTemplate DataType="{x:Type local:CalenderWindowViewModel}">
-            <local:SomeCalenderPageControl/>
+            <local:OneCalenderPageControl/>
         </DataTemplate>
     </Window.Resources>
     <Window.DataContext>
         <local:MainFrameViewModel/>
     </Window.DataContext>
     <Grid>
-        <DockPanel LastChildFill="True">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <ContentControl DockPanel.Dock="Bottom">
+            <Button Content="表示切替" HorizontalAlignment="Stretch" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
+        </ContentControl>
+        <DockPanel LastChildFill="True" Grid.Row="1">
             <ContentControl DockPanel.Dock="Bottom" Content="{Binding CurrentPage}"/>
         </DockPanel>
-        <ContentControl DockPanel.Dock="Bottom" >
-            <Button Content="Button" HorizontalAlignment="Left" Margin="125,47,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
-        </ContentControl>
     </Grid>
 </Window>
