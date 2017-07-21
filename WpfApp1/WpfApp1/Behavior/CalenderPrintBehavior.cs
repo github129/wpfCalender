@@ -48,7 +48,8 @@ namespace WpfApp1
         /// </summary>
         public string Number
         {
-            get; set;
+            get { return this.number; }
+            set { this.number = value; }
         }
 
         /// <summary>
@@ -56,7 +57,8 @@ namespace WpfApp1
         /// </summary>
         public string Key
         {
-            get; set;
+            get { return this.key; }
+            set { this.key = value; }
         }
 
         /// <summary>
@@ -65,15 +67,6 @@ namespace WpfApp1
         protected override void OnAttached()
         {
             base.OnAttached();
-            this.AssociatedObject.Loaded += (s, e) =>
-            {
-                if (!string.IsNullOrEmpty(this.number))
-                {
-                    var dayPath = this.key + this.number;
-                    var resource = this.AssociatedObject.FindResource(dayPath);
-                    this.AssociatedObject.Fill = (Brush)resource;
-                }
-            };
         }
 
         /// <summary>
@@ -85,18 +78,36 @@ namespace WpfApp1
         }
 
         /// <summary>
-        /// 文字列DayをCalenderDictionaryに登録したKeyに変更するメソッド
+        /// 文字列DayをCalenderDictionaryに登録したnumberに変更するメソッド
         /// </summary>
         /// <param name="d">クラス情報</param>
         /// <param name="e">変更情報</param>
         private static void NumberChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
-            ((CalenderPrintBehavior)d).number = (string)e.NewValue;
+            ((CalenderPrintBehavior)d).Number = (string)e.NewValue;
+            ((CalenderPrintBehavior)d).CreateFillResource();
         }
 
+        /// <summary>
+        /// 文字列DayをCalenderDictionaryに登録したKeyに変更するメソッド
+        /// </summary>
+        /// <param name="d">クラス情報</param>
+        /// <param name="e">変更情報</param>
         private static void KeyCheck(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
-            ((CalenderPrintBehavior)d).key = (string)e.NewValue;
+            ((CalenderPrintBehavior)d).Key = (string)e.NewValue;
+            ((CalenderPrintBehavior)d).CreateFillResource();
+        }
+
+        private void CreateFillResource()
+        {
+            // keyとnumberが空でなく、かつRectangleが読み込まれているとき
+            if (this.Key != string.Empty && this.Number != string.Empty && this.AssociatedObject != null)
+            {
+                var dayPath = this.Key + this.Number;
+                var resource = this.AssociatedObject.FindResource(dayPath);
+                this.AssociatedObject.Fill = (Brush)resource;
+            }
         }
     }
 }

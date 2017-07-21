@@ -19,16 +19,6 @@ namespace WpfApp1
     public class CalenderCreateEntity : INotifyPropertyChanged
     {
         /// <summary>
-        /// 曜日の入った配列 sFlgがtureの場合
-        /// </summary>
-        private static readonly string[] DateListS = { "日", "月", "火", "水", "木", "金", "土" };
-
-        /// <summary>
-        /// 曜日の入った配列　sFlgがfalseの場合
-        /// </summary>
-        private static readonly string[] DateListM = { "月", "火", "水", "木", "金", "土", "日" };
-
-        /// <summary>
         /// 日付クラスの情報が入ったリスト
         /// </summary>
         private IList<CalenderDay> dayList = new ObservableCollection<CalenderDay>();
@@ -227,17 +217,14 @@ namespace WpfApp1
         private void WeekChange(object sender, CalenderEventArgs e)
         {
             // 曜日タイトルの作成
-            var week = DateListS;
             int dateCol = 0;
             if (!e.Option.IsDatePrintChange)
             {
-                week = DateListM;
                 dateCol = 6;
             }
 
             var sun = new WeekTitleSun()
             {
-                Title = week[0],
                 Col = dateCol,
             };
             this.CalenderWeekItems[0] = sun;

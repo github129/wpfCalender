@@ -40,7 +40,7 @@ namespace WpfApp1
                 typeof(CalenderDayBehavior),
                 new PropertyMetadata((DateColor)0, KeyCheck));
 
-        private string number = string.Empty;
+        private string number;
 
         private DateColor color = (DateColor)0;
 

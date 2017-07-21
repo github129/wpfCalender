@@ -165,7 +165,6 @@
                 <Rectangle Grid.Column="0" Fill="{StaticResource WeekTitleSat}" />
             </Grid>
         </DataTemplate>
-
     </UserControl.Resources>
     <Grid>
         <Grid>
