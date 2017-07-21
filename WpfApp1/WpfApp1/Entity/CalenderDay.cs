@@ -53,6 +53,9 @@ namespace WpfApp1
         /// </summary>
         private DateColor bgColor = (DateColor)1;
 
+        /// <summary>
+        /// 当日色のチェックがついているかどうか
+        /// </summary>
         private bool isToday = false;
 
         /// <summary>

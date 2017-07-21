@@ -27,12 +27,18 @@ namespace CustomEventArgs
         /// </summary>
         private CalenderData data;
 
+        /// <summary>
+        /// Gets or sets オプションクラスを扱うプロパティ
+        /// </summary>
         public Option Option
         {
             get { return this.option; }
             set { this.option = value; }
         }
 
+        /// <summary>
+        /// Gets or sets カレンダーデータクラスを扱うプロパティ
+        /// </summary>
         public CalenderData Data
         {
             get { return this.data; }

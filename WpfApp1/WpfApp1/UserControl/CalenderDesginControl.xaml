@@ -45,7 +45,6 @@
                     <Style TargetType="{x:Type ListBoxItem}">
                         <Setter Property="Grid.Row" Value="{Binding Row}" />
                         <Setter Property="Grid.Column" Value="{Binding Col}" />
-
                     </Style>
                 </Setter.Value>
             </Setter>

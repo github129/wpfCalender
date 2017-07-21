@@ -179,6 +179,8 @@ namespace WpfApp1
         {
             var col = 0;
             var row = 0;
+
+            // 曜日のチェックが外れていた場合
             if (!e.Option.IsDatePrintChange)
             {
                 if (this.CalenderDays[0].Col == 0)
@@ -200,6 +202,7 @@ namespace WpfApp1
 
             for (int i = 0; i < this.CalenderDays.Count; i++)
             {
+                // Dayが未入力の場合（線の表示が必要の為、6*7で必ず作っている）
                 if (this.CalenderDays[i].Day == null)
                 {
                     break;

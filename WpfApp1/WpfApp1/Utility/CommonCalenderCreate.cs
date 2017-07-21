@@ -307,6 +307,7 @@ namespace WpfApp1
             }
 
             // デザイン用にスペースを作る処理　必ず6*7で作る
+            // 最上段のデザイン
             for (var x = 0; x < 7; x++)
             {
                 this.calenderDay = new CalenderDay()
@@ -317,9 +318,10 @@ namespace WpfApp1
                 entity.CalenderDays.Add(this.calenderDay);
             }
 
+            // LastDayのRowから最下段までのデザイン
             for (int y = row; y < 6; y++)
             {
-                for (int x = col - 1; x < 7; x++)
+                for (int x = 0; x < 7; x++)
                 {
                     this.calenderDay = new CalenderDay()
                     {
